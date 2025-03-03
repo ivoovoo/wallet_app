@@ -1,0 +1,137 @@
+.page {
+    min-height: 100svh;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    padding-top: 4.5rem;
+    animation: slideDown 0.5s ease-out forwards;
+}
+.page span {
+    color: var(--primary);
+}
+
+.header {
+    width: 100%;
+    height: 280px;
+}
+
+.main {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    max-width: 357px;
+    width: 100%;
+    height: 100%;
+    gap: 1.125rem;
+}
+.main h1 {
+    width: 310px;
+    text-align: center;
+    font-size: 1.875rem;
+}
+
+.main p {
+    max-width: 371px;
+    width: 100%;
+    height: 100%;
+    font-style: normal;
+    font-weight: 400;
+    font-size: 1.5rem;
+    color: hsla(0, 0%, 93%, 0.15);
+
+    text-align: center;
+}
+.grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    justify-items: center;
+    width: 100%;
+    gap: 1.5rem;
+    margin-top: 2.125rem;
+    gap: 2.5rem;
+}
+.grid2 {
+    width: 100%;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 1.6rem;
+    margin-top: 3.625rem;
+}
+
+.grid_item {
+    text-align: center;
+    padding: 0.5rem 0.75rem;
+    border-radius: 5px;
+}
+.grid_item2 {
+    text-align: center;
+    padding: 0.5rem 0.75rem;
+    border: 0.5px solid rgba(73, 80, 87, 0.5);
+    border-radius: 5px;
+}
+
+.grid_row {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.5rem;
+}
+.grid_item:nth-child(1),
+.grid_item:nth-child(4),
+.grid_item:nth-child(7),
+.grid_item:nth-child(10) {
+    justify-self: start;
+}
+
+/* 2 ряд (по центру) */
+.grid_item:nth-child(2),
+.grid_item:nth-child(5),
+.grid_item:nth-child(8),
+.grid_item:nth-child(11) {
+    justify-self: center;
+}
+
+/* 3 ряд (справа) */
+.grid_item:nth-child(3),
+.grid_item:nth-child(6),
+.grid_item:nth-child(9),
+.grid_item:nth-child(12) {
+    justify-self: end;
+}
+
+.btn_wrapper {
+    width: 100%;
+    margin-top: auto;
+    margin-bottom: 3.375rem;
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+}
+.btn_wrapper p {
+    text-align: center;
+}
+
+/* Enable hover only on non-touch devices */
+@media (hover: hover) and (pointer: fine) {
+}
+
+@media (min-width: 480px) {
+}
+
+@media (prefers-color-scheme: dark) {
+    .logo {
+        filter: invert();
+    }
+}
+
+@keyframes slideDown {
+    0% {
+        transform: translateY(-100%);
+        opacity: 0;
+    }
+    100% {
+        transform: translateY(0);
+        opacity: 1;
+    }
+}

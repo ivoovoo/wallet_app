@@ -1,42 +1,90 @@
 :root {
-  --background: #ffffff;
-  --foreground: #171717;
+    --background: linear-gradient(180deg, #000718 0%, #011340 100%);
+    --foreground: #ededed;
+
+    --special-bg: linear-gradient(180deg, #000718 50%, #5fcdaa 100%);
+
+    --primary: #5fcdaa;
+
+    --secondary-0: #9fbaff;
+    --secondary-1: #000000;
+    --secondary-2: #1967d2;
+    --secondary-3: #f9ab00;
+
+    --neutral: rgba(237, 237, 237, 0.2);
+
+    --large: 2rem;
+    --medium: 1.5rem;
+    --small: 1rem;
+    --smallest: 0.5rem;
 }
 
 @media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
-  }
+    :root {
+        --background: #ededed;
+        --foreground: #linear-gradient(180deg, #000718 0%, #011340 100%);
+    }
 }
 
 html,
 body {
-  max-width: 100vw;
-  overflow-x: hidden;
+    max-width: 100vw;
+    overflow-x: hidden;
 }
 
 body {
-  color: var(--foreground);
-  background: var(--background);
-  font-family: Arial, Helvetica, sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
+    color: var(--foreground);
+    background: var(--background);
+    font-family: var(--font-geist-outfit), sans-serif;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+}
+body[data-page="special"] {
+    background: var(--special-bg);
+}
+
+h1,
+h2,
+h3 {
+    font-family: var(--font-geist-space-grotesk), sans-serif;
+    font-style: normal;
+    font-weight: 700;
+    font-size: 2.5rem;
+    line-height: 140%;
 }
 
 * {
-  box-sizing: border-box;
-  padding: 0;
-  margin: 0;
+    box-sizing: border-box;
+    padding: 0;
+    margin: 0;
 }
 
 a {
-  color: inherit;
-  text-decoration: none;
+    color: inherit;
+    text-decoration: none;
+}
+
+.container {
+    padding: 0 2rem;
+    margin: 0 auto;
+    width: 100%;
+    max-width: 1280px;
 }
 
 @media (prefers-color-scheme: dark) {
-  html {
-    color-scheme: dark;
-  }
+    html {
+        color-scheme: dark;
+    }
+}
+
+/* Анимация для опускания страницы сверху */
+@keyframes slideDown {
+    0% {
+        transform: translateY(-100%);
+        opacity: 0;
+    }
+    100% {
+        transform: translateY(0);
+        opacity: 1;
+    }
 }
