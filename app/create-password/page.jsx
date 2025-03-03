@@ -10,8 +10,7 @@ import MySwitcher from "@/components/UI/switchers/MySwitcher";
 export default function Onboarding3() {
     const router = useRouter();
 
-    const handleSubmit = (event) => {
-        event.preventDefault();
+    const handleSubmit = () => {
         router.push("/backup-phrase");
     };
     return (

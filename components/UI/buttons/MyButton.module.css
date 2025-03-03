@@ -1,3 +1,15 @@
+@keyframes hideText {
+    0% {
+        opacity: 1;
+    }
+    50% {
+        opacity: 0;
+    }
+    100% {
+        opacity: 0;
+    }
+}
+
 @keyframes moveRight {
     0% {
         left: 7px;
@@ -96,6 +108,12 @@
 /* Двигаем круг вправо */
 .button.on .circle {
     animation: moveRight 0.5s forwards;
+}
+.text {
+    font-family: var(--font-geist-outfit);
+}
+.button.on .text {
+    animation: hideText 2s forwards;
 }
 
 /* Галочка внутри круга */

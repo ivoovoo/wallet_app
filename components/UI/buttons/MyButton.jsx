@@ -21,9 +21,9 @@ export default function MyButton({ children, onClick, ...props }) {
         if (animationComplete && onClick) {
             setTimeout(() => {
                 onClick();
-            }, 2200);
+            }, 2500);
         }
-    }, [animationComplete, onClick]);
+    }, [animationComplete]);
 
     return (
         <button
@@ -35,7 +35,9 @@ export default function MyButton({ children, onClick, ...props }) {
             <div className={styles.circle}>
                 {isOn && <span className={styles.checkmark}>✔</span>}
             </div>
-            {children}
+            <p className={`${styles.text} ${isOn ? styles.hideText : ""}`}>
+                {children}
+            </p>
         </button>
     );
 }

@@ -1,8 +1,16 @@
+"use client";
+
+import { useRouter } from "next/navigation";
 import Image from "next/image";
 import styles from "./page.module.css";
-import MyButton_link from "@/components/UI/buttons/MyButton_link";
+import MyButton from "@/components/UI/buttons/MyButton";
 
 export default function Onboarding3() {
+    const router = useRouter();
+
+    const handleCkick = () => {
+        router.push("/create-password");
+    };
     return (
         <div className='container'>
             <div className={styles.page}>
@@ -26,9 +34,9 @@ export default function Onboarding3() {
                     </p>
                 </div>
                 <div className={styles.footer}>
-                    <MyButton_link href='/create-password' prefetch={true}>
+                    <MyButton onClick={handleCkick}>
                         Create a new wallet
-                    </MyButton_link>
+                    </MyButton>
 
                     <p>
                         Already have a wallet? {"\u00A0"}
