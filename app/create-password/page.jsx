@@ -10,7 +10,8 @@ import MySwitcher from "@/components/UI/switchers/MySwitcher";
 export default function Onboarding3() {
     const router = useRouter();
 
-    const handleSubmit = () => {
+    const handleSubmit = (e) => {
+        e.preventDefault();
         router.push("/backup-phrase");
     };
     return (
@@ -22,8 +23,8 @@ export default function Onboarding3() {
                     <p>Now that you’ve created your wallet, Lets secure it!</p>
                 </div>
                 <form className={styles.form} onSubmit={handleSubmit}>
-                    <MyInput type='text' label='Enter a password' />
-                    <MyInput type='text' label='Confirm password' />
+                    <MyInput type='text' placeholder='Enter a password' />
+                    <MyInput type='text' placeholder='Confirm password' />
                     <div className={styles.faceId}>
                         <Image
                             src='/faceId.svg'

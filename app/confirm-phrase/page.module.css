@@ -24,6 +24,7 @@
     width: 100%;
     height: 100%;
     gap: 1.125rem;
+    margin: 0 auto;
 }
 .main h1 {
     width: 310px;
@@ -56,7 +57,7 @@
     display: flex;
     flex-wrap: wrap;
     gap: 1.6rem;
-    margin-top: 3.625rem;
+    margin: 3.625rem auto 1.5rem;
 }
 
 .grid_item {

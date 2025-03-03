@@ -1,7 +1,10 @@
 :root {
+    --background: -webkit-linear-gradient(180deg, #000718 0%, #011340 100%);
     --background: linear-gradient(180deg, #000718 0%, #011340 100%);
+
     --foreground: #ededed;
 
+    --special-bg: -webkit-linear-gradient(180deg, #000718 50%, #5fcdaa 100%);
     --special-bg: linear-gradient(180deg, #000718 50%, #5fcdaa 100%);
 
     --primary: #5fcdaa;

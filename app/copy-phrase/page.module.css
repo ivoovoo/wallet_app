@@ -83,7 +83,7 @@
     text-align: center;
     background: rgba(255, 255, 255, 0.05);
     border-radius: 5px;
-    margin-top: 1.5rem;
+    margin: 1.5rem auto;
 }
 .btn_wrapper {
     width: 100%;
