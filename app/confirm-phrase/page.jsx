@@ -1,6 +1,6 @@
 "use client";
 
-import { useEffect } from "react";
+import { useState, useEffect } from "react";
 import { useRouter } from "next/navigation";
 import styles from "./page.module.css";
 import MyButton from "@/components/UI/buttons/MyButton";
@@ -8,17 +8,52 @@ import MyButton from "@/components/UI/buttons/MyButton";
 export default function CopyPhrase() {
     const router = useRouter();
 
-    const handleCkick = (event) => {
-        router.push("/success");
+    const [gridWords, setGridWords] = useState(Array(12).fill(null)); // Пустая сетка
+    const [wordList, setWordList] = useState([
+        "Dart",
+        "Done",
+        "Favor",
+        "House",
+        "Gone",
+        "After",
+        "Good",
+        "Said",
+        "Alchemy",
+        "Dove",
+        "Memo",
+        "Caves",
+    ]); // Список слов
+
+    const handleClickWord = (word) => {
+        const emptyIndex = gridWords.findIndex((cell) => cell === null);
+        if (emptyIndex !== -1) {
+            setGridWords((prev) => {
+                const newGrid = [...prev];
+                newGrid[emptyIndex] = word;
+                return newGrid;
+            });
+            setWordList((prev) => prev.filter((w) => w !== word));
+        }
+    };
+
+    const handleClickGrid = (index) => {
+        if (gridWords[index]) {
+            setWordList((prev) => [...prev, gridWords[index]]);
+            setGridWords((prev) => {
+                const newGrid = [...prev];
+                newGrid[index] = null;
+                return newGrid;
+            });
+        }
     };
 
     useEffect(() => {
         document.body.dataset.page = "special";
-
         return () => {
             document.body.dataset.page = "default";
         };
     }, []);
+
     return (
         <div className='container' page='special'>
             <div className={styles.page}>
@@ -28,36 +63,37 @@ export default function CopyPhrase() {
                         Add Verify Recovery <span>Phrase!</span>
                     </h1>
                 </div>
+
+                {/* Сетка для слов */}
                 <div className={styles.grid}>
-                    <div className={styles.grid_item}>1. </div>
-                    <div className={styles.grid_item}>2.</div>
-                    <div className={styles.grid_item}>3.</div>
-                    <div className={styles.grid_item}>4. </div>
-                    <div className={styles.grid_item}>5.</div>
-                    <div className={styles.grid_item}>6.</div>
-                    <div className={styles.grid_item}>7.</div>
-                    <div className={styles.grid_item}>8.</div>
-                    <div className={styles.grid_item}>9.</div>
-                    <div className={styles.grid_item}>10.</div>
-                    <div className={styles.grid_item}>11.</div>
-                    <div className={styles.grid_item}>12.</div>
+                    {gridWords.map((word, index) => (
+                        <div
+                            key={index}
+                            className={styles.grid_item}
+                            onClick={() => handleClickGrid(index)}
+                        >
+                            {index + 1}. {word}
+                        </div>
+                    ))}
                 </div>
+
+                {/* Список доступных слов */}
                 <div className={styles.grid2}>
-                    <div className={styles.grid_item2}>Dart</div>
-                    <div className={styles.grid_item2}>Done</div>
-                    <div className={styles.grid_item2}>Favor</div>
-                    <div className={styles.grid_item2}>House</div>
-                    <div className={styles.grid_item2}>Gone</div>
-                    <div className={styles.grid_item2}>After</div>
-                    <div className={styles.grid_item2}>Good</div>
-                    <div className={styles.grid_item2}>Said</div>
-                    <div className={styles.grid_item2}>Alchemy</div>
-                    <div className={styles.grid_item2}>Dove</div>
-                    <div className={styles.grid_item2}>Memo</div>
-                    <div className={styles.grid_item2}>Caves</div>
+                    {wordList.map((word) => (
+                        <div
+                            key={word}
+                            className={styles.grid_item2}
+                            onClick={() => handleClickWord(word)}
+                        >
+                            {word}
+                        </div>
+                    ))}
                 </div>
+
                 <div className={styles.btn_wrapper}>
-                    <MyButton onClick={handleCkick}>Finish</MyButton>
+                    <MyButton onClick={() => router.push("/success")}>
+                        Finish
+                    </MyButton>
                 </div>
             </div>
         </div>
