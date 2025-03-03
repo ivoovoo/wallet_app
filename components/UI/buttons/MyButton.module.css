@@ -1,27 +1,111 @@
-.button {
-    display: flex;
-    flex-direction: row;
-    justify-content: center;
-    align-items: center;
-    padding: 1rem 1.5rem;
-    gap: 10px;
+@keyframes moveRight {
+    0% {
+        left: 7px;
+    }
+    50% {
+        left: calc(100% - 51px);
+    }
+    100% {
+        left: calc(100% - 51px);
+    }
+}
+@keyframes moveLeft {
+    0% {
+        left: 7px;
+    }
+    50% {
+        left: calc(100% - 51px);
+    }
+    100% {
+        left: calc(100% - 51px);
+    }
+}
+@keyframes shrinkButton {
+    0% {
+        width: 100%;
+    }
 
+    100% {
+        width: 58px;
+    }
+}
+
+@keyframes expandButton {
+    0% {
+        width: 58px;
+    }
+    100% {
+        width: 100%;
+    }
+}
+
+@keyframes checkmark {
+    0% {
+        opacity: 0;
+        transform: scale(0.5);
+    }
+    100% {
+        opacity: 1;
+        transform: scale(1);
+    }
+}
+
+.button {
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 1rem 1.5rem;
     max-width: 364px;
     width: 100%;
     height: 3.5rem;
-
-    background: var(--primary);
+    background: linear-gradient(90deg, #5fcdaa 68%, #ffffff 100%);
     color: var(--foreground);
     border: none;
     border-radius: 100px;
-
     cursor: pointer;
-
     appearance: none;
     -webkit-appearance: none;
     outline: 1px solid transparent;
+    transition: background 0.3s ease;
 }
-.button:focus {
-    outline: 1px solid transparent;
-    outline-offset: 2px;
+
+/* Анимация кнопки */
+.button.on {
+    animation: shrinkButton 2s forwards, expandButton 1s 2s forwards;
+}
+
+.circle {
+    position: absolute;
+    top: 50%;
+    left: 7px;
+    transform: translateY(-50%);
+    width: 44px;
+    height: 44px;
+    border-radius: 30px;
+    background: linear-gradient(
+        90deg,
+        #ffffff 0%,
+        rgba(255, 255, 255, 0.5) 100%
+    );
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+/* Двигаем круг вправо */
+.button.on .circle {
+    animation: moveRight 0.5s forwards;
+}
+
+/* Галочка внутри круга */
+.checkmark {
+    opacity: 0;
+    font-size: 24px;
+    color: var(--primary);
+}
+
+/* Анимация появления галочки */
+.button.on .circle .checkmark {
+    animation: checkmark 1s 1.5s forwards;
 }

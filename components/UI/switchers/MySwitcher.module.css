@@ -34,7 +34,7 @@
     background-color: var(--secondary-1);
 }
 
-.switchCircle.ff {
+.switchCircle.off {
     transform: translate(0, -50%);
     background-color: var(--secondary-1);
 }
