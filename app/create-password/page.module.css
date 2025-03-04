@@ -1,3 +1,8 @@
+.main_special {
+    height: auto;
+    min-height: none;
+}
+
 .main_wrapper {
     width: 100%;
     display: flex;

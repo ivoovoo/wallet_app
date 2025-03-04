@@ -20,7 +20,7 @@ export default function Onboarding3() {
         <div className='container'>
             <div className='page'>
                 <div className='header'></div>
-                <div className='main'>
+                <div className={`main ${styles.main_special}`}>
                     <div className={styles.main_wrapper}>
                         <h1>Create a Password</h1>
                         <p>
