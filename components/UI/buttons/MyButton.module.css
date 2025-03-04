@@ -131,21 +131,18 @@
 
 @media (min-width: 480px) {
     .button {
-        padding: 0.5rem 1.5rem;
         height: 45px;
     }
 }
 
 @media (min-width: 768px) {
     .button {
-        padding: 1rem 1.5rem;
         height: 50px;
     }
 }
 
 @media (min-width: 1000px) {
     .button {
-        padding: 1.2rem 1.7rem;
         height: 60px;
     }
 }

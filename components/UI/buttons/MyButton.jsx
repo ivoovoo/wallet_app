@@ -27,13 +27,12 @@ export default function MyButton({ children, onClick, ...props }) {
                 } else {
                     document.getElementById("myForm")?.requestSubmit();
                 }
-            }, 2500);
+            }, 1000);
         }
     }, [animationComplete]);
 
     const handleMove = (e) => {
-        if (!isSmallScreen || !buttonRef.current) return; // Запрещаем свайп на больших экранах
-
+        if (!isSmallScreen || !buttonRef.current) return;
         const buttonRect = buttonRef.current.getBoundingClientRect();
         let clientX = e.touches ? e.touches[0].clientX : e.clientX;
         let newPosition = clientX - buttonRect.left;
