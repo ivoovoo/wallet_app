@@ -1,6 +1,7 @@
 /* Switch.module.css */
 .switch {
     width: 46px;
+    min-width: 46px;
     height: 28px;
     background-color: var(--secondary-0);
     border-radius: 25px;

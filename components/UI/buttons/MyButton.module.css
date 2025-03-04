@@ -84,7 +84,7 @@
 
 /* Анимация кнопки */
 .button.on {
-    animation: shrinkButton 2s forwards, expandButton 1s 2s forwards;
+    animation: shrinkButton 1.5s forwards;
 }
 
 .circle {
@@ -111,6 +111,7 @@
 }
 .text {
     font-family: var(--font-geist-outfit);
+    font-size: 1.2rem;
 }
 .button.on .text {
     animation: hideText 2s forwards;

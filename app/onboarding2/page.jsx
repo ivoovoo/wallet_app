@@ -4,27 +4,31 @@ import styles from "./page.module.css";
 export default function Onboarding2() {
     return (
         <div className='container'>
-            <div className={styles.page}>
-                <div className={styles.header}></div>
-                <div className={styles.main}>
-                    <h1 className={styles.title}>
-                        Simple wallet <span>control</span> everywhere
-                    </h1>
-                    <p>
-                        Enjoy lightning fast execution of your crypto transfers
-                        and smart contracts. No limits to what you can do with
-                        your assets
-                    </p>
-                </div>
-                <div className={styles.footer}>
-                    <div className={styles.points}>
-                        <div></div>
-                        <div className={styles.active}></div>
-                        <div></div>
+            <div className='page'>
+                <div className='header'></div>
+                <div className='main'>
+                    <div className={styles.main_wrapper}>
+                        <h1>
+                            Simple wallet <span>control</span> everywhere
+                        </h1>
+                        <p>
+                            Enjoy lightning fast execution of your crypto
+                            transfers and smart contracts. No limits to what you
+                            can do with your assets
+                        </p>
                     </div>
-                    <Link href='/onboarding3' prefetch={true}>
-                        Next
-                    </Link>
+                </div>
+                <div className='footer'>
+                    <div className={styles.footer_wrapper}>
+                        <div className={styles.points}>
+                            <div></div>
+                            <div className={styles.active}></div>
+                            <div></div>
+                        </div>
+                        <Link href='/onboarding3' prefetch={true}>
+                            Next
+                        </Link>
+                    </div>
                 </div>
             </div>
         </div>

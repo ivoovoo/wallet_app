@@ -1,58 +1,19 @@
-.page {
-    min-height: 100svh;
+.main_wrapper {
     display: flex;
     flex-direction: column;
     align-items: flex-start;
-}
-.page span {
-    color: var(--primary);
-}
-
-.header {
-    width: 100%;
-    height: 400px;
-}
-
-.img_wrapp {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    width: 100%;
-    height: 100%;
-}
-
-.main {
-    display: flex;
-    flex-direction: column;
-    height: 100%;
     gap: 1.5rem;
-    margin: 0 auto;
-}
-.main h1 {
-    width: 16.75rem;
 }
 
-.main p {
-    width: 20rem;
-    font-style: normal;
-    font-weight: 400;
-    font-size: 1rem;
-    line-height: 200%;
-}
-
-.footer {
+.footer_wrapper {
+    width: 100%;
     display: flex;
     justify-content: space-between;
-    width: 100%;
     align-items: center;
-    font-family: var(--font-geist-space-grotesk);
-    font-style: normal;
-    font-weight: 700;
-    font-size: 1.5rem;
-    margin-top: auto;
-    margin-bottom: 4.875rem;
 }
-
+.footer_wrapper a {
+    font-size: 1.5rem;
+}
 .points {
     display: grid;
     grid-template-columns: 3fr 2fr 1fr;
@@ -66,17 +27,4 @@
 }
 .points .active {
     background-color: var(--primary);
-}
-
-/* Enable hover only on non-touch devices */
-@media (hover: hover) and (pointer: fine) {
-}
-
-@media (min-width: 480px) {
-}
-
-@media (prefers-color-scheme: dark) {
-    .logo {
-        filter: invert();
-    }
 }

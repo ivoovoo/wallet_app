@@ -4,6 +4,7 @@ import { useRouter } from "next/navigation";
 import Image from "next/image";
 import styles from "./page.module.css";
 import MyButton from "@/components/UI/buttons/MyButton";
+import Link from "next/link";
 
 export default function Onboarding3() {
     const router = useRouter();
@@ -13,8 +14,8 @@ export default function Onboarding3() {
     };
     return (
         <div className='container'>
-            <div className={styles.page}>
-                <div className={styles.header}>
+            <div className='page'>
+                <div className='header'>
                     <div className={styles.img_wrapp}>
                         <Image
                             src='/Fast_loading_rafiki.svg'
@@ -24,24 +25,30 @@ export default function Onboarding3() {
                         />
                     </div>
                 </div>
-                <div className={styles.main}>
-                    <h1 className={styles.title}>
-                        Fast & secure access to <span>Dapps</span>
-                    </h1>
-                    <p>
-                        Enjoy seamless access and to your favourite
-                        decentralized app and services without boundaries
-                    </p>
+                <div className='main'>
+                    <div className={styles.main_wrapper}>
+                        <h1>
+                            Fast & secure access to <span>Dapps</span>
+                        </h1>
+                        <p>
+                            Enjoy seamless access and to your favourite
+                            decentralized app and services without boundaries
+                        </p>
+                    </div>
                 </div>
-                <div className={styles.footer}>
-                    <MyButton onClick={handleCkick}>
-                        Create a new wallet
-                    </MyButton>
+                <div className='footer'>
+                    <div className={styles.footer_wrapper}>
+                        <MyButton onClick={handleCkick}>
+                            Create a new wallet
+                        </MyButton>
 
-                    <p>
-                        Already have a wallet? {"\u00A0"}
-                        <span> Import here</span>
-                    </p>
+                        <p>
+                            Already have a wallet? {"\u00A0"}
+                            <Link href='/copy-phrase' prefetch={true}>
+                                <span> Import here</span>
+                            </Link>
+                        </p>
+                    </div>
                 </div>
             </div>
         </div>

@@ -16,29 +16,50 @@ export default function Onboarding3() {
     };
     return (
         <div className='container'>
-            <div className={styles.page}>
-                <div className={styles.header}></div>
-                <div className={styles.main}>
-                    <h1 className={styles.title}>Create a Password</h1>
-                    <p>Now that you’ve created your wallet, Lets secure it!</p>
+            <div className='page'>
+                <div className='header'></div>
+                <div className='main'>
+                    <div className={styles.main_wrapper}>
+                        <h1>Create a Password</h1>
+                        <p>
+                            Now that you’ve created your wallet, Lets secure it!
+                        </p>
+                        <form
+                            id='myForm'
+                            className={styles.form}
+                            onSubmit={handleSubmit}
+                        >
+                            <MyInput
+                                type='text'
+                                placeholder='Enter a password'
+                            />
+                            <MyInput
+                                type='text'
+                                placeholder='Confirm password'
+                            />
+                            <div className={styles.faceId}>
+                                <Image
+                                    src='/faceId.svg'
+                                    alt='image'
+                                    width={32}
+                                    height={32}
+                                />
+                                <p>Sign in with face ID?</p>
+                                <MySwitcher />
+                            </div>
+                        </form>
+                    </div>
                 </div>
-                <form className={styles.form} onSubmit={handleSubmit}>
-                    <MyInput type='text' placeholder='Enter a password' />
-                    <MyInput type='text' placeholder='Confirm password' />
-                    <div className={styles.faceId}>
-                        <Image
-                            src='/faceId.svg'
-                            alt='image'
-                            width={32}
-                            height={32}
-                        />
-                        <p>Sign in with face ID?</p>
-                        <MySwitcher />
+
+                <div className={`footer ${styles.footer_top}`}>
+                    <div className={styles.footer_wrapper}>
+                        <div className={styles.btn_wrapper}>
+                            <MyButton type='submit' form='myForm'>
+                                Create password
+                            </MyButton>
+                        </div>
                     </div>
-                    <div className={styles.btn_wrapper}>
-                        <MyButton type='submit'>Create password</MyButton>
-                    </div>
-                </form>
+                </div>
             </div>
         </div>
     );

@@ -56,44 +56,45 @@ export default function CopyPhrase() {
 
     return (
         <div className='container' page='special'>
-            <div className={styles.page}>
-                <div className={styles.main}>
+            <div className='page'>
+                <div className={`header ${styles.header_small}`}>
                     <p>Q Wallet</p>
-                    <h1 className={styles.title}>
-                        Add Verify Recovery <span>Phrase!</span>
-                    </h1>
                 </div>
-
-                {/* Сетка для слов */}
-                <div className={styles.grid}>
-                    {gridWords.map((word, index) => (
-                        <div
-                            key={index}
-                            className={styles.grid_item}
-                            onClick={() => handleClickGrid(index)}
-                        >
-                            {index + 1}. {word}
+                <div className='main'>
+                    <div className={styles.main_wrapper}>
+                        <h1 className={styles.title}>
+                            Add Verify Recovery <span>Phrase!</span>
+                        </h1>{" "}
+                        <div className={styles.grid}>
+                            {gridWords.map((word, index) => (
+                                <div
+                                    key={index}
+                                    className={styles.grid_item}
+                                    onClick={() => handleClickGrid(index)}
+                                >
+                                    {index + 1}. {word}
+                                </div>
+                            ))}
                         </div>
-                    ))}
-                </div>
-
-                {/* Список доступных слов */}
-                <div className={styles.grid2}>
-                    {wordList.map((word) => (
-                        <div
-                            key={word}
-                            className={styles.grid_item2}
-                            onClick={() => handleClickWord(word)}
-                        >
-                            {word}
+                        <div className={styles.grid2}>
+                            {wordList.map((word) => (
+                                <div
+                                    key={word}
+                                    className={styles.grid_item2}
+                                    onClick={() => handleClickWord(word)}
+                                >
+                                    {word}
+                                </div>
+                            ))}
                         </div>
-                    ))}
+                    </div>
                 </div>
-
-                <div className={styles.btn_wrapper}>
-                    <MyButton onClick={() => router.push("/success")}>
-                        Finish
-                    </MyButton>
+                <div className='footer'>
+                    <div className={styles.btn_wrapper}>
+                        <MyButton onClick={() => router.push("/success")}>
+                            Finish
+                        </MyButton>
+                    </div>
                 </div>
             </div>
         </div>
