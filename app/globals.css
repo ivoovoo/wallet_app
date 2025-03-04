@@ -42,6 +42,10 @@ body {
     font-family: var(--font-geist-outfit), sans-serif;
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
+    touch-action: manipulation;
+    -webkit-user-drag: none;
+    -ms-touch-action: none;
+    user-select: none;
 }
 body[data-page="special"] {
     background: var(--special-bg);
