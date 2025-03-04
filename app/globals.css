@@ -18,12 +18,12 @@
     --smallest: 0.5rem;
 }
 
-@media (prefers-color-scheme: dark) {
+/* @media (prefers-color-scheme: dark) {
     :root {
         --background: #ededed;
         --foreground: linear-gradient(180deg, #000718 0%, #011340 100%);
     }
-}
+} */
 
 html,
 body {
