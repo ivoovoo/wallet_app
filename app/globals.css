@@ -1,10 +1,6 @@
 :root {
-    /* --background: -webkit-linear-gradient(180deg, #000718 0%, #011340 100%); */
-    --background: linear-gradient(180deg, #000718 0%, #011340 100%);
-
+    --background: linear-gradient(180deg, #000718 50%, #5fcdaa 100%);
     --foreground: #ededed;
-
-    /* --special-bg: -webkit-linear-gradient(180deg, #000718 50%, #5fcdaa 100%); */
     --special-bg: linear-gradient(180deg, #000718 50%, #5fcdaa 100%);
 
     --primary: #5fcdaa;
@@ -42,7 +38,7 @@ body {
     background-repeat: no-repeat;
     background-attachment: fixed;
     background-size: cover;
-    color: var(--foreground) !important;
+    color: var(--foreground);
     font-family: var(--font-geist-outfit), sans-serif;
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
@@ -97,15 +93,14 @@ a {
     display: flex;
     flex-direction: column;
     align-items: center;
-    animation: slideDown 1s ease-in forwards;
+    /* animation: slideDown 1s ease-in forwards; */
 }
 .page span {
     color: var(--primary);
 }
 .header {
     width: 100%;
-    height: 20svh;
-    min-height: 20svh;
+    height: 4rem;
 }
 .main {
     flex: 1 1 auto;
@@ -122,9 +117,8 @@ a {
     width: 100%;
     align-items: center;
     margin-top: auto;
-    min-height: 110px;
-    height: 110px;
-    margin-bottom: 3.5rem;
+    height: 7rem;
+    margin-bottom: 3rem;
 }
 
 @media (prefers-color-scheme: dark) {
@@ -155,7 +149,7 @@ a {
 }
 
 /* Анимация для опускания страницы сверху */
-@keyframes slideDown {
+/* @keyframes slideDown {
     0% {
         transform: translateY(-100%);
         opacity: 0;
@@ -164,4 +158,4 @@ a {
         transform: translateY(0);
         opacity: 1;
     }
-}
+} */
