@@ -87,8 +87,8 @@ a {
 }
 .header {
     width: 100%;
-    height: 40vh;
-    min-height: 40vh;
+    height: 20svh;
+    min-height: 20svh;
 }
 .main {
     flex: 1 1 auto;

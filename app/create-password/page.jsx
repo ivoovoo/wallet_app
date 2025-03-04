@@ -12,7 +12,9 @@ export default function Onboarding3() {
 
     const handleSubmit = (e) => {
         e.preventDefault();
-        router.push("/backup-phrase");
+        requestAnimationFrame(() => {
+            router.push("/backup-phrase");
+        });
     };
     return (
         <div className='container'>
