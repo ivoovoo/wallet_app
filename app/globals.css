@@ -60,7 +60,7 @@ h3 {
     font-family: var(--font-geist-space-grotesk), sans-serif;
     font-style: normal;
     font-weight: 700;
-    font-size: 2.5rem;
+    font-size: 2rem;
     line-height: 140%;
 }
 
@@ -92,21 +92,23 @@ a {
     height: 100svh;
     display: flex;
     flex-direction: column;
+    justify-content: space-between;
+    gap: 1rem;
     align-items: center;
-    /* animation: slideDown 1s ease-in forwards; */
 }
 .page span {
     color: var(--primary);
 }
 .header {
     width: 100%;
-    height: 4rem;
+    height: 2rem;
 }
 .main {
     flex: 1 1 auto;
     width: 100%;
     display: flex;
-    height: 100%;
+    gap: 1rem;
+    align-items: center;
 }
 .main h1 {
     width: 16.75rem;
@@ -117,8 +119,8 @@ a {
     width: 100%;
     align-items: center;
     margin-top: auto;
-    height: 7rem;
-    margin-bottom: 3rem;
+    height: 6rem;
+    margin-bottom: 2.5rem;
 }
 
 @media (prefers-color-scheme: dark) {
@@ -132,12 +134,32 @@ a {
     body {
         font-size: 16px;
     }
+    h1,
+    h2,
+    h3 {
+        font-size: 2.2rem;
+        line-height: 130%;
+    }
+    .footer {
+        display: flex;
+        width: 100%;
+        align-items: center;
+        margin-top: auto;
+        height: 7rem;
+        margin-bottom: 3rem;
+    }
 }
 
 @media (min-width: 768px) {
     html,
     body {
         font-size: 18px;
+    }
+    h1,
+    h2,
+    h3 {
+        font-size: 2.5rem;
+        line-height: 120%;
     }
 }
 

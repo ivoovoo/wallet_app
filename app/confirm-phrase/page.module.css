@@ -6,6 +6,9 @@
     justify-content: center;
     color: rgba(237, 237, 237, 0.15);
 }
+.label {
+    color: rgba(237, 237, 237, 0.15);
+}
 
 .main_wrapper {
     width: 100%;

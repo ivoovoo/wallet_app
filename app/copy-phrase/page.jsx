@@ -14,11 +14,10 @@ export default function CopyPhrase() {
     return (
         <div className='container'>
             <div className='page'>
-                <div className={`header ${styles.header_small}`}>
-                    <p>Q Wallet</p>
-                </div>
+                <div className={`header ${styles.header_small}`}></div>
                 <div className='main'>
                     <div className={styles.main_wrapper}>
+                        <p className={styles.label}>Q Wallet</p>
                         <h1>
                             Your Recovery <span>Phrase!</span>{" "}
                         </h1>

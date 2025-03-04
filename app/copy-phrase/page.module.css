@@ -6,6 +6,9 @@
     justify-content: center;
     color: rgba(237, 237, 237, 0.15);
 }
+.label {
+    color: rgba(237, 237, 237, 0.15);
+}
 
 .main_wrapper {
     width: 100%;
@@ -65,7 +68,6 @@
     text-align: center;
     background: rgba(255, 255, 255, 0.05);
     border-radius: 5px;
-    margin-bottom: 1rem;
 }
 .btn_wrapper {
     width: 100%;

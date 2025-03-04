@@ -6,6 +6,7 @@
 .main_special {
     height: auto;
     min-height: none;
+    max-width: 360px;
 }
 
 .main_wrapper {
@@ -49,9 +50,7 @@
     display: flex;
     align-items: center;
     justify-content: space-between;
-    padding-top: 0.5rem;
     gap: 8px;
-    margin-bottom: 1rem;
 }
 
 .btn_wrapper {
@@ -66,14 +65,9 @@
     .main_special {
         height: auto;
         min-height: none;
-        max-width: 364px;
     }
     .form {
         gap: 1.5rem;
-    }
-    .faceId {
-        padding-top: 1rem;
-        margin-bottom: 1.5rem;
     }
     .header_special {
         height: 10svh;
