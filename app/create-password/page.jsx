@@ -19,7 +19,7 @@ export default function Onboarding3() {
     return (
         <div className='container'>
             <div className='page'>
-                <div className='header'></div>
+                <div className={`header ${styles.header_special}`}></div>
                 <div className={`main ${styles.main_special}`}>
                     <div className={styles.main_wrapper}>
                         <h1>Create a Password</h1>
@@ -32,10 +32,12 @@ export default function Onboarding3() {
                             onSubmit={handleSubmit}
                         >
                             <MyInput
+                                id='password_enter'
                                 type='text'
                                 placeholder='Enter a password'
                             />
                             <MyInput
+                                id='password_confirm'
                                 type='text'
                                 placeholder='Confirm password'
                             />
