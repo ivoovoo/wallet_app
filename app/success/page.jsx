@@ -9,7 +9,7 @@ export default function Success() {
                 <div className={`header ${styles.header_small}`}></div>
                 <div className='main'>
                     <div className={styles.main_wrapper}>
-                        <div className={styles.img_wrapp}>
+                        <div className={styles.img_wrapper}>
                             <Image
                                 src='/High_five-rafiki_1.svg'
                                 alt='image'

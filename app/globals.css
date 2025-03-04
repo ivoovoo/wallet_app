@@ -1,10 +1,10 @@
 :root {
-    --background: -webkit-linear-gradient(180deg, #000718 0%, #011340 100%);
+    /* --background: -webkit-linear-gradient(180deg, #000718 0%, #011340 100%); */
     --background: linear-gradient(180deg, #000718 0%, #011340 100%);
 
     --foreground: #ededed;
 
-    --special-bg: -webkit-linear-gradient(180deg, #000718 50%, #5fcdaa 100%);
+    /* --special-bg: -webkit-linear-gradient(180deg, #000718 50%, #5fcdaa 100%); */
     --special-bg: linear-gradient(180deg, #000718 50%, #5fcdaa 100%);
 
     --primary: #5fcdaa;
@@ -37,8 +37,11 @@ body {
 }
 
 body {
-    color: var(--foreground);
-    background: var(--background);
+    background-image: var(--background);
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    background-size: cover;
+    color: var(--foreground) !important;
     font-family: var(--font-geist-outfit), sans-serif;
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
@@ -48,12 +51,12 @@ body {
     user-select: none;
 }
 body[data-page="special"] {
-    background: var(--special-bg);
+    background-image: var(--special-bg);
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    background-size: cover;
 }
-body[data-page="default"] {
-    color: var(--foreground);
-    background: var(--background);
-}
+
 h1,
 h2,
 h3 {
@@ -85,8 +88,6 @@ a {
     margin: 0 auto;
     width: 100%;
     max-width: 1280px;
-    color: var(--foreground);
-    background: var(--background);
 }
 
 .page {
@@ -125,11 +126,11 @@ a {
     margin-bottom: 3.5rem;
 }
 
-@media (prefers-color-scheme: dark) {
+/* @media (prefers-color-scheme: dark) {
     html {
         color-scheme: dark;
     }
-}
+} */
 
 @media (min-width: 768px) {
     html,

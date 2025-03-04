@@ -22,33 +22,19 @@ export default function CopyPhrase() {
                         <h1>
                             Your Recovery <span>Phrase!</span>{" "}
                         </h1>
-                        <div className={styles.grid}>
-                            <div className={styles.grid_row}>
-                                <div className={styles.grid_item}>1. Said</div>
-                                <div className={styles.grid_item}>2. Done</div>
-                                <div className={styles.grid_item}>3. Gone</div>
-                                <div className={styles.grid_item}>
-                                    12. After
-                                </div>
-                            </div>
-                            <div className={styles.grid_row}>
-                                <div className={styles.grid_item}>
-                                    4. Alchemy
-                                </div>
-                                <div className={styles.grid_item}>5. Dove</div>
-                                <div className={styles.grid_item}>6. House</div>
-                            </div>
-                            <div className={styles.grid_row}>
-                                <div className={styles.grid_item}>8. Dart</div>
-                                <div className={styles.grid_item}>9. Caves</div>
-                                <div className={styles.grid_item}>10. Good</div>
-                            </div>
-                            <div className={styles.grid_row}>
-                                <div className={styles.grid_item}>
-                                    11. Favor
-                                </div>
-                                <div className={styles.grid_item}>12. Memo</div>
-                            </div>
+                        <div className={styles.flex}>
+                            <div className={styles.flex_item}>1. Said</div>
+                            <div className={styles.flex_item}>2. Done</div>
+                            <div className={styles.flex_item}>3. Gone</div>
+                            <div className={styles.flex_item}>12. After </div>
+                            <div className={styles.flex_item}>4. Alchemy</div>
+                            <div className={styles.flex_item}>5. Dove</div>
+                            <div className={styles.flex_item}>6. House</div>
+                            <div className={styles.flex_item}>8. Dart</div>
+                            <div className={styles.flex_item}>9. Caves</div>
+                            <div className={styles.flex_item}>10. Good</div>
+                            <div className={styles.flex_item}>11. Favor</div>
+                            <div className={styles.flex_item}>12. Memo</div>
                         </div>
                         <div className={styles.download_wrapper}>
                             <div className={styles.download}>
