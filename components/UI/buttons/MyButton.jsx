@@ -6,17 +6,17 @@ export default function MyButton({ children, onClick, ...props }) {
     const [isOn, setIsOn] = useState(false);
     const [animationComplete, setAnimationComplete] = useState(false);
     const [circlePosition, setCirclePosition] = useState(7);
+    const [isSmallScreen, setIsSmallScreen] = useState(false); // Теперь это useState
     const buttonRef = useRef(null);
-    const isSmallScreen = useRef(window.innerWidth < 768); // Проверяем при загрузке
 
     useEffect(() => {
-        // Обновляем флаг при изменении ширины экрана
-        const handleResize = () => {
-            isSmallScreen.current = window.innerWidth < 768;
-        };
+        // Проверяем размер экрана только в браузере
+        const checkScreenSize = () => setIsSmallScreen(window.innerWidth < 768);
 
-        window.addEventListener("resize", handleResize);
-        return () => window.removeEventListener("resize", handleResize);
+        checkScreenSize(); // Проверяем при загрузке
+        window.addEventListener("resize", checkScreenSize);
+
+        return () => window.removeEventListener("resize", checkScreenSize);
     }, []);
 
     useEffect(() => {
@@ -32,19 +32,18 @@ export default function MyButton({ children, onClick, ...props }) {
     }, [animationComplete]);
 
     const handleMove = (e) => {
-        if (!isSmallScreen.current || !buttonRef.current) return; // Запрещаем свайп на больших экранах
+        if (!isSmallScreen || !buttonRef.current) return; // Запрещаем свайп на больших экранах
 
         const buttonRect = buttonRef.current.getBoundingClientRect();
         let clientX = e.touches ? e.touches[0].clientX : e.clientX;
         let newPosition = clientX - buttonRect.left;
 
         newPosition = Math.max(0, Math.min(newPosition, buttonRect.width - 58));
-
         setCirclePosition(newPosition);
     };
 
     const handleEnd = () => {
-        if (!isSmallScreen.current || !buttonRef.current) return;
+        if (!isSmallScreen || !buttonRef.current) return;
 
         const buttonWidth = buttonRef.current.clientWidth;
         const maxPosition = buttonWidth - 58;
@@ -70,10 +69,10 @@ export default function MyButton({ children, onClick, ...props }) {
             {...props}
             ref={buttonRef}
             className={`${styles.button} ${isOn ? styles.on : styles.off}`}
-            onTouchMove={handleMove}
-            onMouseMove={handleMove}
-            onTouchEnd={handleEnd}
-            onMouseUp={handleEnd}
+            onTouchMove={isSmallScreen ? handleMove : undefined}
+            onMouseMove={isSmallScreen ? handleMove : undefined}
+            onTouchEnd={isSmallScreen ? handleEnd : undefined}
+            onMouseUp={isSmallScreen ? handleEnd : undefined}
             onClick={toggleSwitch}
             onAnimationEnd={handleAnimationEnd}
         >
