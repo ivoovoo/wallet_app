@@ -1,3 +1,8 @@
+.header_large {
+    height: 35svh;
+    min-height: 35svh;
+}
+
 .main_wrapper {
     width: 100%;
     display: flex;

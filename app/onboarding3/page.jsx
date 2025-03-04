@@ -15,7 +15,7 @@ export default function Onboarding3() {
     return (
         <div className='container'>
             <div className='page'>
-                <div className='header'>
+                <div className={`header ${styles.header_large}`}>
                     <div className={styles.img_wrapp}>
                         <Image
                             src='/Fast_loading_rafiki.svg'
