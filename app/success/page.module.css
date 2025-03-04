@@ -1,11 +1,4 @@
-.header_small {
-    display: flex;
-    height: 8vh;
-    min-height: 8vh;
-    align-items: center;
-    justify-content: center;
-    color: rgba(237, 237, 237, 0.15);
-}
+
 .main_wrapper {
     width: 100%;
     display: flex;
