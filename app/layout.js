@@ -1,4 +1,3 @@
-import { Geist, Geist_Mono } from "next/font/google";
 import { Space_Grotesk, Outfit } from "next/font/google";
 import "./globals.css";
 
@@ -20,6 +19,10 @@ export const metadata = {
 export default function RootLayout({ children }) {
     return (
         <html lang='en'>
+            <meta
+                name='viewport'
+                content='width=device-width, initial-scale=1, maximum-scale=1'
+            />
             <body
                 data-page={children.props.page || "default"}
                 className={`${geistOutfit.variable} ${geistSpaceGrotesk.variable}`}
