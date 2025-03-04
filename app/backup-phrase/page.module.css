@@ -20,10 +20,15 @@
     text-align: center;
 }
 .img_wrapper {
-    width: 100%;
-    height: 100%;
+    width: 50%;
+    aspect-ratio: 1;
     display: flex;
     justify-content: center;
+}
+.img_wrapper img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
 }
 
 .btn_wrapper {
@@ -37,4 +42,16 @@
 }
 .btn_wrapper p {
     text-align: center;
+}
+
+@media (min-width: 768px) {
+    .img_wrapper {
+        width: 40%;
+    }
+}
+
+@media (min-width: 1000px) {
+    .img_wrapper {
+        width: 25%;
+    }
 }
