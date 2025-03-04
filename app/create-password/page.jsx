@@ -51,18 +51,17 @@ export default function Onboarding3() {
                                 <p>Sign in with face ID?</p>
                                 <MySwitcher />
                             </div>
-                        </form>
-                    </div>
-                </div>
-
-                <div className={`footer ${styles.footer_top}`}>
-                    <div className={styles.footer_wrapper}>
+                        </form>{" "}
                         <div className={styles.btn_wrapper}>
                             <MyButton type='submit' form='myForm'>
                                 Create password
                             </MyButton>
                         </div>
                     </div>
+                </div>
+
+                <div className={`footer ${styles.footer_top}`}>
+                    <div className={styles.footer_wrapper}></div>
                 </div>
             </div>
         </div>

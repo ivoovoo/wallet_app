@@ -15,18 +15,17 @@ export default function Onboarding3() {
     return (
         <div className='container'>
             <div className='page'>
-                <div className={`header ${styles.header_large}`}>
-                    <div className={styles.img_wrapp}>
-                        <Image
-                            src='/Fast_loading_rafiki.svg'
-                            alt='image'
-                            width={264}
-                            height={264}
-                        />
-                    </div>
-                </div>
+                <div className={`header ${styles.header_large}`}></div>
                 <div className='main'>
                     <div className={styles.main_wrapper}>
+                        <div className={styles.img_wrapp}>
+                            <Image
+                                src='/Fast_loading_rafiki.svg'
+                                alt='image'
+                                width={264}
+                                height={264}
+                            />
+                        </div>
                         <h1>
                             Fast & secure access to <span>Dapps</span>
                         </h1>
