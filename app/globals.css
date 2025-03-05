@@ -46,6 +46,7 @@ body {
     -webkit-user-drag: none;
     -ms-touch-action: none;
     user-select: none;
+    -webkit-tap-highlight-color: transparent;
 }
 body[data-page="special"] {
     background-image: var(--special-bg);

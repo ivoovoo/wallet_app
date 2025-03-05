@@ -81,12 +81,14 @@
     outline: none;
     box-shadow: none;
     transition: background 0.3s ease;
+    -webkit-tap-highlight-color: transparent;
 }
 
 .button:focus,
+.button:focus-visible,
 .button:active {
-    outline: none;
-    box-shadow: none;
+    outline: none !important;
+    box-shadow: none !important;
 }
 
 /* Анимация кнопки */
@@ -110,6 +112,8 @@
     display: flex;
     align-items: center;
     justify-content: center;
+    outline: none;
+    box-shadow: none;
 }
 
 /* Двигаем круг вправо */
@@ -119,6 +123,8 @@
 .text {
     font-family: var(--font-geist-outfit);
     font-size: 1.1rem;
+    outline: none;
+    box-shadow: none;
 }
 .button.on .text {
     animation: hideText 1s forwards;
