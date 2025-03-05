@@ -58,7 +58,7 @@ export default function CopyPhrase() {
         <div className='container' page='special'>
             <div className='page'>
                 <div className={`header ${styles.header_small}`}></div>
-                <div className='main'>
+                <div className={`main ${styles.main_special}`}>
                     <div className={styles.main_wrapper}>
                         {" "}
                         <p className={styles.label}>Q Wallet</p>

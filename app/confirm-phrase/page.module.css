@@ -1,3 +1,7 @@
+.main_special {
+    align-items: flex-start;
+}
+
 .label {
     color: rgba(237, 237, 237, 0.15);
 }
