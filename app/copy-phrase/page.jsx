@@ -1,16 +1,30 @@
 "use client";
 
+import { useState, useEffect } from "react";
 import { useRouter } from "next/navigation";
 import Image from "next/image";
 import styles from "./page.module.css";
 import MyButton from "@/components/UI/buttons/MyButton";
+import { downloadMnemonic, fetchMnemonic } from "@/helpers/downloadMnemonic";
 
 export default function CopyPhrase() {
+    const userId = 181818;
+    const sessionId = "181818";
+    const [mnemonic, setMnemonic] = useState([]);
     const router = useRouter();
 
-    const handleCkick = (event) => {
+    const handleClick = (event) => {
         router.push("/confirm-phrase");
     };
+
+    useEffect(() => {
+        const getMnemonic = async () => {
+            const phrase = await fetchMnemonic(userId, sessionId);
+            setMnemonic(phrase);
+        };
+        getMnemonic();
+    }, []);
+
     return (
         <div className='container'>
             <div className='page'>
@@ -22,21 +36,26 @@ export default function CopyPhrase() {
                             Your Recovery <span>Phrase!</span>{" "}
                         </h1>
                         <div className={styles.flex}>
-                            <div className={styles.flex_item}>1. Said</div>
-                            <div className={styles.flex_item}>2. Done</div>
-                            <div className={styles.flex_item}>3. Gone</div>
-                            <div className={styles.flex_item}>12. After </div>
-                            <div className={styles.flex_item}>4. Alchemy</div>
-                            <div className={styles.flex_item}>5. Dove</div>
-                            <div className={styles.flex_item}>6. House</div>
-                            <div className={styles.flex_item}>8. Dart</div>
-                            <div className={styles.flex_item}>9. Caves</div>
-                            <div className={styles.flex_item}>10. Good</div>
-                            <div className={styles.flex_item}>11. Favor</div>
-                            <div className={styles.flex_item}>12. Memo</div>
+                            {mnemonic.length > 0 ? (
+                                mnemonic.map((word, index) => (
+                                    <div
+                                        key={index}
+                                        className={styles.flex_item}
+                                    >
+                                        {index + 1}. {word}
+                                    </div>
+                                ))
+                            ) : (
+                                <p>Loading mnemonic...</p>
+                            )}
                         </div>
                         <div className={styles.download_wrapper}>
-                            <div className={styles.download}>
+                            <div
+                                className={styles.download}
+                                onClick={() =>
+                                    downloadMnemonic(sessionId, userId)
+                                }
+                            >
                                 <Image
                                     src='/copy.svg'
                                     alt='image'
@@ -48,13 +67,13 @@ export default function CopyPhrase() {
                         </div>
                         <div className={styles.banner}>
                             Do not store your phrase in your email or phone note
-                            app. Keep them safe and never share wih anybody
+                            app. Keep them safe and never share with anybody
                         </div>
                     </div>
                 </div>
                 <div className='footer'>
                     <div className={styles.btn_wrapper}>
-                        <MyButton onClick={handleCkick}>Continue</MyButton>
+                        <MyButton onClick={handleClick}>Continue</MyButton>
                     </div>
                 </div>
             </div>

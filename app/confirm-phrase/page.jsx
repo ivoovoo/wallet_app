@@ -4,25 +4,23 @@ import { useState, useEffect } from "react";
 import { useRouter } from "next/navigation";
 import styles from "./page.module.css";
 import MyButton from "@/components/UI/buttons/MyButton";
+import { fetchMnemonic } from "@/helpers/downloadMnemonic";
 
 export default function CopyPhrase() {
+    const userId = 181818;
+    const sessionId = "181818";
     const router = useRouter();
 
-    const [gridWords, setGridWords] = useState(Array(12).fill(null)); // Пустая сетка
-    const [wordList, setWordList] = useState([
-        "Dart",
-        "Done",
-        "Favor",
-        "House",
-        "Gone",
-        "After",
-        "Good",
-        "Said",
-        "Alchemy",
-        "Dove",
-        "Memo",
-        "Caves",
-    ]); // Список слов
+    const [gridWords, setGridWords] = useState(Array(12).fill(null));
+    const [wordList, setWordList] = useState([]);
+
+    useEffect(() => {
+        const getMnemonic = async () => {
+            const phrase = await fetchMnemonic(userId, sessionId);
+            setWordList(phrase);
+        };
+        getMnemonic();
+    }, []);
 
     const handleClickWord = (word) => {
         const emptyIndex = gridWords.findIndex((cell) => cell === null);
@@ -47,15 +45,8 @@ export default function CopyPhrase() {
         }
     };
 
-    useEffect(() => {
-        document.body.dataset.page = "special";
-        return () => {
-            document.body.dataset.page = "default";
-        };
-    }, []);
-
     return (
-        <div className='container' page='special'>
+        <div className='container'>
             <div className='page'>
                 <div className='header'></div>
                 <div className={`main ${styles.main_special}`}>
