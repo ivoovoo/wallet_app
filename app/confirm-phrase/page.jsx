@@ -57,7 +57,7 @@ export default function CopyPhrase() {
     return (
         <div className='container' page='special'>
             <div className='page'>
-                <div className={`header ${styles.header_small}`}></div>
+                <div className='header'></div>
                 <div className={`main ${styles.main_special}`}>
                     <div className={styles.main_wrapper}>
                         {" "}
