@@ -5,6 +5,7 @@ import Image from "next/image";
 import styles from "./page.module.css";
 import MyButton from "@/components/UI/buttons/MyButton";
 import Link from "next/link";
+import { DotLottieReact } from "@lottiefiles/dotlottie-react";
 
 export default function Onboarding3() {
     const router = useRouter();
@@ -19,11 +20,10 @@ export default function Onboarding3() {
                 <div className='main'>
                     <div className={styles.main_wrapper}>
                         <div className={styles.img_wrapp}>
-                            <Image
-                                src='/Fast_loading_rafiki.svg'
-                                alt='image'
-                                width={264}
-                                height={264}
+                            <DotLottieReact
+                                src='images/EzuvhRMnJW.json'
+                                loop
+                                autoplay
                             />
                         </div>
                         <h1>

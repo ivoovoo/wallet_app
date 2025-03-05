@@ -82,6 +82,12 @@
     transition: background 0.3s ease;
 }
 
+.button:focus,
+.button:active {
+    outline: none;
+    box-shadow: none;
+}
+
 /* Анимация кнопки */
 .button.on {
     animation: shrinkButton 1.5s forwards;

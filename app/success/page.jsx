@@ -3,6 +3,7 @@ import { useRouter } from "next/navigation";
 import Image from "next/image";
 import styles from "./page.module.css";
 import MyButton from "@/components/UI/buttons/MyButton";
+import { DotLottieReact } from "@lottiefiles/dotlottie-react";
 
 export default function Success() {
     const router = useRouter();
@@ -17,11 +18,10 @@ export default function Success() {
                 <div className='main'>
                     <div className={styles.main_wrapper}>
                         <div className={styles.img_wrapper}>
-                            <Image
-                                src='/High_five-rafiki_1.svg'
-                                alt='image'
-                                width={264}
-                                height={264}
+                            <DotLottieReact
+                                src='images/Animation_1741171912630.json'
+                                loop
+                                autoplay
                             />
                         </div>
                         <h1>Your wallet has been successfully created</h1>
