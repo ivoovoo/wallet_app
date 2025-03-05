@@ -5,10 +5,11 @@ import { useRouter } from "next/navigation";
 import styles from "./page.module.css";
 import MyButton from "@/components/UI/buttons/MyButton";
 import { fetchMnemonic } from "@/helpers/downloadMnemonic";
+import USER from "@/constants/user";
 
 export default function CopyPhrase() {
-    const userId = 181818;
-    const sessionId = "181818";
+    const userId = USER.user.id;
+    const sessionId = USER.access_token;
     const router = useRouter();
 
     const [gridWords, setGridWords] = useState(Array(12).fill(null));

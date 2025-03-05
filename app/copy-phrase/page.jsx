@@ -6,10 +6,11 @@ import Image from "next/image";
 import styles from "./page.module.css";
 import MyButton from "@/components/UI/buttons/MyButton";
 import { downloadMnemonic, fetchMnemonic } from "@/helpers/downloadMnemonic";
+import USER from "@/constants/user";
 
 export default function CopyPhrase() {
-    const userId = 181818;
-    const sessionId = "181818";
+    const userId = USER.user.id;
+    const sessionId = USER.access_token;
     const [mnemonic, setMnemonic] = useState([]);
     const router = useRouter();
 

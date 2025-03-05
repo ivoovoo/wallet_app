@@ -5,9 +5,10 @@ export async function downloadMnemonic(sessionid, userId) {
             {
                 method: "GET",
                 headers: {
-                    Authorization: `Session ${sessionid}`,
+                    Authorization: `Bearer ${sessionid}`,
                     Accept: "application/json",
                 },
+                credentials: "same-origin",
             }
         );
 
@@ -35,8 +36,6 @@ export async function downloadMnemonic(sessionid, userId) {
     }
 }
 
-// helpers/fetchMnemonic.js
-
 export const fetchMnemonic = async (userId, sessionId) => {
     try {
         const response = await fetch(
@@ -46,6 +45,7 @@ export const fetchMnemonic = async (userId, sessionId) => {
                 headers: {
                     Authorization: `Bearer ${sessionId}`,
                 },
+                credentials: "same-origin",
             }
         );
         if (!response.ok) {
