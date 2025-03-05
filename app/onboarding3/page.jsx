@@ -21,7 +21,7 @@ export default function Onboarding3() {
                     <div className={styles.main_wrapper}>
                         <div className={styles.img_wrapp}>
                             <DotLottieReact
-                                src='images/EzuvhRMnJW.json'
+                                src='images/Animation_3.json'
                                 loop
                                 autoplay
                             />

@@ -1,5 +1,8 @@
+"use client";
+
 import Link from "next/link";
 import styles from "./page.module.css";
+import { DotLottieReact } from "@lottiefiles/dotlottie-react";
 
 export default function Home() {
     return (
@@ -8,6 +11,13 @@ export default function Home() {
                 <div className='header'></div>
                 <div className='main'>
                     <div className={styles.main_wrapper}>
+                        <div className={styles.img_wrapper}>
+                            <DotLottieReact
+                                src='images/Animation_6.json'
+                                loop
+                                autoplay
+                            />
+                        </div>
                         <h1>
                             A safe haven for all your <span>assets</span>
                         </h1>

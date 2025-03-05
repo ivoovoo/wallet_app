@@ -1,5 +1,8 @@
+"use client";
+
 import Link from "next/link";
 import styles from "./page.module.css";
+import { DotLottieReact } from "@lottiefiles/dotlottie-react";
 
 export default function Onboarding2() {
     return (
@@ -8,6 +11,13 @@ export default function Onboarding2() {
                 <div className='header'></div>
                 <div className='main'>
                     <div className={styles.main_wrapper}>
+                        <div className={styles.img_wrapp}>
+                            <DotLottieReact
+                                src='images/Animation_2.json'
+                                loop
+                                autoplay
+                            />
+                        </div>
                         <h1>
                             Simple wallet <span>control</span> everywhere
                         </h1>

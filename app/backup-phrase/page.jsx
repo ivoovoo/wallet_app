@@ -4,6 +4,7 @@ import { useRouter } from "next/navigation";
 import Image from "next/image";
 import styles from "./page.module.css";
 import MyButton from "@/components/UI/buttons/MyButton";
+import { DotLottieReact } from "@lottiefiles/dotlottie-react";
 
 export default function BackupPhrase() {
     const router = useRouter();
@@ -24,11 +25,10 @@ export default function BackupPhrase() {
                             all assets stored on the wallet
                         </p>
                         <div className={styles.img_wrapper}>
-                            <Image
-                                src='/Vault-rafiki_1.svg'
-                                alt='image'
-                                width={324}
-                                height={324}
+                            <DotLottieReact
+                                src='images/Animation_4.json'
+                                loop
+                                autoplay
                             />
                         </div>
                     </div>

@@ -19,7 +19,7 @@ export default function Success() {
                     <div className={styles.main_wrapper}>
                         <div className={styles.img_wrapper}>
                             <DotLottieReact
-                                src='images/Animation_1741171912630.json'
+                                src='images/Animation_5.json'
                                 loop
                                 autoplay
                             />
