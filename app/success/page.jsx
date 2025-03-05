@@ -1,8 +1,15 @@
+"use client";
+import { useRouter } from "next/navigation";
 import Image from "next/image";
 import styles from "./page.module.css";
-import MyButton_link from "@/components/UI/buttons/MyButton_link";
+import MyButton from "@/components/UI/buttons/MyButton";
 
 export default function Success() {
+    const router = useRouter();
+
+    const handleCkick = () => {
+        router.push("/create-password");
+    };
     return (
         <div className='container'>
             <div className='page'>
@@ -22,10 +29,9 @@ export default function Success() {
                 </div>
                 <div className='footer'>
                     <div className={styles.footer_wrapper}>
-                        <MyButton_link href='/create-password' prefetch={true}>
-                            Let`s go!
-                            <p>Explore your wallet</p>
-                        </MyButton_link>
+                        <MyButton onClick={handleCkick}>
+                            Explore your wallet
+                        </MyButton>
                     </div>
                 </div>
             </div>
