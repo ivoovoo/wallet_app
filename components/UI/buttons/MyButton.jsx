@@ -13,6 +13,7 @@ export default function MyButton({
     const [isSmallScreen, setIsSmallScreen] = useState(false);
     const buttonRef = useRef(null);
     const circleRef = useRef(null);
+    const [isSwiping, setIsSwiping] = useState(false);
     const isDragging = useRef(false);
 
     useEffect(() => {
@@ -24,6 +25,7 @@ export default function MyButton({
 
     const handleMove = (e) => {
         if (!isSmallScreen || !buttonRef.current) return;
+        setIsSwiping(true);
         const buttonRect = buttonRef.current.getBoundingClientRect();
         let clientX = e.touches ? e.touches[0].clientX : e.clientX;
         let newPosition = clientX - buttonRect.left;
@@ -35,7 +37,7 @@ export default function MyButton({
     const handleEnd = () => {
         if (!isDragging.current) return;
         isDragging.current = false;
-        runAnimation();
+
         if (!isSmallScreen || !buttonRef.current) return;
 
         const buttonWidth = buttonRef.current.clientWidth;
@@ -46,12 +48,8 @@ export default function MyButton({
         } else {
             setCirclePosition(7);
         }
-    };
-
-    const toggleSwitch = (e) => {
-        e.preventDefault();
         runAnimation();
-        setIsOn(!isOn);
+        setIsSwiping(false);
     };
 
     const runAnimation = () => {
@@ -63,7 +61,7 @@ export default function MyButton({
             } else if (onClick) {
                 onClick();
             }
-        }, 800);
+        }, 1500);
     };
 
     return (
@@ -78,12 +76,13 @@ export default function MyButton({
             onMouseMove={isSmallScreen ? handleMove : undefined}
             onTouchEnd={isSmallScreen ? handleEnd : undefined}
             onMouseUp={isSmallScreen ? handleEnd : undefined}
-            onClick={toggleSwitch}
         >
             <div
                 ref={circleRef}
                 className={styles.circle}
-                style={{ left: `${circlePosition}px` }}
+                style={{
+                    left: `${circlePosition}px`,
+                }}
             >
                 {isOn && <span className={styles.checkmark}>✔</span>}
             </div>

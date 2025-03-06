@@ -21,17 +21,7 @@
         left: calc(100% - 2.2rem - 0.5rem);
     }
 }
-@keyframes moveLeft {
-    0% {
-        left: 0.5rem;
-    }
-    50% {
-        left: calc(50% - 2.2rem - 0.5rem);
-    }
-    100% {
-        left: calc(100% - 2.2rem - 0.5rem);
-    }
-}
+
 @keyframes shrinkButton {
     0% {
         width: 100%;
