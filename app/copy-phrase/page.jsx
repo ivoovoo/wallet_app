@@ -7,6 +7,7 @@ import styles from "./page.module.css";
 import MyButton from "@/components/UI/buttons/MyButton";
 import { downloadMnemonic, fetchMnemonic } from "@/helpers/downloadMnemonic";
 import USER from "@/constants/user";
+import test_phrase from "@/lib/test_phrase";
 
 export default function CopyPhrase() {
     const userId = USER.user.id;
@@ -21,7 +22,8 @@ export default function CopyPhrase() {
     useEffect(() => {
         const getMnemonic = async () => {
             const phrase = await fetchMnemonic(userId, sessionId);
-            setMnemonic(phrase.slice(0, 12));
+            // setMnemonic(phrase.slice(0, 12));
+            setMnemonic(test_phrase);
         };
         getMnemonic();
     }, []);

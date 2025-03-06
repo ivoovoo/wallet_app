@@ -41,3 +41,15 @@
 .points .active {
     background-color: var(--primary);
 }
+
+@media (min-width: 480px) {
+}
+
+@media (min-width: 768px) {
+    .img_wrapper {
+        max-width: 160px;
+    }
+}
+
+@media (min-width: 1000px) {
+}

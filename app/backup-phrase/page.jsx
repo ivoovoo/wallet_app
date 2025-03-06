@@ -9,7 +9,7 @@ import { DotLottieReact } from "@lottiefiles/dotlottie-react";
 export default function BackupPhrase() {
     const router = useRouter();
 
-    const handleCkick = (event) => {
+    const handleCkick = () => {
         router.push("/copy-phrase");
     };
     return (

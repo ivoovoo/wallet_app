@@ -13,7 +13,6 @@ export default function MyButton({
     const [isSmallScreen, setIsSmallScreen] = useState(false);
     const buttonRef = useRef(null);
     const circleRef = useRef(null);
-    const [isSwiping, setIsSwiping] = useState(false);
     const isDragging = useRef(false);
 
     useEffect(() => {
@@ -25,7 +24,7 @@ export default function MyButton({
 
     const handleMove = (e) => {
         if (!isSmallScreen || !buttonRef.current) return;
-        setIsSwiping(true);
+
         const buttonRect = buttonRef.current.getBoundingClientRect();
         let clientX = e.touches ? e.touches[0].clientX : e.clientX;
         let newPosition = clientX - buttonRect.left;
@@ -49,7 +48,6 @@ export default function MyButton({
             setCirclePosition(7);
         }
         runAnimation();
-        setIsSwiping(false);
     };
 
     const runAnimation = () => {
@@ -71,11 +69,12 @@ export default function MyButton({
             type={type}
             className={`${styles.button} ${isOn ? styles.on : styles.off}`}
             onTouchStart={() => (isDragging.current = true)}
-            onMouseDown={() => (isDragging.current = true)}
+            // onMouseDown={() => (isDragging.current = true)}
             onTouchMove={isSmallScreen ? handleMove : undefined}
-            onMouseMove={isSmallScreen ? handleMove : undefined}
+            // onMouseMove={isSmallScreen ? handleMove : undefined}
             onTouchEnd={isSmallScreen ? handleEnd : undefined}
-            onMouseUp={isSmallScreen ? handleEnd : undefined}
+            // onMouseUp={isSmallScreen ? handleEnd : undefined}
+            onClick={runAnimation}
         >
             <div
                 ref={circleRef}

@@ -16,7 +16,7 @@ export default function Onboarding3() {
             requestAnimationFrame(() => {
                 router.push("/backup-phrase");
             });
-        }, 1500);
+        }, 10);
     };
     return (
         <div className='container'>
