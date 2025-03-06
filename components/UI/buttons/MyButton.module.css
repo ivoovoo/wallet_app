@@ -116,7 +116,6 @@
     box-shadow: none;
 }
 
-/* Двигаем круг вправо */
 .button.on .circle {
     animation: moveRight 0.5s forwards;
 }
@@ -130,16 +129,14 @@
     animation: hideText 1s forwards;
 }
 
-/* Галочка внутри круга */
 .checkmark {
     opacity: 0;
     font-size: 24px;
     color: var(--primary);
 }
 
-/* Анимация появления галочки */
 .button.on .circle .checkmark {
-    animation: checkmark 1s 1.5s forwards;
+    animation: checkmark 0.5s 0.5s forwards;
 }
 
 @media (min-width: 480px) {

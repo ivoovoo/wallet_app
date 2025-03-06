@@ -8,7 +8,7 @@ export async function downloadMnemonic(sessionid, userId) {
                     Authorization: `Bearer ${sessionid}`,
                     Accept: "application/json",
                 },
-                credentials: "same-origin",
+                credentials: "include",
             }
         );
 
@@ -45,7 +45,7 @@ export const fetchMnemonic = async (userId, sessionId) => {
                 headers: {
                     Authorization: `Bearer ${sessionId}`,
                 },
-                credentials: "same-origin",
+                credentials: "include",
             }
         );
         if (!response.ok) {

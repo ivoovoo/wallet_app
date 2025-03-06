@@ -18,13 +18,6 @@
     --smallest: 0.5rem;
 }
 
-/* @media (prefers-color-scheme: dark) {
-    :root {
-        --background: #ededed;
-        --foreground: linear-gradient(180deg, #000718 0%, #011340 100%);
-    }
-} */
-
 html,
 body {
     width: min(100vw, 100%);
@@ -86,6 +79,7 @@ a {
     margin: 0 auto;
     width: 100%;
     max-width: 1280px;
+    overflow: hidden;
 }
 
 .page {
@@ -97,13 +91,16 @@ a {
     gap: 1rem;
     align-items: center;
 }
+
 .page span {
     color: var(--primary);
 }
+
 .header {
     width: 100%;
-    height: 2rem;
+    min-height: 2rem;
 }
+
 .main {
     flex: 1 1 auto;
     width: 100%;
@@ -112,6 +109,7 @@ a {
     align-items: center;
     padding-bottom: 9.5rem;
 }
+
 .main h1 {
     width: 16.75rem;
 }
@@ -128,12 +126,6 @@ a {
     margin-bottom: 4rem;
     padding: 0 2rem;
 }
-
-/* @media (prefers-color-scheme: dark) {
-    html {
-        color-scheme: dark;
-    }
-} */
 
 @media (min-width: 480px) {
     html,
@@ -175,15 +167,3 @@ a {
         font-size: 20px;
     }
 }
-
-/* Анимация для опускания страницы сверху */
-/* @keyframes slideDown {
-    0% {
-        transform: translateY(-100%);
-        opacity: 0;
-    }
-    100% {
-        transform: translateY(0);
-        opacity: 1;
-    }
-} */

@@ -21,7 +21,7 @@ export default function CopyPhrase() {
     useEffect(() => {
         const getMnemonic = async () => {
             const phrase = await fetchMnemonic(userId, sessionId);
-            setMnemonic(phrase);
+            setMnemonic(phrase.slice(0, 12));
         };
         getMnemonic();
     }, []);

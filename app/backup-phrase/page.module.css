@@ -15,7 +15,9 @@
     text-align: center;
 }
 .img_wrapper {
-    width: 50%;
+    align-self: center;
+    width: 80%;
+    max-width: 360px;
     aspect-ratio: 1;
     display: flex;
     justify-content: center;
@@ -37,16 +39,4 @@
 }
 .btn_wrapper p {
     text-align: center;
-}
-
-@media (min-width: 768px) {
-    .img_wrapper {
-        width: 40%;
-    }
-}
-
-@media (min-width: 1000px) {
-    .img_wrapper {
-        width: 25%;
-    }
 }

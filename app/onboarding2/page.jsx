@@ -11,7 +11,7 @@ export default function Onboarding2() {
                 <div className='header'></div>
                 <div className='main'>
                     <div className={styles.main_wrapper}>
-                        <div className={styles.img_wrapp}>
+                        <div className={styles.img_wrapper}>
                             <DotLottieReact
                                 src='images/Animation_2.json'
                                 loop
