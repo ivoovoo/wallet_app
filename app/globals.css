@@ -40,6 +40,7 @@ body {
     -ms-touch-action: none;
     user-select: none;
     -webkit-tap-highlight-color: transparent;
+    overscroll-behavior: contain;
 }
 body[data-page="special"] {
     background-image: var(--special-bg);
@@ -80,6 +81,11 @@ a {
     width: 100%;
     max-width: 1280px;
     overflow: hidden;
+}
+@supports (-webkit-touch-callout: none) {
+    .container {
+        height: -webkit-fill-available;
+    }
 }
 
 .page {
