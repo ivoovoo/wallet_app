@@ -112,7 +112,7 @@ a {
     width: 100%;
     display: flex;
     gap: 1rem;
-    align-items: start;
+    align-items: center;
     padding-bottom: 9.5rem;
 }
 
