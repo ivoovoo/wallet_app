@@ -23,6 +23,7 @@
     appearance: none;
     -webkit-appearance: none;
     outline: 1px solid transparent;
+    touch-action: manipulation;
 }
 .input::placeholder {
     appearance: none;

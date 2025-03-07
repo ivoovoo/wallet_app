@@ -23,7 +23,7 @@ export default function CopyPhrase() {
         const getMnemonic = async () => {
             const phrase = await fetchMnemonic(userId, sessionId);
             // setMnemonic(phrase.slice(0, 12));
-            setMnemonic(test_phrase);
+            setMnemonic(phrase);
         };
         getMnemonic();
     }, []);
