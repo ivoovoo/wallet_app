@@ -1,96 +1,39 @@
-"use client";
-
 import { useState, useEffect } from "react";
-import { useRouter } from "next/navigation";
-import styles from "./page.module.css";
-import MyButton from "@/components/UI/buttons/MyButton";
-import { fetchMnemonic } from "@/helpers/downloadMnemonic";
-import USER from "@/constants/user";
-import test_phrase from "@/lib/test_phrase";
+import styles from "./MyInput.module.css";
+import Image from "next/image";
 
-export default function CopyPhrase() {
-    const userId = USER.user.id;
-    const sessionId = USER.access_token;
-    const router = useRouter();
-
-    const [gridWords, setGridWords] = useState(Array(12).fill(null));
-    const [wordList, setWordList] = useState([]);
+export default function MyInput({ ...props }) {
+    const [isSmallScreen, setIsSmallScreen] = useState(false);
+    const [hasScrolled, setHasScrolled] = useState(false);
 
     useEffect(() => {
-        const getMnemonic = async () => {
-            const phrase = await fetchMnemonic(userId, sessionId);
-            // setWordList(phrase.slice(0, 12));
-            setWordList(phrase);
-        };
-        getMnemonic();
+        if (typeof window !== "undefined") {
+            const checkScreenSize = () =>
+                setIsSmallScreen(window.innerWidth < 768);
+            checkScreenSize();
+            window.addEventListener("resize", checkScreenSize);
+            return () => window.removeEventListener("resize", checkScreenSize);
+        }
     }, []);
 
-    const handleClickWord = (word) => {
-        const emptyIndex = gridWords.findIndex((cell) => cell === null);
-        if (emptyIndex !== -1) {
-            setGridWords((prev) => {
-                const newGrid = [...prev];
-                newGrid[emptyIndex] = word;
-                return newGrid;
-            });
-            setWordList((prev) => prev.filter((w) => w !== word));
-        }
-    };
-
-    const handleClickGrid = (index) => {
-        if (gridWords[index]) {
-            setWordList((prev) => [...prev, gridWords[index]]);
-            setGridWords((prev) => {
-                const newGrid = [...prev];
-                newGrid[index] = null;
-                return newGrid;
-            });
+    const handleFocus = (e) => {
+        if (isSmallScreen && !hasScrolled) {
+            setTimeout(() => {
+                window.scrollTo({
+                    top: 0,
+                    behavior: "smooth", // Плавная прокрутка
+                });
+                setHasScrolled(true); // Запоминаем, что прокрутка была выполнена
+            }, 100);
         }
     };
 
     return (
-        <div className='container'>
-            <div className='page'>
-                <div className='header'></div>
-                <div className={`main ${styles.main_special}`}>
-                    <div className={styles.main_wrapper}>
-                        {" "}
-                        <p className={styles.label}>Q Wallet</p>
-                        <h1 className={styles.title}>
-                            Add Verify Recovery <span>Phrase!</span>
-                        </h1>{" "}
-                        <div className={styles.grid}>
-                            {gridWords.map((word, index) => (
-                                <div
-                                    key={index}
-                                    className={styles.grid_item}
-                                    onClick={() => handleClickGrid(index)}
-                                >
-                                    {index + 1}. {word}
-                                </div>
-                            ))}
-                        </div>
-                        <div className={styles.grid2}>
-                            {wordList.map((word) => (
-                                <div
-                                    key={word}
-                                    className={styles.grid_item2}
-                                    onClick={() => handleClickWord(word)}
-                                >
-                                    {word}
-                                </div>
-                            ))}
-                        </div>
-                    </div>
-                </div>
-                <div className='footer'>
-                    <div className={styles.btn_wrapper}>
-                        <MyButton onClick={() => router.push("/success")}>
-                            Finish
-                        </MyButton>
-                    </div>
-                </div>
-            </div>
+        <div className={styles.input_wrapper}>
+            <label className={styles.input_label}>
+                <Image src='/eye.svg' alt='image' width={24} height={24} />
+            </label>
+            <input {...props} className={styles.input} onFocus={handleFocus} />
         </div>
     );
 }
