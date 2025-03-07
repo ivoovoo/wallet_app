@@ -4,23 +4,18 @@ export async function downloadMnemonic(sessionid, userId) {
             `https://ifutures.store/api/users/download_mnemonic/${userId}/`,
             {
                 method: "GET",
-                headers: {
-                    Authorization: `Bearer ${sessionid}`,
-                    Accept: "application/json",
-                },
-                credentials: "include",
+                // headers: {
+                //     Authorization: `Bearer ${sessionid}`,
+                //     Accept: "application/json",
+                // },
+                // credentials: "include",
             }
         );
 
         if (!response.ok) throw new Error("Ошибка при загрузке файла");
 
-        // Получаем данные как текст
         const text = await response.text();
 
-        // Логируем данные в консоль
-        console.log("Мнемоническая фраза:", text);
-
-        // Если нужно сохранить файл:
         const blob = new Blob([text], { type: "text/plain" });
         const url = window.URL.createObjectURL(blob);
         const a = document.createElement("a");
