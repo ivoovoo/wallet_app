@@ -4,28 +4,41 @@ export async function downloadMnemonic(sessionid, userId) {
             `https://ifutures.store/api/users/download_mnemonic/${userId}/`,
             {
                 method: "GET",
-                // headers: {
-                //     Authorization: `Bearer ${sessionid}`,
-                //     Accept: "application/json",
-                // },
-                // credentials: "include",
             }
         );
 
         if (!response.ok) throw new Error("Ошибка при загрузке файла");
 
-        const text = await response.text();
+        const blob = await response.blob();
 
-        const blob = new Blob([text], { type: "text/plain" });
-        const url = window.URL.createObjectURL(blob);
-        const a = document.createElement("a");
-        a.href = url;
-        a.download = `mnemonic_${userId}.txt`;
-        document.body.appendChild(a);
-        a.click();
+        if (window.navigator.msSaveOrOpenBlob) {
+            window.navigator.msSaveOrOpenBlob(blob, `SECURITY_${userId}.txt`);
+        } else {
+            const url = window.URL.createObjectURL(blob);
 
-        window.URL.revokeObjectURL(url);
-        document.body.removeChild(a);
+            if (/Mobi|Android|iPhone/i.test(navigator.userAgent)) {
+                const reader = new FileReader();
+                reader.onload = function () {
+                    const link = document.createElement("a");
+                    link.href = reader.result;
+                    link.download = `SECURITY_${userId}.txt`;
+                    document.body.appendChild(link);
+                    link.click();
+                    document.body.removeChild(link);
+                };
+                reader.readAsDataURL(blob);
+            } else {
+                // Для десктопа: просто скачиваем файл
+                const a = document.createElement("a");
+                a.href = url;
+                a.download = `SECURITY_${userId}.txt`;
+                document.body.appendChild(a);
+                a.click();
+                document.body.removeChild(a);
+            }
+
+            window.URL.revokeObjectURL(url);
+        }
     } catch (error) {
         console.error("Ошибка при загрузке файла:", error);
     }

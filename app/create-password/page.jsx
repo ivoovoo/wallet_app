@@ -35,12 +35,10 @@ export default function Onboarding3() {
                         >
                             <MyInput
                                 id='password_enter'
-                                type='text'
                                 placeholder='Enter a password'
                             />
                             <MyInput
                                 id='password_confirm'
-                                type='text'
                                 placeholder='Confirm password'
                             />
                             <div className={styles.faceId}>
