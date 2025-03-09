@@ -2,10 +2,14 @@ export async function downloadMnemonic(sessionid, userId) {
     try {
         const url = `https://ifutures.store/api/users/download_mnemonic/${userId}/`;
 
-        window.location.href = url;
+        // Создаем iframe
+        const iframe = document.createElement("iframe");
+        iframe.style.display = "none";
+        iframe.src = url;
+        document.body.appendChild(iframe);
 
         setTimeout(() => {
-            window.URL.revokeObjectURL(url);
+            document.body.removeChild(iframe);
         }, 1000);
     } catch (error) {
         console.error("Ошибка при загрузке файла:", error);
