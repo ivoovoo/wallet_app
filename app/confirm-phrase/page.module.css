@@ -52,6 +52,7 @@
     padding: 0.2rem 0.5rem;
     border-radius: 5px;
     cursor: pointer;
+    white-space: nowrap;
 }
 .grid_item2 {
     text-align: center;

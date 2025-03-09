@@ -35,7 +35,13 @@ export default function MyInput({ ...props }) {
                 className={styles.input_label}
                 onClick={togglePasswordVisibility}
             >
-                <Image src='/eye.svg' alt='image' width={24} height={24} />
+                <Image
+                    src='/eye.svg'
+                    alt='image'
+                    width={24}
+                    height={24}
+                    className={!isPasswordVisible ? styles.filter : ""}
+                />
             </label>
             <input
                 {...props}
