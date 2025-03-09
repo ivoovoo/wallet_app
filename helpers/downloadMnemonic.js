@@ -10,35 +10,21 @@ export async function downloadMnemonic(sessionid, userId) {
         if (!response.ok) throw new Error("Ошибка при загрузке файла");
 
         const blob = await response.blob();
+        const url = window.URL.createObjectURL(blob);
+        const a = document.createElement("a");
 
-        if (window.navigator.msSaveOrOpenBlob) {
-            window.navigator.msSaveOrOpenBlob(blob, `SECURITY_${userId}.txt`);
+        a.href = url;
+        a.download = `SECURITY_${userId}.txt`;
+
+        if (document.body) {
+            document.body.appendChild(a);
+            a.click();
+            document.body.removeChild(a);
         } else {
-            const url = window.URL.createObjectURL(blob);
-
-            if (/Mobi|Android|iPhone/i.test(navigator.userAgent)) {
-                const reader = new FileReader();
-                reader.onload = function () {
-                    const link = document.createElement("a");
-                    link.href = reader.result;
-                    link.download = `SECURITY_${userId}.txt`;
-                    document.body.appendChild(link);
-                    link.click();
-                    document.body.removeChild(link);
-                };
-                reader.readAsDataURL(blob);
-            } else {
-                // Для десктопа: просто скачиваем файл
-                const a = document.createElement("a");
-                a.href = url;
-                a.download = `SECURITY_${userId}.txt`;
-                document.body.appendChild(a);
-                a.click();
-                document.body.removeChild(a);
-            }
-
-            window.URL.revokeObjectURL(url);
+            a.click();
         }
+
+        window.URL.revokeObjectURL(url);
     } catch (error) {
         console.error("Ошибка при загрузке файла:", error);
     }
