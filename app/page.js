@@ -16,6 +16,7 @@ export default function Home() {
                                 src='images/Animation_6.json'
                                 loop
                                 autoplay
+                                prefetch
                             />
                         </div>
                         <h1>

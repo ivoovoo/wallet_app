@@ -29,6 +29,7 @@ export default function BackupPhrase() {
                                 src='images/Animation_4.json'
                                 loop
                                 autoplay
+                                prefetch
                             />
                         </div>
                     </div>
