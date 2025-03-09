@@ -16,12 +16,14 @@ export async function downloadMnemonic(sessionid, userId) {
         a.href = url;
         a.download = `SECURITY_${userId}.txt`;
 
-        if (document.body) {
+        const isAndroid = /Android/i.test(navigator.userAgent);
+
+        if (isAndroid) {
+            window.open(url, "_blank");
+        } else {
             document.body.appendChild(a);
             a.click();
             document.body.removeChild(a);
-        } else {
-            a.click();
         }
 
         window.URL.revokeObjectURL(url);
