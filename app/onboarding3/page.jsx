@@ -24,7 +24,6 @@ export default function Onboarding3() {
                                 src='images/Animation_3.json'
                                 loop
                                 autoplay
-                                prefetch
                             />
                         </div>
                         <h1>

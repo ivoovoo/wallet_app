@@ -31,8 +31,9 @@
 }
 .grid {
     display: grid;
-    grid-template-columns: repeat(3, 1fr);
+    grid-template-columns: repeat(4, 1fr);
     justify-items: center;
+    align-items: center;
     width: 100%;
     gap: 0.5rem;
 }
@@ -50,6 +51,8 @@
     display: flex;
     gap: 0.5rem;
     text-align: center;
+    justify-content: start;
+    font-size: 0.8rem;
     padding: 0.2rem 0.5rem;
     border-radius: 5px;
     cursor: pointer;
@@ -63,29 +66,6 @@
     border: 0.5px solid rgba(73, 80, 87, 0.5);
     border-radius: 5px;
     cursor: pointer;
-}
-
-.grid_item:nth-child(1),
-.grid_item:nth-child(4),
-.grid_item:nth-child(7),
-.grid_item:nth-child(10) {
-    justify-self: start;
-}
-
-/* 2 ряд (по центру) */
-.grid_item:nth-child(2),
-.grid_item:nth-child(5),
-.grid_item:nth-child(8),
-.grid_item:nth-child(11) {
-    justify-self: center;
-}
-
-/* 3 ряд (справа) */
-.grid_item:nth-child(3),
-.grid_item:nth-child(6),
-.grid_item:nth-child(9),
-.grid_item:nth-child(12) {
-    justify-self: end;
 }
 
 .btn_wrapper {

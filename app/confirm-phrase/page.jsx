@@ -13,7 +13,7 @@ export default function CopyPhrase() {
     const sessionId = USER.access_token;
     const router = useRouter();
 
-    const [gridWords, setGridWords] = useState(Array(12).fill(null));
+    const [gridWords, setGridWords] = useState(Array(16).fill(null));
     const [wordList, setWordList] = useState([]);
 
     useEffect(() => {
