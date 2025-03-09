@@ -53,6 +53,7 @@
     border-radius: 5px;
     cursor: pointer;
     white-space: nowrap;
+    text-overflow: ellipsis;
 }
 .grid_item2 {
     text-align: center;

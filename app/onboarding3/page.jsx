@@ -5,7 +5,16 @@ import styles from "./page.module.css";
 import MyButton from "@/components/UI/buttons/MyButton";
 import Link from "next/link";
 import { useEffect, useState } from "react";
-import { DotLottieReact } from "@lottiefiles/dotlottie-react";
+import dynamic from "next/dynamic";
+
+// Динамический импорт DotLottieReact
+const DotLottieReact = dynamic(
+    () =>
+        import("@lottiefiles/dotlottie-react").then(
+            (mod) => mod.DotLottieReact
+        ),
+    { ssr: false }
+);
 
 export default function Onboarding3() {
     const [animationData, setAnimationData] = useState(null);
@@ -14,7 +23,7 @@ export default function Onboarding3() {
     useEffect(() => {
         const preloadAnimation = async () => {
             try {
-                const response = await fetch("/animations/Animation_3.json");
+                const response = await fetch("/images/Animation_3.json");
                 const data = await response.json();
                 setAnimationData(data);
             } catch (error) {
