@@ -37,10 +37,10 @@ export default function Onboarding3() {
                                 id='password_enter'
                                 placeholder='Enter a password'
                             />
-                            <MyInput
+                            {/* <MyInput
                                 id='password_confirm'
                                 placeholder='Confirm password'
-                            />
+                            /> */}
                             <div className={styles.faceId}>
                                 <Image
                                     src='/faceId.svg'
