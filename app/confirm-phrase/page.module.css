@@ -46,6 +46,7 @@
 }
 
 .grid_item {
+    width: 100%;
     display: flex;
     gap: 0.5rem;
     text-align: center;

@@ -1,43 +1,18 @@
 "use client";
 
 import { useRouter } from "next/navigation";
+import Image from "next/image";
 import styles from "./page.module.css";
 import MyButton from "@/components/UI/buttons/MyButton";
 import Link from "next/link";
-import { useEffect, useState } from "react";
-import dynamic from "next/dynamic";
-
-// Динамический импорт DotLottieReact
-const DotLottieReact = dynamic(
-    () =>
-        import("@lottiefiles/dotlottie-react").then(
-            (mod) => mod.DotLottieReact
-        ),
-    { ssr: false }
-);
+import { DotLottieReact } from "@lottiefiles/dotlottie-react";
 
 export default function Onboarding3() {
-    const [animationData, setAnimationData] = useState(null);
     const router = useRouter();
 
-    useEffect(() => {
-        const preloadAnimation = async () => {
-            try {
-                const response = await fetch("/images/Animation_3.json");
-                const data = await response.json();
-                setAnimationData(data);
-            } catch (error) {
-                console.error("Ошибка загрузки анимации:", error);
-            }
-        };
-
-        preloadAnimation();
-    }, []);
-
-    const handleClick = () => {
+    const handleCkick = () => {
         router.push("/create-password");
     };
-
     return (
         <div className='container'>
             <div className='page'>
@@ -45,15 +20,12 @@ export default function Onboarding3() {
                 <div className='main'>
                     <div className={styles.main_wrapper}>
                         <div className={styles.img_wrapper}>
-                            {animationData ? (
-                                <DotLottieReact
-                                    animationData={animationData}
-                                    loop
-                                    autoplay
-                                />
-                            ) : (
-                                <p>Загрузка анимации...</p>
-                            )}
+                            <DotLottieReact
+                                src='images/Animation_3.json'
+                                loop
+                                autoplay
+                                prefetch
+                            />
                         </div>
                         <h1>
                             Fast & secure access to <span>Dapps</span>
@@ -66,9 +38,10 @@ export default function Onboarding3() {
                 </div>
                 <div className='footer'>
                     <div className={styles.footer_wrapper}>
-                        <MyButton onClick={handleClick}>
+                        <MyButton onClick={handleCkick}>
                             Create a new wallet
                         </MyButton>
+
                         <p>
                             Already have a wallet? {"\u00A0"}
                             <Link href='/copy-phrase' prefetch={true}>
