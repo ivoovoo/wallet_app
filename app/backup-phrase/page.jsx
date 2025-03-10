@@ -5,6 +5,7 @@ import Image from "next/image";
 import styles from "./page.module.css";
 import MyButton from "@/components/UI/buttons/MyButton";
 import { DotLottieReact } from "@lottiefiles/dotlottie-react";
+import Link from "next/link";
 
 export default function BackupPhrase() {
     const router = useRouter();
@@ -38,7 +39,7 @@ export default function BackupPhrase() {
                         <MyButton onClick={handleCkick}>
                             Backup my phrase now
                         </MyButton>
-                        <p>I will backup later.</p>
+                        <Link href='/confirm-phrase'>I will backup later.</Link>
                     </div>
                 </div>
             </div>

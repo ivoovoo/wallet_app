@@ -3,7 +3,7 @@ const USER = {
     user: {
         id: 181818,
         mnemonic:
-            "Guacico osteolite uninterlarded overjoyous mechanics thranitic syllabication polyaxonic boatlip tradesperson isotope biologicohumanistic myxomyoma woodcockize divisionism meerkat",
+            "propylite amphiphloic sillikin undim fluxibleness unpervert prerefuse Sabellianism Suricata heckler thermetrograph earthlight ustulation bavian unexhibitableness aplanatic",
         username: "181818",
         ton_wallet: "string",
         balance: 0,
@@ -11,9 +11,9 @@ const USER = {
         referrer: null,
     },
     access_token:
-        "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ0b2tlbl90eXBlIjoiYWNjZXNzIiwiZXhwIjoxNzQxMTg2MTE3LCJpYXQiOjE3NDExODQzMTcsImp0aSI6ImZkOTlhMGNiMzk1YTRmNjRhNDk5NmEzNGY0M2U1OTZhIiwidXNlcl9pZCI6MTgxODE4fQ.Klky5sOD4GKmGPGAzji8l1MILsSsyRvpVdY7CaANeiY",
+        "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ0b2tlbl90eXBlIjoiYWNjZXNzIiwiZXhwIjoxNzQxNjA3ODY0LCJpYXQiOjE3NDE2MDYwNjQsImp0aSI6IjdmMGU0NTg0OGNhZDQzNTU4MWRmNzM4YTkyMjA5MWIzIiwidXNlcl9pZCI6MTgxODE4fQ.vMPdIL9jut5bxg6EcLVMEmRXmfvZvG-3mihrPgrz81c",
     refresh_token:
-        "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ0b2tlbl90eXBlIjoicmVmcmVzaCIsImV4cCI6MTc0MTc4OTExNywiaWF0IjoxNzQxMTg0MzE3LCJqdGkiOiI5OTQ1MDE3YjdhNWQ0Y2UyODUyNDc2MDVlYzdiMTQxNiIsInVzZXJfaWQiOjE4MTgxOH0.gRI2g4PkoZcu6f6ITliLWwC-U71-kSPb_hMuxRYto0c",
+        "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ0b2tlbl90eXBlIjoicmVmcmVzaCIsImV4cCI6MTc0MjIxMDg2NCwiaWF0IjoxNzQxNjA2MDY0LCJqdGkiOiI2ZTU0NWM0NWI5MzY0NDk2YWY5YTkwY2VjMTU4YWUzZCIsInVzZXJfaWQiOjE4MTgxOH0.H9r3TScGXseR5OoioCS_sYa0Gwpz1Cq8reT4v5uej34",
 };
 
 export default USER;

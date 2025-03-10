@@ -19,8 +19,8 @@ export default function CopyPhrase() {
     useEffect(() => {
         const getMnemonic = async () => {
             const phrase = await fetchMnemonic(userId, sessionId);
-            // setWordList(phrase.slice(0, 12));
-            setWordList(phrase);
+            const shuffledPhrase = [...phrase].sort(() => Math.random() - 0.5);
+            setWordList(shuffledPhrase);
         };
         getMnemonic();
     }, []);
