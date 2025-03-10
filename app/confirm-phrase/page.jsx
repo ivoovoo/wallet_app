@@ -6,7 +6,6 @@ import styles from "./page.module.css";
 import MyButton from "@/components/UI/buttons/MyButton";
 import { fetchMnemonic } from "@/helpers/downloadMnemonic";
 import USER from "@/constants/user";
-import test_phrase from "@/lib/test_phrase";
 
 export default function CopyPhrase() {
     const userId = USER.user.id;
@@ -15,10 +14,13 @@ export default function CopyPhrase() {
 
     const [gridWords, setGridWords] = useState(Array(16).fill(null));
     const [wordList, setWordList] = useState([]);
+    const [originalPhrase, setOriginalPhrase] = useState([]);
+    const [isLoading, setIsLoading] = useState(false);
 
     useEffect(() => {
         const getMnemonic = async () => {
             const phrase = await fetchMnemonic(userId, sessionId);
+            setOriginalPhrase(phrase);
             const shuffledPhrase = [...phrase].sort(() => Math.random() - 0.5);
             setWordList(shuffledPhrase);
         };
@@ -46,6 +48,25 @@ export default function CopyPhrase() {
                 return newGrid;
             });
         }
+    };
+
+    const handleFinish = async () => {
+        setIsLoading(true);
+
+        await new Promise((resolve) => setTimeout(resolve, 1000));
+
+        if (gridWords.join(" ") === originalPhrase.join(" ")) {
+            router.push("/success");
+        } else {
+            alert(
+                "The phrase does not match. Please check the words you entered."
+            );
+
+            setGridWords(Array(16).fill(null));
+            setWordList([...originalPhrase].sort(() => Math.random() - 0.5));
+        }
+
+        setIsLoading(false);
     };
 
     return (
@@ -85,7 +106,7 @@ export default function CopyPhrase() {
                 </div>
                 <div className='footer'>
                     <div className={styles.btn_wrapper}>
-                        <MyButton onClick={() => router.push("/success")}>
+                        <MyButton onClick={handleFinish} isLoading={isLoading}>
                             Finish
                         </MyButton>
                     </div>

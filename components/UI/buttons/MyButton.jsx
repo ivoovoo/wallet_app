@@ -6,6 +6,7 @@ export default function MyButton({
     children,
     onClick,
     type = "button",
+    isLoading = false, // Значение по умолчанию false
     ...props
 }) {
     const [isOn, setIsOn] = useState(false);
@@ -21,6 +22,13 @@ export default function MyButton({
         window.addEventListener("resize", checkScreenSize);
         return () => window.removeEventListener("resize", checkScreenSize);
     }, []);
+
+    useEffect(() => {
+        if (!isLoading) {
+            setIsOn(false);
+            setCirclePosition(7);
+        }
+    }, [isLoading]);
 
     const handleMove = (e) => {
         if (!isSmallScreen || !buttonRef.current) return;
@@ -51,6 +59,8 @@ export default function MyButton({
     };
 
     const runAnimation = () => {
+        if (isLoading) return;
+
         setIsOn(true);
 
         setTimeout(() => {
@@ -67,14 +77,14 @@ export default function MyButton({
             {...props}
             ref={buttonRef}
             type={type}
-            className={`${styles.button} ${isOn ? styles.on : styles.off}`}
+            className={`${styles.button} ${isOn ? styles.on : styles.off} ${
+                isLoading ? styles.loading : ""
+            }`}
             onTouchStart={() => (isDragging.current = true)}
-            // onMouseDown={() => (isDragging.current = true)}
             onTouchMove={isSmallScreen ? handleMove : undefined}
-            // onMouseMove={isSmallScreen ? handleMove : undefined}
             onTouchEnd={isSmallScreen ? handleEnd : undefined}
-            // onMouseUp={isSmallScreen ? handleEnd : undefined}
             onClick={runAnimation}
+            disabled={isLoading}
         >
             <div
                 ref={circleRef}
@@ -85,7 +95,11 @@ export default function MyButton({
             >
                 {isOn && <span className={styles.checkmark}>✔</span>}
             </div>
-            <p className={`${styles.text} ${isOn ? styles.hideText : ""}`}>
+            <p
+                className={`${styles.text} ${
+                    isOn || isLoading ? styles.hideText : ""
+                }`}
+            >
                 {children}
             </p>
         </button>
