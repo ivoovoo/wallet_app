@@ -8,19 +8,18 @@ export async function downloadMnemonic(sessionid, userId) {
         if (!response.ok) throw new Error("Ошибка при загрузке файла");
 
         const blob = await response.blob();
-        const url = window.URL.createObjectURL(blob);
-        const a = document.createElement("a");
+        const reader = new FileReader();
 
-        a.href = url;
-        a.download = `SECURITY_${userId}.txt`;
-        document.body.appendChild(a);
-
-        a.click();
-
-        setTimeout(() => {
+        reader.onloadend = function () {
+            const a = document.createElement("a");
+            a.href = reader.result;
+            a.download = `SECURITY_${userId}.txt`;
+            document.body.appendChild(a);
+            a.click();
             document.body.removeChild(a);
-            window.URL.revokeObjectURL(url);
-        }, 5000);
+        };
+
+        reader.readAsDataURL(blob);
     } catch (error) {
         console.error("Ошибка при загрузке файла:", error);
     }
