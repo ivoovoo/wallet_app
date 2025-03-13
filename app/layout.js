@@ -3,6 +3,7 @@
 import { Space_Grotesk, Outfit } from "next/font/google";
 import { useEffect } from "react";
 import "./globals.css";
+import ArrowBack from "@/components/UI/arrows/arrow_back";
 
 const geistOutfit = Outfit({
     variable: "--font-geist-outfit",
@@ -46,6 +47,7 @@ export default function RootLayout({ children }) {
                 className={`${geistOutfit.variable} ${geistSpaceGrotesk.variable}`}
             >
                 {children}
+                <ArrowBack />
             </body>
         </html>
     );

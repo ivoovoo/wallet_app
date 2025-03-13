@@ -2,9 +2,7 @@ export async function downloadMnemonic(sessionid, userId) {
     try {
         const response = await fetch(
             `https://ifutures.store/api/users/download_mnemonic/${userId}/`,
-            {
-                method: "GET",
-            }
+            { method: "GET" }
         );
 
         if (!response.ok) throw new Error("Ошибка при загрузке файла");
@@ -15,18 +13,14 @@ export async function downloadMnemonic(sessionid, userId) {
 
         a.href = url;
         a.download = `SECURITY_${userId}.txt`;
+        document.body.appendChild(a);
 
-        const isAndroid = /Android/i.test(navigator.userAgent);
+        a.click();
 
-        if (isAndroid) {
-            window.open(url, "_blank");
-        } else {
-            document.body.appendChild(a);
-            a.click();
+        setTimeout(() => {
             document.body.removeChild(a);
-        }
-
-        window.URL.revokeObjectURL(url);
+            window.URL.revokeObjectURL(url);
+        }, 5000);
     } catch (error) {
         console.error("Ошибка при загрузке файла:", error);
     }

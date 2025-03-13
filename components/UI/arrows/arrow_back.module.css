@@ -1,0 +1,14 @@
+.arrow_back {
+    position: absolute;
+    top: 2rem;
+    left: 2rem;
+    color: var(--primary);
+    width: 2.5rem;
+    height: 2.5rem;
+    cursor: pointer;
+}
+
+.arrow_back > svg {
+    width: 100%;
+    height: 100%;
+}

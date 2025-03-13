@@ -58,9 +58,7 @@ export default function CopyPhrase() {
         if (gridWords.join(" ") === originalPhrase.join(" ")) {
             router.push("/success");
         } else {
-            alert(
-                "The phrase does not match. Please check the words you entered."
-            );
+            alert("It's important that you enter your words correctly.");
 
             setGridWords(Array(16).fill(null));
             setWordList([...originalPhrase].sort(() => Math.random() - 0.5));
