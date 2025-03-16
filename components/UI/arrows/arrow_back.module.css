@@ -1,13 +1,11 @@
 .arrow_back {
     position: absolute;
-    bottom: 3rem;
-    left: 50%;
-    transform: translateX(-50%);
-    color: #ffffff38;
+    top: 3rem;
+    left: 2rem;
+    color: #ffffff2a;
     width: 3rem;
     height: 3rem;
     cursor: pointer;
-    filter: blur(1px);
 }
 
 .arrow_back > svg {
