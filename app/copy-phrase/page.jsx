@@ -65,7 +65,7 @@ export default function CopyPhrase() {
                                     width={24}
                                     height={24}
                                 />
-                                <p>Download all phrase</p>
+                                <p>Copy 16 phrase</p>
                             </div>
                         </div>
                         <div className={styles.banner}>
