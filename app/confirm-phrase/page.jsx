@@ -1,6 +1,7 @@
 "use client";
 
 import { useState, useEffect } from "react";
+import Image from "next/image";
 import { useRouter } from "next/navigation";
 import styles from "./page.module.css";
 import MyButton from "@/components/UI/buttons/MyButton";
@@ -67,6 +68,24 @@ export default function CopyPhrase() {
         setIsLoading(false);
     };
 
+    const pasteFromClipboard = async () => {
+        try {
+            const text = await navigator.clipboard.readText();
+            const words = text.trim().split(/,\s?/);
+
+            if (words.length !== 16) {
+                alert("Ошибка: Количество слов в фразе некорректно.");
+                return;
+            }
+
+            setGridWords(words);
+            setWordList([]);
+        } catch (error) {
+            alert("Ошибка при вставке!");
+            console.error("Ошибка при вставке:", error);
+        }
+    };
+
     return (
         <div className='container'>
             <div className='page'>
@@ -99,6 +118,20 @@ export default function CopyPhrase() {
                                     {word}
                                 </div>
                             ))}
+                        </div>
+                        <div className={styles.download_wrapper}>
+                            <div
+                                className={styles.download}
+                                onClick={pasteFromClipboard}
+                            >
+                                <Image
+                                    src='/copy.svg'
+                                    alt='image'
+                                    width={24}
+                                    height={24}
+                                />
+                                <p>Paste 16 phrase</p>
+                            </div>
                         </div>
                     </div>
                 </div>

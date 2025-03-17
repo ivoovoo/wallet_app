@@ -5,7 +5,11 @@ import { useRouter } from "next/navigation";
 import Image from "next/image";
 import styles from "./page.module.css";
 import MyButton from "@/components/UI/buttons/MyButton";
-import { downloadMnemonic, fetchMnemonic } from "@/helpers/downloadMnemonic";
+import {
+    downloadMnemonic,
+    fetchMnemonic,
+    copyToClipboard,
+} from "@/helpers/downloadMnemonic";
 import USER from "@/constants/user";
 import test_phrase from "@/lib/test_phrase";
 
@@ -56,7 +60,8 @@ export default function CopyPhrase() {
                             <div
                                 className={styles.download}
                                 onClick={() =>
-                                    downloadMnemonic(sessionId, userId)
+                                    // downloadMnemonic(sessionId, userId)
+                                    copyToClipboard(mnemonic)
                                 }
                             >
                                 <Image

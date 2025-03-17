@@ -48,3 +48,13 @@ export const fetchMnemonic = async (userId, sessionId) => {
         return [];
     }
 };
+
+export const copyToClipboard = async (text) => {
+    try {
+        await navigator.clipboard.writeText(text);
+        alert("Фраза успешно скопирована!");
+    } catch (error) {
+        alert("Ошибка при копировании. Попробуйте снова.");
+        console.error("Ошибка при копировании:", error);
+    }
+};
