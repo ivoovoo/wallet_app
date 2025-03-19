@@ -16,6 +16,17 @@ const geistSpaceGrotesk = Space_Grotesk({
 
 export default function RootLayout({ children }) {
     useEffect(() => {
+        const updateViewportHeight = () => {
+            const vh = window.innerHeight * 0.01;
+            document.documentElement.style.setProperty("--vh", `${vh}px`);
+        };
+        updateViewportHeight();
+        window.addEventListener("resize", updateViewportHeight);
+        return () => {
+            window.removeEventListener("resize", updateViewportHeight);
+        };
+    }, []);
+    useEffect(() => {
         const preventScroll = (e) => {
             e.preventDefault();
             e.stopPropagation();
@@ -45,7 +56,7 @@ export default function RootLayout({ children }) {
                 data-page={children.props.page || "default"}
                 className={`${geistOutfit.variable} ${geistSpaceGrotesk.variable}`}
             >
-                {children}
+                <div className='page'>{children}</div>
             </body>
         </html>
     );
