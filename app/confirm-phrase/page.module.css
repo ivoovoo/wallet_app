@@ -90,7 +90,7 @@
     margin-top: auto;
     display: flex;
     flex-direction: column;
-    gap: 1.5rem;
+    gap: 1rem;
     align-items: center;
 }
 .btn_wrapper p {
