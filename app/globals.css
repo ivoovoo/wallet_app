@@ -16,6 +16,8 @@
     --medium: 1.5rem;
     --small: 1rem;
     --smallest: 0.5rem;
+
+    --vh: 1vh;
 }
 
 html,
@@ -24,6 +26,7 @@ body {
     max-width: 100%;
     overflow-x: hidden;
     font-size: 14px;
+    height: calc(var(--vh, 1vh) * 100);
 }
 
 body {
@@ -97,6 +100,7 @@ a {
     justify-content: space-between;
     gap: clamp(8px, 1rem, 20px);
     align-items: center;
+    padding-bottom: env(safe-area-inset-bottom, 0);
 }
 
 .page span {

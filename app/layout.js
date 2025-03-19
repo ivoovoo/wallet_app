@@ -1,7 +1,7 @@
 "use client";
 
 import { Space_Grotesk, Outfit } from "next/font/google";
-import { useEffect } from "react";
+import { useEffect, useState } from "react";
 import "./globals.css";
 
 const geistOutfit = Outfit({
@@ -15,15 +15,26 @@ const geistSpaceGrotesk = Space_Grotesk({
 });
 
 export default function RootLayout({ children }) {
+    const [viewportHeight, setViewportHeight] = useState("100vh");
+
     useEffect(() => {
         const updateViewportHeight = () => {
             const vh = window.innerHeight * 0.01;
             document.documentElement.style.setProperty("--vh", `${vh}px`);
+            setViewportHeight(`${window.innerHeight}px`);
         };
+
         updateViewportHeight();
+
         window.addEventListener("resize", updateViewportHeight);
+        window.addEventListener("orientationchange", updateViewportHeight);
+
         return () => {
             window.removeEventListener("resize", updateViewportHeight);
+            window.removeEventListener(
+                "orientationchange",
+                updateViewportHeight
+            );
         };
     }, []);
     useEffect(() => {
@@ -56,7 +67,9 @@ export default function RootLayout({ children }) {
                 data-page={children.props.page || "default"}
                 className={`${geistOutfit.variable} ${geistSpaceGrotesk.variable}`}
             >
-                <div className='page'>{children}</div>
+                <div className='page' style={{ height: viewportHeight }}>
+                    {children}
+                </div>
             </body>
         </html>
     );
