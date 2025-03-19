@@ -7,7 +7,7 @@ import ArrowBack from "@/components/UI/arrows/arrow_back";
 
 export default function Onboarding2() {
     return (
-        <div className='page'>
+        <>
             <div className='header'></div>
             <div className='main'>
                 <div className='container'>
@@ -47,6 +47,6 @@ export default function Onboarding2() {
                     </div>
                 </div>
             </div>
-        </div>
+        </>
     );
 }

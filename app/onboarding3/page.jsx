@@ -15,7 +15,7 @@ export default function Onboarding3() {
         router.push("/create-password");
     };
     return (
-        <div className='page'>
+        <>
             <div className={`header ${styles.header_large}`}></div>
             <div className='main'>
                 <div className='container'>
@@ -56,6 +56,6 @@ export default function Onboarding3() {
                     </div>
                 </div>
             </div>
-        </div>
+        </>
     );
 }
