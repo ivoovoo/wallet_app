@@ -28,16 +28,6 @@ export default function RootLayout({ children }) {
             window.removeEventListener("touchmove", preventScroll);
         };
     }, []);
-
-    const setHeight = () => {
-        document.querySelector(
-            ".page"
-        ).style.height = `${window.innerHeight}px`;
-    };
-
-    window.addEventListener("resize", setHeight);
-    window.addEventListener("load", setHeight);
-
     return (
         <html lang='en'>
             <meta
