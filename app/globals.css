@@ -97,7 +97,12 @@ a {
     justify-content: space-between;
     gap: clamp(8px, 1rem, 20px);
     align-items: center;
-    padding-bottom: env(safe-area-inset-bottom, 4rem);
+    padding-bottom: 4rem;
+}
+@supports (padding-bottom: env(safe-area-inset-bottom)) {
+    .page {
+        padding-bottom: env(safe-area-inset-bottom, 4rem);
+    }
 }
 
 .page span {
