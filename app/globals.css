@@ -89,7 +89,7 @@ a {
     position: fixed;
     top: 0;
     bottom: 0;
-    min-height: calc(100vh - 3rem);
+    min-height: calc(100% - 3rem);
     display: flex;
     flex-direction: column;
     justify-content: space-between;
@@ -121,10 +121,10 @@ a {
 }
 
 .footer {
+    flex: 0 0 auto;
     display: flex;
     width: 100%;
     align-items: center;
-    margin-top: auto;
     margin-bottom: 4rem;
 }
 
