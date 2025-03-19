@@ -1,4 +1,11 @@
+.arrow_wrapper {
+    position: absolute;
+    top: 0;
+    left: 2rem;
+}
+
 .main_wrapper {
+    position: relative;
     width: 100%;
     display: flex;
     flex-direction: column;
@@ -8,8 +15,7 @@
 
 .img_wrapper {
     align-self: center;
-    width: 80%;
-    max-width: 360px;
+    max-height: 30svh;
     aspect-ratio: 1;
     display: flex;
     justify-content: center;

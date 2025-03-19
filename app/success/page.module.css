@@ -1,3 +1,9 @@
+.arrow_wrapper {
+    position: absolute;
+    top: 0;
+    left: 2rem;
+}
+
 .main_wrapper {
     width: 100%;
     display: flex;

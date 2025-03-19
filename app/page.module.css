@@ -1,4 +1,11 @@
+.arrow_wrapper {
+    position: absolute;
+    top: 0;
+    left: 2rem;
+}
+
 .main_wrapper {
+    position: relative;
     display: flex;
     flex-direction: column;
     align-items: flex-start;
@@ -6,8 +13,7 @@
 }
 .img_wrapper {
     align-self: center;
-    width: 100%;
-    max-width: 360px;
+    max-height: 30svh;
     aspect-ratio: 1;
     display: flex;
     justify-content: center;
@@ -46,9 +52,6 @@
 }
 
 @media (min-width: 768px) {
-    .img_wrapper {
-        max-width: 160px;
-    }
 }
 
 @media (min-width: 1000px) {

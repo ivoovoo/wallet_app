@@ -1,10 +1,18 @@
+.arrow_wrapper {
+    position: absolute;
+    top: 5rem;
+    left: 2rem;
+}
+
 .main_special {
+    position: relative;
     height: auto;
     min-height: none;
     max-width: 360px;
 }
 
 .main_wrapper {
+    position: relative;
     width: 100%;
     display: flex;
     flex-direction: column;

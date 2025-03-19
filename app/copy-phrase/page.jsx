@@ -12,6 +12,7 @@ import {
 } from "@/helpers/downloadMnemonic";
 import USER from "@/constants/user";
 import test_phrase from "@/lib/test_phrase";
+import ArrowBack from "@/components/UI/arrows/arrow_back";
 
 export default function CopyPhrase() {
     const userId = USER.user.id;
@@ -33,10 +34,13 @@ export default function CopyPhrase() {
     }, []);
 
     return (
-        <div className='container'>
-            <div className='page'>
-                <div className={`header ${styles.header_small}`}></div>
-                <div className='main'>
+        <div className='page'>
+            <div className={`header ${styles.header_small}`}></div>
+            <div className='main'>
+                <div className='container'>
+                    <div className={styles.arrow_wrapper}>
+                        <ArrowBack />
+                    </div>
                     <div className={styles.main_wrapper}>
                         <p className={styles.label}>Q Wallet</p>
                         <h1>
@@ -79,7 +83,9 @@ export default function CopyPhrase() {
                         </div>
                     </div>
                 </div>
-                <div className='footer'>
+            </div>
+            <div className='footer'>
+                <div className='container'>
                     <div className={styles.btn_wrapper}>
                         <MyButton onClick={handleClick}>Continue</MyButton>
                     </div>

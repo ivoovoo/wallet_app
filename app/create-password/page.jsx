@@ -6,6 +6,7 @@ import styles from "./page.module.css";
 import MyButton from "@/components/UI/buttons/MyButton";
 import MyInput from "@/components/UI/inputs/MyInput";
 import MySwitcher from "@/components/UI/switchers/MySwitcher";
+import ArrowBack from "@/components/UI/arrows/arrow_back";
 
 export default function Onboarding3() {
     const router = useRouter();
@@ -19,10 +20,13 @@ export default function Onboarding3() {
         }, 2000);
     };
     return (
-        <div className='container'>
-            <div className='page'>
-                <div className={`header ${styles.header_special}`}></div>
-                <div className={`main ${styles.main_special}`}>
+        <div className='page'>
+            <div className={`header ${styles.header_special}`}></div>
+            <div className={styles.arrow_wrapper}>
+                <ArrowBack />
+            </div>
+            <div className={`main ${styles.main_special}`}>
+                <div className='container'>
                     <div className={styles.main_wrapper}>
                         <h1>Create a Password</h1>
                         <p>
@@ -59,10 +63,9 @@ export default function Onboarding3() {
                         </div>
                     </div>
                 </div>
-
-                <div className={`footer ${styles.footer_top}`}>
-                    <div className={styles.footer_wrapper}></div>
-                </div>
+            </div>
+            <div className={`footer ${styles.footer_top}`}>
+                <div className={styles.footer_wrapper}></div>
             </div>
         </div>
     );

@@ -7,6 +7,7 @@ import styles from "./page.module.css";
 import MyButton from "@/components/UI/buttons/MyButton";
 import { fetchMnemonic } from "@/helpers/downloadMnemonic";
 import USER from "@/constants/user";
+import ArrowBack from "@/components/UI/arrows/arrow_back";
 
 export default function CopyPhrase() {
     const userId = USER.user.id;
@@ -87,10 +88,13 @@ export default function CopyPhrase() {
     };
 
     return (
-        <div className='container'>
-            <div className='page'>
-                <div className='header'></div>
-                <div className={`main ${styles.main_special}`}>
+        <div className='page'>
+            <div className='header'></div>
+            <div className={`main ${styles.main_special}`}>
+                <div className='container'>
+                    <div className={styles.arrow_wrapper}>
+                        <ArrowBack />
+                    </div>
                     <div className={styles.main_wrapper}>
                         {" "}
                         <p className={styles.label}>Q Wallet</p>
@@ -135,6 +139,8 @@ export default function CopyPhrase() {
                         </div>
                     </div>
                 </div>
+            </div>
+            <div className='container'>
                 <div className='footer'>
                     <div className={styles.btn_wrapper}>
                         <MyButton onClick={handleFinish} isLoading={isLoading}>

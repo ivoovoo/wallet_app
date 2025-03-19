@@ -1,6 +1,6 @@
 .main_special {
     margin-top: 2rem;
-    align-items: flex-start;
+    align-items: center;
 }
 
 .label {
@@ -88,7 +88,6 @@
 .btn_wrapper {
     width: 100%;
     margin-top: auto;
-    margin-bottom: 3.375rem;
     display: flex;
     flex-direction: column;
     gap: 1.5rem;

@@ -6,6 +6,7 @@ import styles from "./page.module.css";
 import MyButton from "@/components/UI/buttons/MyButton";
 import Link from "next/link";
 import { DotLottieReact } from "@lottiefiles/dotlottie-react";
+import ArrowBack from "@/components/UI/arrows/arrow_back";
 
 export default function Onboarding3() {
     const router = useRouter();
@@ -14,10 +15,13 @@ export default function Onboarding3() {
         router.push("/create-password");
     };
     return (
-        <div className='container'>
-            <div className='page'>
-                <div className={`header ${styles.header_large}`}></div>
-                <div className='main'>
+        <div className='page'>
+            <div className={`header ${styles.header_large}`}></div>
+            <div className='main'>
+                <div className='container'>
+                    <div className={styles.arrow_wrapper}>
+                        <ArrowBack />
+                    </div>
                     <div className={styles.main_wrapper}>
                         <div className={styles.img_wrapper}>
                             <DotLottieReact
@@ -35,7 +39,9 @@ export default function Onboarding3() {
                         </p>
                     </div>
                 </div>
-                <div className='footer'>
+            </div>
+            <div className='footer'>
+                <div className='container'>
                     <div className={styles.footer_wrapper}>
                         <MyButton onClick={handleCkick}>
                             Create a new wallet
