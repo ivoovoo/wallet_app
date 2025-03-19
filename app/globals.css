@@ -130,7 +130,7 @@ a {
     width: 100%;
     align-items: center;
     margin-bottom: 0;
-    padding-bottom: env(safe-area-inset-bottom, 0);
+    padding-bottom: env(safe-area-inset-bottom, 4rem);
 }
 
 @media (min-width: 480px) {
