@@ -15,7 +15,7 @@ export default function BackupPhrase() {
         router.push("/copy-phrase");
     };
     return (
-        <div className='page'>
+        <>
             <div className={`header ${styles.header_small}`}></div>
             <div className='main'>
                 <div className='container'>
@@ -49,6 +49,6 @@ export default function BackupPhrase() {
                     </div>
                 </div>
             </div>
-        </div>
+        </>
     );
 }

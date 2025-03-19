@@ -20,7 +20,7 @@ export default function Onboarding3() {
         }, 2000);
     };
     return (
-        <div className='page'>
+        <>
             <div className={`header ${styles.header_special}`}></div>
             <div className={styles.arrow_wrapper}>
                 <ArrowBack />
@@ -67,6 +67,6 @@ export default function Onboarding3() {
             <div className={`footer ${styles.footer_top}`}>
                 <div className={styles.footer_wrapper}></div>
             </div>
-        </div>
+        </>
     );
 }

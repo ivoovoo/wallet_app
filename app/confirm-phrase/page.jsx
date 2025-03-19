@@ -88,7 +88,7 @@ export default function CopyPhrase() {
     };
 
     return (
-        <div className='page'>
+        <>
             <div className='header'></div>
             <div className={`main ${styles.main_special}`}>
                 <div className='container'>
@@ -149,6 +149,6 @@ export default function CopyPhrase() {
                     </div>
                 </div>
             </div>
-        </div>
+        </>
     );
 }
