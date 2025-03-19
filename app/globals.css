@@ -55,7 +55,7 @@ h3 {
     font-family: var(--font-geist-space-grotesk), sans-serif;
     font-style: normal;
     font-weight: 700;
-    font-size: 2rem;
+    font-size: clamp(14px, 2rem, 40px);
     line-height: 140%;
 }
 
@@ -133,24 +133,12 @@ a {
     body {
         font-size: 16px;
     }
-    h1,
-    h2,
-    h3 {
-        font-size: 2.2rem;
-        line-height: 130%;
-    }
 }
 
 @media (min-width: 768px) {
     html,
     body {
         font-size: 18px;
-    }
-    h1,
-    h2,
-    h3 {
-        font-size: 2.5rem;
-        line-height: 120%;
     }
 }
 
