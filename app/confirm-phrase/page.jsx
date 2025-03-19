@@ -74,15 +74,15 @@ export default function CopyPhrase() {
             const words = text.trim().split(/,\s?/);
 
             if (words.length !== 16) {
-                alert("Ошибка: Количество слов в фразе некорректно.");
+                alert("Error: The nubmer of words in the phrase is incorrect.");
                 return;
             }
 
             setGridWords(words);
             setWordList([]);
         } catch (error) {
-            alert("Ошибка при вставке!");
-            console.error("Ошибка при вставке:", error);
+            alert("Insertion error!");
+            console.error("Insertion error:", error);
         }
     };
 

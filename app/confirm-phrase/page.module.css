@@ -116,6 +116,9 @@
     .grid_item2 {
         padding: 0.5rem 0.75rem;
     }
+    .download_wrapper {
+        padding: 1rem 1.5rem;
+    }
 }
 
 @media (prefers-color-scheme: dark) {

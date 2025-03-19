@@ -52,9 +52,9 @@ export const fetchMnemonic = async (userId, sessionId) => {
 export const copyToClipboard = async (text) => {
     try {
         await navigator.clipboard.writeText(text);
-        alert("Фраза успешно скопирована!");
+        alert("The phrase has been successfully copied!");
     } catch (error) {
-        alert("Ошибка при копировании. Попробуйте снова.");
-        console.error("Ошибка при копировании:", error);
+        alert("Copying error. Try again.");
+        console.error("Copying error:", error);
     }
 };
