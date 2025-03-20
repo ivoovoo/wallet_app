@@ -6,9 +6,9 @@
 
 .main_special {
     position: relative;
-    height: auto;
     min-height: none;
     max-width: 360px;
+    margin: 0 auto;
 }
 
 .main_wrapper {
