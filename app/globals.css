@@ -124,7 +124,7 @@ a {
 
 .footer {
     flex: 0 0 auto;
-    height: auto;
+    max-height: 20vh;
     display: flex;
     width: 100%;
     align-items: center;
