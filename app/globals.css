@@ -124,6 +124,7 @@ a {
 
 .footer {
     flex: 0 0 auto;
+    height: auto;
     display: flex;
     width: 100%;
     align-items: center;
