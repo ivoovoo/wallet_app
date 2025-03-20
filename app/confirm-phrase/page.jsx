@@ -96,11 +96,10 @@ export default function CopyPhrase() {
                         <ArrowBack />
                     </div>
                     <div className={styles.main_wrapper}>
-                        {" "}
                         <p className={styles.label}>Q Wallet</p>
                         <h1 className={styles.title}>
                             Add Verify Recovery <span>Phrase!</span>
-                        </h1>{" "}
+                        </h1>
                         <div className={styles.grid}>
                             {gridWords.map((word, index) => (
                                 <div
@@ -140,8 +139,8 @@ export default function CopyPhrase() {
                     </div>
                 </div>
             </div>
-            <div className='container'>
-                <div className='footer'>
+            <div className='footer'>
+                <div className='container'>
                     <div className={styles.btn_wrapper}>
                         <MyButton onClick={handleFinish} isLoading={isLoading}>
                             Finish

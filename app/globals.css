@@ -23,10 +23,10 @@
 html,
 body {
     width: min(100vw, 100%);
-    max-width: 100%;
+    min-width: 100%;
     overflow-x: hidden;
     font-size: 14px;
-    height: 100%;
+    max-height: 100%;
     margin: 0;
     padding: 0;
 }
@@ -46,12 +46,6 @@ body {
     user-select: none;
     -webkit-tap-highlight-color: transparent;
     overscroll-behavior: contain;
-}
-body[data-page="special"] {
-    background-image: var(--special-bg);
-    background-repeat: no-repeat;
-    background-attachment: fixed;
-    background-size: cover;
 }
 
 h1,
