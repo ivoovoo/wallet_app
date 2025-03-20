@@ -123,8 +123,7 @@ a {
 }
 
 .footer {
-    flex-shrink: 0;
-    max-height: 20vh;
+    flex: 0 0 auto;
     min-height: 4rem;
     display: flex;
     width: 100%;
