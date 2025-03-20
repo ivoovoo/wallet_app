@@ -92,6 +92,9 @@ a {
     gap: clamp(8px, 1rem, 20px);
     align-items: center;
     padding-bottom: 4rem;
+     {
+        outline: 1px solid red;
+    }
 }
 /* @supports (padding-bottom: env(safe-area-inset-bottom)) {
     .page {
@@ -116,6 +119,9 @@ a {
     display: flex;
     gap: clamp(8px, 1rem, 20px);
     align-items: center;
+     {
+        outline: 1px solid red;
+    }
 }
 
 .main h1 {
@@ -128,6 +134,9 @@ a {
     width: 100%;
     align-items: center;
     margin-bottom: 0;
+     {
+        outline: 1px solid red;
+    }
 }
 
 @media (min-width: 480px) {
