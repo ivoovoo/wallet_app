@@ -83,13 +83,13 @@ a {
 }
 
 .page {
-    display: grid;
-    grid-template-rows: var(--vh, 1vh) * 10 1fr var(--vh, 1vh) * 10;
+    /* display: grid;
+    grid-template-rows: var(--vh, 1vh) * 10 1fr var(--vh, 1vh) * 10; */
     width: 100%;
     max-height: calc(var(--vh, 1vh) * 100);
     height: 100%;
     justify-content: space-between;
-    gap: clamp(8px, 1rem, 20px);
+    /* gap: clamp(8px, 1rem, 20px); */
     align-items: center;
     padding-bottom: 4rem;
 }
@@ -105,15 +105,16 @@ a {
 
 .header {
     width: 100%;
+    height: calc(var(--vh, 1vh) * 10);
 }
 
 .main {
     position: relative;
-    flex: 1 1 auto;
     width: 100%;
     display: flex;
     gap: clamp(8px, 1rem, 20px);
     align-items: center;
+    height: calc(var(--vh, 1vh) * 80);
 }
 
 .main h1 {
@@ -122,6 +123,7 @@ a {
 
 .footer {
     width: 100%;
+    height: calc(var(--vh, 1vh) * 10);
 }
 
 @media (min-width: 480px) {
