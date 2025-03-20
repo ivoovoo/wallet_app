@@ -22,7 +22,6 @@
 }
 .img_wrapper {
     align-self: center;
-
     max-height: 30vh;
     aspect-ratio: 1;
     display: flex;

@@ -98,13 +98,12 @@ a {
     gap: clamp(8px, 1rem, 20px);
     align-items: center;
     padding-bottom: 4rem;
-    margin-bottom: 4rem;
 }
-@supports (padding-bottom: env(safe-area-inset-bottom)) {
+/* @supports (padding-bottom: env(safe-area-inset-bottom)) {
     .page {
         padding-bottom: env(safe-area-inset-bottom, 4rem);
     }
-}
+} */
 
 .page span {
     color: var(--primary);

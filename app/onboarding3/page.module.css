@@ -27,13 +27,11 @@
 .footer_wrapper {
     display: flex;
     flex-direction: column;
-    gap: 1.5rem;
+    gap: 1rem;
     justify-content: space-between;
     align-items: center;
     width: 100%;
     align-items: center;
-    margin-top: auto;
-    margin-bottom: 3rem;
 }
 .footer_wrapper p {
     font-size: 1rem;

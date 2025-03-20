@@ -1,8 +1,3 @@
-.main_special {
-    margin-top: 2rem;
-    align-items: center;
-}
-
 .label {
     color: rgba(237, 237, 237, 0.15);
 }
@@ -13,7 +8,6 @@
     flex-direction: column;
     align-items: center;
     gap: 0.5rem;
-    margin-bottom: 1.5rem;
 }
 .main_wrapper h1 {
     width: 100% !important;
