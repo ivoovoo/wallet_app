@@ -8,7 +8,7 @@
     position: relative;
     min-height: none;
     max-width: 360px;
-    margin: 0 auto;
+    margin: auto auto;
 }
 
 .main_wrapper {
@@ -16,7 +16,7 @@
     width: 100%;
     display: flex;
     flex-direction: column;
-    align-items: flex-start;
+    align-items: center;
     gap: 1.5rem;
 }
 .main_wrapper h1 {
