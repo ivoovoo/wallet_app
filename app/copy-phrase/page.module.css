@@ -79,20 +79,3 @@
 .btn_wrapper p {
     text-align: center;
 }
-
-@media (min-width: 480px) {
-    .download_wrapper {
-        padding: 1rem 1.5rem;
-    }
-
-    .banner {
-        padding: 0.5rem;
-    }
-    .flex {
-        gap: 1rem;
-    }
-
-    .flex_item {
-        padding: 0.5rem 0.75rem;
-    }
-}
