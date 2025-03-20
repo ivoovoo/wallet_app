@@ -128,7 +128,6 @@ a {
     display: flex;
     width: 100%;
     align-items: center;
-    outline: 1px solid red;
 }
 
 @media (min-width: 480px) {
@@ -152,6 +151,6 @@ a {
     }
 }
 
-/* * {
+* {
     outline: 1px solid red;
-} */
+}
