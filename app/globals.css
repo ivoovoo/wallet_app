@@ -83,11 +83,11 @@ a {
 }
 
 .page {
+    display: grid;
+    grid-template-rows: auto 1fr auto;
     width: 100%;
     max-height: calc(var(--vh, 1vh) * 100);
     height: 100%;
-    display: flex;
-    flex-direction: column;
     justify-content: space-between;
     gap: clamp(8px, 1rem, 20px);
     align-items: center;
