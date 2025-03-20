@@ -3,29 +3,19 @@
 import Link from "next/link";
 import styles from "./page.module.css";
 import { useState, useEffect } from "react";
-import { DotLottieReact } from "@lottiefiles/dotlottie-react";
 import ArrowBack from "@/components/UI/arrows/arrow_back";
+import animationData from "@/public/images/Animation_2.json";
+import Lottie from "react-lottie";
 
 export default function Onboarding2() {
-    const [isLoaded, setIsLoaded] = useState(false);
-    const animationSrc = "/images/Animation_2.json";
-
-    useEffect(() => {
-        const preloadAnimation = async () => {
-            try {
-                const response = await fetch(animationSrc);
-                if (response.ok) {
-                    setIsLoaded(true);
-                }
-            } catch (error) {
-                console.error("Ошибка загрузки анимации:", error);
-            }
-        };
-
-        preloadAnimation();
-    }, []);
-
-    if (!isLoaded) return null;
+    const defaultOptions = {
+        loop: true,
+        autoplay: true,
+        animationData: animationData,
+        rendererSettings: {
+            preserveAspectRatio: "xMidYMid slice",
+        },
+    };
     return (
         <>
             <div className='header'></div>
@@ -36,7 +26,7 @@ export default function Onboarding2() {
                     </div>
                     <div className={styles.main_wrapper}>
                         <div className={styles.img_wrapper}>
-                            <DotLottieReact src={animationSrc} loop autoplay />
+                            <Lottie options={defaultOptions} />
                         </div>
                         <h1>
                             Simple wallet <span>control</span> everywhere

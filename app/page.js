@@ -1,30 +1,19 @@
 "use client";
 import Link from "next/link";
-import { useState, useEffect } from "react";
 import styles from "./page.module.css";
-import { DotLottieReact } from "@lottiefiles/dotlottie-react";
 import ArrowBack from "@/components/UI/arrows/arrow_back";
+import animationData from "@/public/images/Animation_6.json";
+import Lottie from "react-lottie";
 
 export default function Home() {
-    const [isLoaded, setIsLoaded] = useState(false);
-    const animationSrc = "/images/Animation_6.json";
-
-    useEffect(() => {
-        const preloadAnimation = async () => {
-            try {
-                const response = await fetch(animationSrc);
-                if (response.ok) {
-                    setIsLoaded(true);
-                }
-            } catch (error) {
-                console.error("Ошибка загрузки анимации:", error);
-            }
-        };
-
-        preloadAnimation();
-    }, []);
-
-    if (!isLoaded) return null;
+    const defaultOptions = {
+        loop: true,
+        autoplay: true,
+        animationData: animationData,
+        rendererSettings: {
+            preserveAspectRatio: "xMidYMid slice",
+        },
+    };
 
     return (
         <>
@@ -36,8 +25,9 @@ export default function Home() {
                     </div>
                     <div className={styles.main_wrapper}>
                         <div className={styles.img_wrapper}>
-                            <DotLottieReact src={animationSrc} loop autoplay />
+                            <Lottie options={defaultOptions} />
                         </div>
+
                         <h1>
                             A safe haven for all your <span>assets</span>
                         </h1>

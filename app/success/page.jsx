@@ -1,13 +1,21 @@
 "use client";
 import { useRouter } from "next/navigation";
-import Image from "next/image";
 import styles from "./page.module.css";
 import MyButton from "@/components/UI/buttons/MyButton";
-import { DotLottieReact } from "@lottiefiles/dotlottie-react";
 import ArrowBack from "@/components/UI/arrows/arrow_back";
+import animationData from "@/public/images/Animation_5.json";
+import Lottie from "react-lottie";
 
 export default function Success() {
     const router = useRouter();
+    const defaultOptions = {
+        loop: true,
+        autoplay: true,
+        animationData: animationData,
+        rendererSettings: {
+            preserveAspectRatio: "xMidYMid meet",
+        },
+    };
 
     const handleCkick = () => {
         router.push("/create-password");
@@ -22,11 +30,7 @@ export default function Success() {
                     </div>
                     <div className={styles.main_wrapper}>
                         <div className={styles.img_wrapper}>
-                            <DotLottieReact
-                                src='images/Animation_5.json'
-                                loop
-                                autoplay
-                            />
+                            <Lottie options={defaultOptions} />
                         </div>
                         <h1>Your wallet has been successfully created</h1>
                     </div>
