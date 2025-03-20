@@ -1,7 +1,8 @@
 .arrow_wrapper {
-    position: absolute;
+    /* position: absolute;
     top: 5rem;
-    left: 2rem;
+    left: 2rem; */
+    margin-left: 2rem;
 }
 
 .main_special {

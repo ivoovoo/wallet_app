@@ -103,12 +103,9 @@ a {
 .main {
     position: relative;
     width: 100%;
-    display: flex;
-    gap: clamp(8px, 1rem, 20px);
-    align-items: center;
-    justify-content: center;
-    margin: auto 0;
+    margin: 0 auto;
     height: calc(var(--vh, 1vh) * 75);
+    vertical-align: baseline;
 }
 
 .main h1 {

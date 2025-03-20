@@ -1,3 +1,9 @@
+.arrow_wrapper {
+    position: absolute;
+    top: 0;
+    left: 2rem;
+}
+
 .label {
     color: rgba(237, 237, 237, 0.15);
 }
