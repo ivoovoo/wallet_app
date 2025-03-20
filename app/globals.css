@@ -83,21 +83,13 @@ a {
 }
 
 .page {
-    /* display: grid;
-    grid-template-rows: var(--vh, 1vh) * 10 1fr var(--vh, 1vh) * 10; */
     width: 100%;
     max-height: calc(var(--vh, 1vh) * 100);
     height: 100%;
     justify-content: space-between;
-    /* gap: clamp(8px, 1rem, 20px); */
     align-items: center;
     padding-bottom: 4rem;
 }
-/* @supports (padding-bottom: env(safe-area-inset-bottom)) {
-    .page {
-        padding-bottom: env(safe-area-inset-bottom, 4rem);
-    }
-} */
 
 .page span {
     color: var(--primary);
