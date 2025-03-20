@@ -7,9 +7,29 @@ import MyButton from "@/components/UI/buttons/MyButton";
 import Link from "next/link";
 import { DotLottieReact } from "@lottiefiles/dotlottie-react";
 import ArrowBack from "@/components/UI/arrows/arrow_back";
+import { useState, useEffect } from "react";
 
 export default function Onboarding3() {
     const router = useRouter();
+    const [isLoaded, setIsLoaded] = useState(false);
+    const animationSrc = "/images/Animation_3.json";
+
+    useEffect(() => {
+        const preloadAnimation = async () => {
+            try {
+                const response = await fetch(animationSrc);
+                if (response.ok) {
+                    setIsLoaded(true);
+                }
+            } catch (error) {
+                console.error("Ошибка загрузки анимации:", error);
+            }
+        };
+
+        preloadAnimation();
+    }, []);
+
+    if (!isLoaded) return null;
 
     const handleCkick = () => {
         router.push("/create-password");
@@ -24,11 +44,7 @@ export default function Onboarding3() {
                     </div>
                     <div className={styles.main_wrapper}>
                         <div className={styles.img_wrapper}>
-                            <DotLottieReact
-                                src='images/Animation_3.json'
-                                loop
-                                autoplay
-                            />
+                            <DotLottieReact src={animationSrc} loop autoplay />
                         </div>
                         <h1>
                             Fast & secure access to <span>Dapps</span>
