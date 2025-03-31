@@ -3,7 +3,10 @@ import Link from "next/link";
 import styles from "./page.module.css";
 import ArrowBack from "@/components/UI/arrows/arrow_back";
 import animationData from "@/public/images/Animation_6.json";
-import Lottie from "react-lottie";
+import dynamic from "next/dynamic";
+const Lottie = dynamic(() => import("react-lottie"), {
+    ssr: false,
+});
 
 export default function Home() {
     const defaultOptions = {

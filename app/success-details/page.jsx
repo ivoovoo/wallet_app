@@ -4,7 +4,10 @@ import styles from "./page.module.css";
 import MyButton from "@/components/UI/buttons/MyButton";
 import ArrowBack from "@/components/UI/arrows/arrow_back";
 import animationData from "@/public/images/Animation_5.json";
-import Lottie from "react-lottie";
+import dynamic from "next/dynamic";
+const Lottie = dynamic(() => import("react-lottie"), {
+    ssr: false,
+});
 
 export default function Success() {
     const router = useRouter();

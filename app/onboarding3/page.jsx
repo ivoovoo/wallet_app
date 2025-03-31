@@ -6,7 +6,10 @@ import MyButton from "@/components/UI/buttons/MyButton";
 import Link from "next/link";
 import ArrowBack from "@/components/UI/arrows/arrow_back";
 import animationData from "@/public/images/Animation_3.json";
-import Lottie from "react-lottie";
+import dynamic from "next/dynamic";
+const Lottie = dynamic(() => import("react-lottie"), {
+    ssr: false,
+});
 
 export default function Onboarding3() {
     const router = useRouter();
