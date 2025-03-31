@@ -1,0 +1,116 @@
+.arrow_wrapper {
+    position: absolute;
+    top: 0;
+    left: 2rem;
+}
+
+.main_wrapper {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 1rem;
+}
+.main_wrapper h1 {
+    font-size: 1.5rem;
+    text-align: center;
+}
+
+.footer_wrapper {
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
+    align-items: center;
+    margin-top: auto;
+    margin-bottom: 3rem;
+}
+.footer_wrapper p {
+    font-size: 1rem;
+}
+
+.img_wrapper {
+    align-self: center;
+    width: 80%;
+    max-width: 360px;
+    aspect-ratio: 1;
+    display: flex;
+    justify-content: center;
+}
+.img_wrapper img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+.label {
+    color: rgba(237, 237, 237, 0.15);
+}
+
+.button {
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 0.5rem 0.75rem;
+    gap: 1rem;
+    max-width: 360px;
+    width: 100%;
+    height: 45px;
+    background: var(--secondary-4);
+    color: var(--foreground);
+    border: none;
+    border-radius: 100px;
+    cursor: pointer;
+    appearance: none;
+    -webkit-appearance: none;
+    outline: none;
+    box-shadow: none;
+    transition: background 0.3s ease;
+    -webkit-tap-highlight-color: transparent;
+}
+
+.button:focus,
+.button:focus-visible,
+.button:active {
+    outline: none !important;
+    box-shadow: none !important;
+}
+
+.text {
+    font-family: var(--font-geist-outfit);
+    font-size: 1.1rem;
+    outline: none;
+    box-shadow: none;
+}
+
+@media (min-width: 480px) {
+    .button {
+        height: 50px;
+    }
+}
+
+@media (min-width: 768px) {
+    .button {
+        height: 55px;
+    }
+}
+
+@media (min-width: 1000px) {
+    .button {
+        height: 65px;
+    }
+}
+
+@media (min-width: 768px) {
+    .img_wrapper {
+        width: 40%;
+    }
+}
+
+@media (min-width: 1000px) {
+    .img_wrapper {
+        width: 30%;
+    }
+}

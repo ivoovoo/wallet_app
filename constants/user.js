@@ -2,18 +2,17 @@ const USER = {
     status: "User found",
     user: {
         id: 181818,
-        mnemonic:
-            "propylite amphiphloic sillikin undim fluxibleness unpervert prerefuse Sabellianism Suricata heckler thermetrograph earthlight ustulation bavian unexhibitableness aplanatic",
-        username: "181818",
-        ton_wallet: "string",
+        mnemonic: null,
+        username: null,
+        ton_wallet: "",
         balance: 0,
-        avatar: "string",
+        avatar: null,
         referrer: null,
     },
     access_token:
-        "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ0b2tlbl90eXBlIjoiYWNjZXNzIiwiZXhwIjoxNzQxNjA3ODY0LCJpYXQiOjE3NDE2MDYwNjQsImp0aSI6IjdmMGU0NTg0OGNhZDQzNTU4MWRmNzM4YTkyMjA5MWIzIiwidXNlcl9pZCI6MTgxODE4fQ.vMPdIL9jut5bxg6EcLVMEmRXmfvZvG-3mihrPgrz81c",
+        "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ0b2tlbl90eXBlIjoiYWNjZXNzIiwiZXhwIjoxNzQzNDE3NTkzLCJpYXQiOjE3NDM0MTU3OTMsImp0aSI6ImMzOGQwZDRjNTUzZTQwZjRhMGI4YjVlMmViYmJkYzEzIiwidXNlcl9pZCI6MTgxODE4fQ.KWLs3CUh7VuJnZW7jAxGcWB5GGFtMsxS0agKtzTKPXY",
     refresh_token:
-        "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ0b2tlbl90eXBlIjoicmVmcmVzaCIsImV4cCI6MTc0MjIxMDg2NCwiaWF0IjoxNzQxNjA2MDY0LCJqdGkiOiI2ZTU0NWM0NWI5MzY0NDk2YWY5YTkwY2VjMTU4YWUzZCIsInVzZXJfaWQiOjE4MTgxOH0.H9r3TScGXseR5OoioCS_sYa0Gwpz1Cq8reT4v5uej34",
+        "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ0b2tlbl90eXBlIjoicmVmcmVzaCIsImV4cCI6MTc0NDAyMDU5MywiaWF0IjoxNzQzNDE1NzkzLCJqdGkiOiI2NWRlZjU4YTBlMmM0NDhkYjY1YzcxYzFmYzM5MjhiMCIsInVzZXJfaWQiOjE4MTgxOH0.icxqaBMBQgFzPEI5DmKWIKEVP_js1D90hjZZ0sCpcaI",
 };
 
 export default USER;
