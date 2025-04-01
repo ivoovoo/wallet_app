@@ -76,9 +76,7 @@ export default function Success() {
             <div className='footer'>
                 <div className='container'>
                     <div className={styles.footer_wrapper}>
-                        <MyButton onClick={handleCkick}>
-                            Explore your wallet
-                        </MyButton>
+                        <MyButton onClick={handleCkick}>Open Bank</MyButton>
                     </div>
                 </div>
             </div>

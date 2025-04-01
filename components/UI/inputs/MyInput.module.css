@@ -28,7 +28,7 @@
 .input::placeholder {
     appearance: none;
     color: var(--foreground);
-    font-family: var(--font-geist-outfit);
+    font-family: var(--font-outfit);
 }
 
 .input_label {

@@ -38,7 +38,7 @@ body {
     background-attachment: fixed;
     background-size: cover;
     color: var(--foreground);
-    font-family: var(--font-geist-outfit), sans-serif;
+    font-family: var(--font-outfit), sans-serif;
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
     touch-action: manipulation;
@@ -52,7 +52,7 @@ body {
 h1,
 h2,
 h3 {
-    font-family: var(--font-geist-space-grotesk), sans-serif;
+    font-family: var(--font-space-grotesk), sans-serif;
     font-style: normal;
     font-weight: 700;
     font-size: clamp(14px, 2rem, 40px);

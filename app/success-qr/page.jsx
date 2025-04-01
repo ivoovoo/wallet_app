@@ -35,12 +35,10 @@ export default function Success() {
                 <div className='container'>
                     <div className={styles.footer_wrapper}>
                         <button className={styles.button}>
-                            Create a new wallet{" "}
+                            31icdjsoidcnslkjnopd
                             <img src='/copy.svg' alt='icon' />
                         </button>
-                        <MyButton onClick={handleCkick}>
-                            Explore your wallet
-                        </MyButton>
+                        <MyButton onClick={handleCkick}>Open Bank</MyButton>
                     </div>
                 </div>
             </div>

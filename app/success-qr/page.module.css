@@ -79,7 +79,7 @@
 }
 
 .text {
-    font-family: var(--font-geist-outfit);
+    font-family: var(--font-outfit);
     font-size: 1.1rem;
     outline: none;
     box-shadow: none;

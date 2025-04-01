@@ -4,13 +4,13 @@ import { Space_Grotesk, Outfit } from "next/font/google";
 import { useEffect, useState } from "react";
 import "./globals.css";
 
-const geistOutfit = Outfit({
-    variable: "--font-geist-outfit",
+const outfit = Outfit({
+    variable: "--font-outfit",
     subsets: ["latin"],
 });
 
-const geistSpaceGrotesk = Space_Grotesk({
-    variable: "--font-geist-space-grotesk",
+const spaceGrotesk = Space_Grotesk({
+    variable: "--font-space-grotesk",
     subsets: ["latin"],
 });
 
@@ -65,7 +65,7 @@ export default function RootLayout({ children }) {
 
             <body
                 data-page={children.props.page || "default"}
-                className={`${geistOutfit.variable} ${geistSpaceGrotesk.variable}`}
+                className={`${outfit.variable} ${spaceGrotesk.variable}`}
             >
                 <div className='page' style={{ height: viewportHeight }}>
                     {children}

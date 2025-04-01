@@ -1,72 +1,35 @@
 "use client";
 
-import { useState, useEffect } from "react";
-import Image from "next/image";
+import { useState } from "react";
 import { useRouter } from "next/navigation";
 import styles from "./page.module.css";
 import MyButton from "@/components/UI/buttons/MyButton";
-import { fetchMnemonic } from "@/helpers/downloadMnemonic";
-import USER from "@/constants/user";
 import ArrowBack from "@/components/UI/arrows/arrow_back";
 
 export default function CopyPhrase() {
-    const userId = USER.user.id;
-    const sessionId = USER.access_token;
     const router = useRouter();
-
-    const [gridWords, setGridWords] = useState(Array(16).fill(null));
-    const [wordList, setWordList] = useState([]);
-    const [originalPhrase, setOriginalPhrase] = useState([]);
+    const [gridWords, setGridWords] = useState(Array(16).fill(""));
     const [isLoading, setIsLoading] = useState(false);
 
-    useEffect(() => {
-        const getMnemonic = async () => {
-            const phrase = await fetchMnemonic(userId, sessionId);
-            setOriginalPhrase(phrase);
-            const shuffledPhrase = [...phrase].sort(() => Math.random() - 0.5);
-            setWordList(shuffledPhrase);
-        };
-        getMnemonic();
-    }, []);
-
-    const handleClickWord = (word) => {
-        const emptyIndex = gridWords.findIndex((cell) => cell === null);
-        if (emptyIndex !== -1) {
-            setGridWords((prev) => {
-                const newGrid = [...prev];
-                newGrid[emptyIndex] = word;
-                return newGrid;
-            });
-            setWordList((prev) => prev.filter((w) => w !== word));
-        }
+    const handleInputChange = (index, value) => {
+        const newGrid = [...gridWords];
+        newGrid[index] = value;
+        setGridWords(newGrid);
     };
 
-    const handleClickGrid = (index) => {
-        if (gridWords[index]) {
-            setWordList((prev) => [...prev, gridWords[index]]);
-            setGridWords((prev) => {
-                const newGrid = [...prev];
-                newGrid[index] = null;
-                return newGrid;
-            });
-        }
-    };
-
-    const handleFinish = async () => {
+    const handleSubmit = async () => {
         setIsLoading(true);
 
-        await new Promise((resolve) => setTimeout(resolve, 1000));
+        try {
+            // Здесь отправляем фразу на сервер
 
-        if (gridWords.join(" ") === originalPhrase.join(" ")) {
             router.push("/success");
-        } else {
-            alert("It's important that you enter your words correctly.");
-
-            setGridWords(Array(16).fill(null));
-            setWordList([...originalPhrase].sort(() => Math.random() - 0.5));
+        } catch (error) {
+            console.error("Error saving phrase:", error);
+            alert("Error saving phrase. Please try again.");
+        } finally {
+            setIsLoading(false);
         }
-
-        setIsLoading(false);
     };
 
     return (
@@ -75,7 +38,7 @@ export default function CopyPhrase() {
             <div className={`main ${styles.main_special}`}>
                 <div className='container'>
                     <div className={styles.arrow_wrapper}>
-                        <ArrowBack />
+                        <ArrowBack onClick={() => router.back()} />
                     </div>
                     <div className={styles.main_wrapper}>
                         <p className={styles.label}>Q Wallet</p>
@@ -84,13 +47,16 @@ export default function CopyPhrase() {
                         </h1>
                         <div className={styles.grid}>
                             {gridWords.map((word, index) => (
-                                <div
+                                <input
+                                    type='text'
                                     key={index}
+                                    value={word}
+                                    onChange={(e) =>
+                                        handleInputChange(index, e.target.value)
+                                    }
                                     className={styles.grid_item}
-                                    onClick={() => handleClickGrid(index)}
-                                >
-                                    {index + 1}. {word}
-                                </div>
+                                    placeholder={`${index + 1}.`}
+                                />
                             ))}
                         </div>
                     </div>
@@ -99,12 +65,15 @@ export default function CopyPhrase() {
             <div className='footer'>
                 <div className='container'>
                     <div className={styles.footer_wrapper}>
-                        <button className={styles.button}>
+                        <button
+                            className={styles.button}
+                            onClick={() => router.push("/confirm-phrase")}
+                        >
                             Create a new wallet
                         </button>
                         <div className={styles.btn_wrapper}>
                             <MyButton
-                                onClick={handleFinish}
+                                onClick={handleSubmit}
                                 isLoading={isLoading}
                             >
                                 Finish
