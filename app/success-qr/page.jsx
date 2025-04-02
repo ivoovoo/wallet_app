@@ -3,6 +3,7 @@ import { useRouter } from "next/navigation";
 import styles from "./page.module.css";
 import MyButton from "@/components/UI/buttons/MyButton";
 import ArrowBack from "@/components/UI/arrows/arrow_back";
+import Heading from "@/components/layout/heding";
 
 export default function Success() {
     const router = useRouter();
@@ -12,34 +13,27 @@ export default function Success() {
     };
     return (
         <>
-            <div className={`header ${styles.header_small}`}></div>
+            <div className='header'></div>
             <div className='main'>
-                <div className='container'>
-                    <div className={styles.arrow_wrapper}>
-                        <ArrowBack />
+                <Heading>Q Wallet</Heading>
+                <div className={styles.main_wrapper}>
+                    <h1>
+                        Read the QR Code of <br />
+                        <span className='accent'>your wallet!</span>{" "}
+                    </h1>
+                    <div className={styles.img_wrapper}>
+                        <img src='/images/qr.png' alt='qr' />
                     </div>
-                    <div className={styles.main_wrapper}>
-                        <p className={styles.label}>Q Wallet</p>
-                        <h1>
-                            Read the QR Code of <br />
-                            <span>your wallet!</span>{" "}
-                        </h1>
-                        <div className={styles.img_wrapper}>
-                            <img src='/images/qr.png' alt='qr' />
-                        </div>
-                        <p>Your wallet Q Blockchain</p>
-                    </div>
+                    <p>Your wallet Q Blockchain</p>
+                    <button className={styles.button}>
+                        31icdjsoidcnslkjnopd
+                        <img src='/copy.svg' alt='icon' />
+                    </button>
                 </div>
             </div>
             <div className='footer'>
-                <div className='container'>
-                    <div className={styles.footer_wrapper}>
-                        <button className={styles.button}>
-                            31icdjsoidcnslkjnopd
-                            <img src='/copy.svg' alt='icon' />
-                        </button>
-                        <MyButton onClick={handleCkick}>Open Bank</MyButton>
-                    </div>
+                <div className={styles.footer_wrapper}>
+                    <MyButton onClick={handleCkick}>Open Bank</MyButton>
                 </div>
             </div>
         </>

@@ -6,7 +6,7 @@ import styles from "./page.module.css";
 import MyButton from "@/components/UI/buttons/MyButton";
 import { DotLottieReact } from "@lottiefiles/dotlottie-react";
 import Link from "next/link";
-import ArrowBack from "@/components/UI/arrows/arrow_back";
+import Heading from "@/components/layout/heding";
 
 export default function BackupPhrase() {
     const router = useRouter();
@@ -16,37 +16,31 @@ export default function BackupPhrase() {
     };
     return (
         <>
-            <div className={`header ${styles.header_small}`}></div>
+            <div className='header'></div>
             <div className='main'>
-                <div className='container'>
-                    <div className={styles.arrow_wrapper}>
-                        <ArrowBack />
-                    </div>
-                    <div className={styles.main_wrapper}>
-                        <h1>Backup your recovery phrase </h1>
-                        <p>
-                            Without the recovery phrase, when you lose your
-                            device or delete the app, you will permanently lose
-                            all assets stored on the wallet
-                        </p>
-                        <div className={styles.img_wrapper}>
-                            <DotLottieReact
-                                src='images/Animation_4.json'
-                                loop
-                                autoplay
-                            />
-                        </div>
+                <Heading />
+                <div className={styles.main_wrapper}>
+                    <h1>Backup your recovery phrase </h1>
+                    <p>
+                        Without the recovery phrase, when you lose your device
+                        or delete the app, you will permanently lose all assets
+                        stored on the wallet
+                    </p>
+                    <div className={styles.img_wrapper}>
+                        <DotLottieReact
+                            src='images/Animation_4.json'
+                            loop
+                            autoplay
+                        />
                     </div>
                 </div>
             </div>
             <div className='footer'>
-                <div className='container'>
-                    <div className={styles.btn_wrapper}>
-                        <MyButton onClick={handleCkick}>
-                            Backup my phrase now
-                        </MyButton>
-                        <Link href='/confirm-phrase'>I will backup later.</Link>
-                    </div>
+                <div className={styles.btn_wrapper}>
+                    <MyButton onClick={handleCkick}>
+                        Backup my phrase now
+                    </MyButton>
+                    <Link href='/confirm-phrase'>I will backup later.</Link>
                 </div>
             </div>
         </>

@@ -1,0 +1,14 @@
+.label {
+    color: rgba(237, 237, 237, 0.15);
+}
+
+.heading {
+    display: grid;
+    grid-template-columns: 15% 1fr 15%;
+    grid-gap: 12px;
+    gap: 12px;
+    align-items: center;
+    justify-content: space-between;
+    width: 100%;
+    justify-items: center;
+}

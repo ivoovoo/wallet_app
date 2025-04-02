@@ -2,7 +2,8 @@ const USER = {
     status: "User found",
     user: {
         id: 181818,
-        mnemonic: null,
+        mnemonic:
+            "Said Done Gone After Alchemy Dove House Dart Caves Good Favor Memo One Two Three Four",
         username: null,
         ton_wallet: "",
         balance: 0,

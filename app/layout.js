@@ -15,7 +15,7 @@ const spaceGrotesk = Space_Grotesk({
 });
 
 export default function RootLayout({ children }) {
-    const [viewportHeight, setViewportHeight] = useState("100vh");
+    const [viewportHeight, setViewportHeight] = useState("100svh");
 
     useEffect(() => {
         const updateViewportHeight = () => {
@@ -63,12 +63,9 @@ export default function RootLayout({ children }) {
                 content='black-translucent'
             />
 
-            <body
-                data-page={children.props.page || "default"}
-                className={`${outfit.variable} ${spaceGrotesk.variable}`}
-            >
-                <div className='page' style={{ height: viewportHeight }}>
-                    {children}
+            <body className={`${outfit.variable} ${spaceGrotesk.variable}`}>
+                <div className='container' style={{ height: viewportHeight }}>
+                    <div className='content'>{children}</div>
                 </div>
             </body>
         </html>

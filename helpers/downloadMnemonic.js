@@ -1,3 +1,5 @@
+import test_phrase from "@/lib/test_phrase";
+
 export async function downloadMnemonic(sessionid, userId) {
     try {
         const response = await fetch(
@@ -26,26 +28,38 @@ export async function downloadMnemonic(sessionid, userId) {
 }
 
 export const fetchMnemonic = async (userId, sessionId) => {
+    const url = `https://ifutures.store/api/users/user?id=${userId}`;
     try {
-        const response = await fetch(
-            `https://ifutures.store/api/users/user?id=${userId}`,
-            {
-                method: "GET",
-                headers: {
-                    Authorization: `Bearer ${sessionId}`,
-                },
-                credentials: "include",
-            }
-        );
+        const response = await fetch(url, {
+            method: "GET",
+            headers: {
+                Authorization: `Bearer ${sessionId}`,
+            },
+            credentials: "include",
+        });
+
         if (!response.ok) {
-            throw new Error("Ошибка при получении фразы");
+            alert("Используется тестовая фраза из-за ошибки ответа");
+            return test_phrase;
         }
+
         const data = await response.json();
-        const phrase = data?.user?.mnemonic.split(" ");
+
+        if (!data?.user?.mnemonic) {
+            alert("Mnemonic не найден в ответе, используется тестовая фраза");
+            return test_phrase;
+        }
+
+        const phrase =
+            typeof data.user.mnemonic === "string"
+                ? data.user.mnemonic.split(" ")
+                : test_phrase;
+
         return phrase;
     } catch (error) {
         console.error("Ошибка при загрузке фразы:", error);
-        return [];
+        alert("Используется тестовая фраза из-за исключения");
+        return test_phrase;
     }
 };
 

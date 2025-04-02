@@ -7,7 +7,7 @@ import styles from "./page.module.css";
 import MyButton from "@/components/UI/buttons/MyButton";
 import { fetchMnemonic } from "@/helpers/downloadMnemonic";
 import USER from "@/constants/user";
-import ArrowBack from "@/components/UI/arrows/arrow_back";
+import Heading from "@/components/layout/heding";
 
 export default function CopyPhrase() {
     const userId = USER.user.id;
@@ -91,61 +91,55 @@ export default function CopyPhrase() {
         <>
             <div className='header'></div>
             <div className={`main ${styles.main_special}`}>
-                <div className='container'>
-                    <div className={styles.arrow_wrapper}>
-                        <ArrowBack />
-                    </div>
-                    <div className={styles.main_wrapper}>
-                        <p className={styles.label}>Q Wallet</p>
-                        <h1 className={styles.title}>
-                            Add Verify Recovery <span>Phrase!</span>
-                        </h1>
-                        <div className={styles.grid}>
-                            {gridWords.map((word, index) => (
-                                <div
-                                    key={index}
-                                    className={styles.grid_item}
-                                    onClick={() => handleClickGrid(index)}
-                                >
-                                    {index + 1}. {word}
-                                </div>
-                            ))}
-                        </div>
-                        <div className={styles.grid2}>
-                            {wordList.map((word) => (
-                                <div
-                                    key={word}
-                                    className={styles.grid_item2}
-                                    onClick={() => handleClickWord(word)}
-                                >
-                                    {word}
-                                </div>
-                            ))}
-                        </div>
-                        <div className={styles.download_wrapper}>
+                <div className={styles.main_wrapper}>
+                    <Heading>Q Wallet</Heading>
+                    <h1 className={styles.title}>
+                        Add Verify Recovery{" "}
+                        <span className='accent'>Phrase!</span>
+                    </h1>
+                    <div className={styles.grid}>
+                        {gridWords.map((word, index) => (
                             <div
-                                className={styles.download}
-                                onClick={pasteFromClipboard}
+                                key={index}
+                                className={styles.grid_item}
+                                onClick={() => handleClickGrid(index)}
                             >
-                                <Image
-                                    src='/copy.svg'
-                                    alt='image'
-                                    width={24}
-                                    height={24}
-                                />
-                                <p>Paste 16 phrase</p>
+                                {index + 1}. {word}
                             </div>
+                        ))}
+                    </div>
+                    <div className={styles.grid2}>
+                        {wordList.map((word) => (
+                            <div
+                                key={word}
+                                className={styles.grid_item2}
+                                onClick={() => handleClickWord(word)}
+                            >
+                                {word}
+                            </div>
+                        ))}
+                    </div>
+                    <div className={styles.download_wrapper}>
+                        <div
+                            className={styles.download}
+                            onClick={pasteFromClipboard}
+                        >
+                            <Image
+                                src='/copy.svg'
+                                alt='image'
+                                width={24}
+                                height={24}
+                            />
+                            <p>Paste 16 phrase</p>
                         </div>
                     </div>
                 </div>
             </div>
             <div className='footer'>
-                <div className='container'>
-                    <div className={styles.btn_wrapper}>
-                        <MyButton onClick={handleFinish} isLoading={isLoading}>
-                            Finish
-                        </MyButton>
-                    </div>
+                <div className={styles.btn_wrapper}>
+                    <MyButton onClick={handleFinish} isLoading={isLoading}>
+                        Finish
+                    </MyButton>
                 </div>
             </div>
         </>
