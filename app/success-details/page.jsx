@@ -44,12 +44,14 @@ export default function Success() {
                             </div>
                             <div className={styles.details_item_row}>
                                 <p>31icdjsoidcnslkjnopd</p>
-                                <img src='/copy.svg' alt='icon' />
-                                <img
-                                    src='/qr.svg'
-                                    alt='icon'
-                                    onClick={handleQRCkick}
-                                />
+                                <div className={styles.btnGroup}>
+                                    <img src='/copy.svg' alt='icon' />
+                                    <img
+                                        src='/qr.svg'
+                                        alt='icon'
+                                        onClick={handleQRCkick}
+                                    />
+                                </div>
                             </div>
                         </div>
                         <div className={styles.details_item}>
@@ -58,12 +60,14 @@ export default function Success() {
                             </div>
                             <div className={styles.details_item_row}>
                                 <p>3893910jdoijcsjlhkhgkgjfgfjkjdowij20</p>
-                                <img src='/copy.svg' alt='icon' />
-                                <img
-                                    src='/qr.svg'
-                                    alt='icon'
-                                    onClick={handleQRCkick}
-                                />
+                                <div className={styles.btnGroup}>
+                                    <img src='/copy.svg' alt='icon' />
+                                    <img
+                                        src='/qr.svg'
+                                        alt='icon'
+                                        onClick={handleQRCkick}
+                                    />
+                                </div>
                             </div>
                         </div>
                         <div className={styles.details_item}>
