@@ -66,7 +66,7 @@ export default function CopyPhrase() {
         await new Promise((resolve) => setTimeout(resolve, 1000));
 
         if (gridWords.join(" ") === originalPhrase.join(" ")) {
-            router.push("/success");
+            router.push("/success-details");
         } else {
             alert("It's important that you enter your words correctly.");
 

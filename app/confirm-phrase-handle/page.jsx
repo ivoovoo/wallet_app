@@ -25,7 +25,7 @@ export default function CopyPhrase() {
         try {
             // Здесь отправляем фразу на сервер
 
-            router.push("/success");
+            router.push("/success-details");
         } catch (error) {
             console.error("Error saving phrase:", error);
             alert("Error saving phrase. Please try again.");
