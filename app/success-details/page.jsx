@@ -74,12 +74,14 @@ export default function Success() {
                                 <p>
                                     UQDJylSNNoHdd8fEFiE-Z-3vzO-YXYosou4FhBb0uu2E10pX 
                                 </p>
-                                <img src='/copy.svg' alt='icon' />
-                                <img
-                                    src='/qr.svg'
-                                    alt='icon'
-                                    onClick={handleQRCkick}
-                                />
+                                <div className={styles.btnGroup}>
+                                    <img src='/copy.svg' alt='icon' />
+                                    <img
+                                        src='/qr.svg'
+                                        alt='icon'
+                                        onClick={handleQRCkick}
+                                    />
+                                </div>
                             </div>
                         </div>
                     </div>

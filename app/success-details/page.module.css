@@ -3,7 +3,7 @@
     grid-template-rows: 25vh auto 1fr;
     align-items: center;
     justify-items: center;
-    gap: clamp(8px, 1rem, 20px);
+    gap: clamp(8px, 2vh, 18px);
 }
 .main_wrapper h1 {
     font-size: 1.5rem;
@@ -28,32 +28,40 @@
     flex-direction: column;
     align-items: flex-start;
     justify-content: flex-start;
-    gap: 1rem;
+    gap: 10px;
 }
 .details_item {
+    width: 100%;
     display: flex;
     flex-direction: column;
     align-items: flex-start;
     justify-content: flex-start;
-    gap: 0.5rem;
-
+    gap: 10px;
     font-weight: 400;
     font-size: 12px;
-    line-height: 24px;
+    line-height: 1.4;
 }
 .details_item_title {
     font-weight: 700;
     font-size: 12px;
-    line-height: 15px;
+    line-height: 1.4;
     display: flex;
     align-items: center;
-    color: #ffffff40;
+    color: var(--neutral);
 }
 .details_item_row {
     display: flex;
     align-items: center;
-    max-width: 80%;
-    gap: 12px;
+    justify-content: space-between;
+    width: 100%;
+    gap: 8px;
+}
+.btnGroup {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: nowrap;
+    gap: 8px;
+    align-items: center;
 }
 
 .footer_wrapper {
@@ -65,7 +73,6 @@
     width: 100%;
     align-items: center;
     margin-top: auto;
-    margin-bottom: 3rem;
 }
 .footer_wrapper p {
     font-size: 1rem;
