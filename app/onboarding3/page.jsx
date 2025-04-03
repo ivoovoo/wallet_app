@@ -53,7 +53,7 @@ export default function Onboarding3() {
 
                     <p>
                         Already have a wallet? {"\u00A0"}
-                        <Link href='/confirm-phrase-handle' prefetch={true}>
+                        <Link href='/copy-phrase' prefetch={true}>
                             <span className='accent'> Import here</span>
                         </Link>
                     </p>
