@@ -4,7 +4,6 @@ import { useRouter } from "next/navigation";
 import styles from "./page.module.css";
 import MyButton from "@/components/UI/buttons/MyButton";
 import Link from "next/link";
-import ArrowBack from "@/components/UI/arrows/arrow_back";
 import animationData from "@/public/images/Animation_3.json";
 import dynamic from "next/dynamic";
 import Heading from "@/components/layout/heding";
