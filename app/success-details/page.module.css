@@ -1,6 +1,6 @@
 .main_wrapper {
     display: grid;
-    grid-template-rows: 25vh auto 1fr;
+    grid-template-rows: 20vh auto 1fr;
     align-items: center;
     justify-items: center;
     gap: clamp(8px, 2vh, 18px);
