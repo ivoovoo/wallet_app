@@ -63,6 +63,9 @@
     gap: 8px;
     align-items: center;
 }
+.btnGroup img {
+    cursor: pointer;
+}
 
 .footer_wrapper {
     display: flex;

@@ -1,16 +1,24 @@
 "use client";
 import { useRouter } from "next/navigation";
+import { useRef } from "react";
 import styles from "./page.module.css";
 import MyButton from "@/components/UI/buttons/MyButton";
-import ArrowBack from "@/components/UI/arrows/arrow_back";
 import Heading from "@/components/layout/heding";
 import MyButtonDark from "@/components/UI/buttons/MyButtonDark";
+import { copyToClipboard } from "@/helpers/downloadMnemonic";
 
 export default function Success() {
     const router = useRouter();
+    const addressRef = useRef(null);
 
     const handleCkick = () => {
-        router.push("/create-password");
+        router.push("/success-details");
+    };
+    const handleCopy = async () => {
+        if (addressRef.current) {
+            const text = addressRef.current.textContent.trim();
+            await copyToClipboard(text);
+        }
     };
     return (
         <>
@@ -26,9 +34,16 @@ export default function Success() {
                         <img src='/images/qr.png' alt='qr' />
                     </div>
                     <p>Your wallet Q Blockchain</p>
-                    <MyButtonDark>
-                        31icdjsoidcnslkjnopd
-                        <img src='/copy.svg' alt='icon' />
+                    <MyButtonDark onClick={handleCopy}>
+                        <span ref={addressRef}>31icdjsoidcnslkjnopd</span>
+                        <img
+                            src='/copy.svg'
+                            alt='icon'
+                            onClick={(e) => {
+                                e.stopPropagation();
+                                handleCopy();
+                            }}
+                        />
                     </MyButtonDark>
                 </div>
             </div>
