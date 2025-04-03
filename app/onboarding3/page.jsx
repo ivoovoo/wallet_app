@@ -24,7 +24,7 @@ export default function Onboarding3() {
     };
 
     const handleCkick = () => {
-        router.push("/confirm-phrase");
+        router.push("/copy-phrase");
     };
     return (
         <>

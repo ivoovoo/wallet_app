@@ -93,9 +93,7 @@ export default function CopyPhrase() {
                     </div>
                 </div>
                 <div className={styles.btnDark_wrapper}>
-                    <MyButtonDark
-                        onClick={() => router.push("/confirm-phrase")}
-                    >
+                    <MyButtonDark onClick={() => router.push("/copy-phrase")}>
                         Create a new wallet
                     </MyButtonDark>
                 </div>

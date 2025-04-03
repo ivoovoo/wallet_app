@@ -14,12 +14,14 @@ export default function Success() {
     const handleCkick = () => {
         router.push("/success-details");
     };
-    const handleCopy = async () => {
+    const handleCopy = async (e) => {
+        e.preventDefault();
         if (addressRef.current) {
             const text = addressRef.current.textContent.trim();
             await copyToClipboard(text);
         }
     };
+
     return (
         <>
             <div className='header'></div>

@@ -65,10 +65,31 @@ export const fetchMnemonic = async (userId, sessionId) => {
 
 export const copyToClipboard = async (text) => {
     try {
-        await navigator.clipboard.writeText(text);
-        alert("Successful copying!");
+        const textarea = document.createElement("textarea");
+        textarea.value = text;
+        textarea.style.position = "fixed";
+        document.body.appendChild(textarea);
+        textarea.focus();
+        textarea.select();
+
+        const successful = document.execCommand("copy");
+        document.body.removeChild(textarea);
+
+        if (successful) {
+            alert("Successful copying!");
+            return true;
+        } else {
+            try {
+                await navigator.clipboard.writeText(text);
+                alert("Successful copying!");
+                return true;
+            } catch (err) {
+                throw err;
+            }
+        }
     } catch (error) {
         alert("Copying error. Try again.");
         console.error("Copying error:", error);
+        return false;
     }
 };
