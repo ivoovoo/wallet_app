@@ -66,7 +66,7 @@ export const fetchMnemonic = async (userId, sessionId) => {
 export const copyToClipboard = async (text) => {
     try {
         await navigator.clipboard.writeText(text);
-        alert("The phrase has been successfully copied!");
+        alert("Successful copying!");
     } catch (error) {
         alert("Copying error. Try again.");
         console.error("Copying error:", error);

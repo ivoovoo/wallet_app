@@ -40,7 +40,6 @@ export default function BackupPhrase() {
                     <MyButton onClick={handleCkick}>
                         Backup my phrase now
                     </MyButton>
-                    <Link href='/confirm-phrase'>I will backup later.</Link>
                 </div>
             </div>
         </>

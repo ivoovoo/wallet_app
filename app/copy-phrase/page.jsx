@@ -5,6 +5,7 @@ import { useRouter } from "next/navigation";
 import Image from "next/image";
 import styles from "./page.module.css";
 import MyButton from "@/components/UI/buttons/MyButton";
+import Link from "next/link";
 import {
     downloadMnemonic,
     fetchMnemonic,
@@ -77,8 +78,13 @@ export default function CopyPhrase() {
                 </div>
             </div>
             <div className='footer'>
-                <div className={styles.btn_wrapper}>
-                    <MyButton onClick={handleClick}>Continue</MyButton>
+                <div className={styles.footer_wrapper}>
+                    <div className={styles.btn_wrapper}>
+                        <MyButton onClick={handleClick}>Continue</MyButton>
+                    </div>
+                    <Link href='/confirm-phrase-handle' prefetch={true}>
+                        I have wallet
+                    </Link>
                 </div>
             </div>
         </>
