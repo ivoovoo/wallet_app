@@ -1,0 +1,151 @@
+@keyframes hideText {
+    0% {
+        opacity: 1;
+    }
+    50% {
+        opacity: 0;
+    }
+    100% {
+        opacity: 0;
+    }
+}
+
+@keyframes moveRight {
+    0% {
+        left: 0.5rem;
+    }
+    50% {
+        left: calc(100% - 2.2rem - 0.5rem);
+    }
+    100% {
+        left: calc(100% - 2.2rem - 0.5rem);
+    }
+}
+
+@keyframes shrinkButton {
+    0% {
+        width: 100%;
+    }
+
+    100% {
+        width: 3.2rem;
+    }
+}
+
+@keyframes expandButton {
+    0% {
+        width: 3.2rem;
+    }
+    100% {
+        width: 100%;
+    }
+}
+
+@keyframes checkmark {
+    0% {
+        opacity: 0;
+        transform: scale(0.5);
+    }
+    100% {
+        opacity: 1;
+        transform: scale(1);
+    }
+}
+
+.button {
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 0.5rem 0.75rem;
+    max-width: 360px;
+    width: 100%;
+    height: 45px;
+    background: var(--secondary-4);
+    color: var(--foreground);
+    border: none;
+    border-radius: 100px;
+    cursor: pointer;
+    appearance: none;
+    -webkit-appearance: none;
+    outline: none;
+    box-shadow: none;
+    transition: background 0.3s ease;
+    -webkit-tap-highlight-color: transparent;
+}
+
+.button:focus,
+.button:focus-visible,
+.button:active {
+    outline: none !important;
+    box-shadow: none !important;
+}
+
+/* Анимация кнопки */
+.button.on {
+    animation: shrinkButton 1.5s forwards;
+}
+
+.circle {
+    position: absolute;
+    top: 50%;
+    left: 0.5rem;
+    transform: translateY(-50%);
+    width: 2.2rem;
+    height: 2.2rem;
+    border-radius: 30px;
+    background: linear-gradient(
+        90deg,
+        #ffffff 0%,
+        rgba(255, 255, 255, 0.5) 100%
+    );
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    outline: none;
+    box-shadow: none;
+}
+
+.button.on .circle {
+    animation: moveRight 0.5s forwards;
+}
+.text {
+    display: flex;
+    align-items: center;
+    gap: 5px;
+    font-family: var(--font-outfit);
+    font-size: 1.1rem;
+    outline: none;
+    box-shadow: none;
+}
+.button.on .text {
+    animation: hideText 1s forwards;
+}
+
+.checkmark {
+    opacity: 0;
+    font-size: 24px;
+    color: var(--primary);
+}
+
+.button.on .circle .checkmark {
+    animation: checkmark 0.5s 0.5s forwards;
+}
+
+@media (min-width: 480px) {
+    .button {
+        height: 50px;
+    }
+}
+
+@media (min-width: 768px) {
+    .button {
+        height: 55px;
+    }
+}
+
+@media (min-width: 1000px) {
+    .button {
+        height: 65px;
+    }
+}

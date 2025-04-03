@@ -4,6 +4,7 @@ import styles from "./page.module.css";
 import MyButton from "@/components/UI/buttons/MyButton";
 import ArrowBack from "@/components/UI/arrows/arrow_back";
 import Heading from "@/components/layout/heding";
+import MyButtonDark from "@/components/UI/buttons/MyButtonDark";
 
 export default function Success() {
     const router = useRouter();
@@ -25,10 +26,10 @@ export default function Success() {
                         <img src='/images/qr.png' alt='qr' />
                     </div>
                     <p>Your wallet Q Blockchain</p>
-                    <button className={styles.button}>
+                    <MyButtonDark>
                         31icdjsoidcnslkjnopd
                         <img src='/copy.svg' alt='icon' />
-                    </button>
+                    </MyButtonDark>
                 </div>
             </div>
             <div className='footer'>

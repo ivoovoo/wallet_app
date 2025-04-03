@@ -6,6 +6,7 @@ import styles from "./page.module.css";
 import MyButton from "@/components/UI/buttons/MyButton";
 import Image from "next/image";
 import Heading from "@/components/layout/heding";
+import MyButtonDark from "@/components/UI/buttons/MyButtonDark";
 
 export default function CopyPhrase() {
     const router = useRouter();
@@ -63,11 +64,10 @@ export default function CopyPhrase() {
                     </h1>
                     <div className={styles.grid}>
                         {gridWords.map((word, index) => (
-                            <div className={styles.input_wrapper}>
+                            <div className={styles.input_wrapper} key={index}>
                                 <span>{`${index + 1}.`}</span>
                                 <input
                                     type='text'
-                                    key={index}
                                     value={word}
                                     onChange={(e) =>
                                         handleInputChange(index, e.target.value)
@@ -92,12 +92,13 @@ export default function CopyPhrase() {
                         </div>
                     </div>
                 </div>
-                <button
-                    className={styles.button}
-                    onClick={() => router.push("/confirm-phrase")}
-                >
-                    Create a new wallet
-                </button>
+                <div className={styles.btnDark_wrapper}>
+                    <MyButtonDark
+                        onClick={() => router.push("/confirm-phrase")}
+                    >
+                        Create a new wallet
+                    </MyButtonDark>
+                </div>
             </div>
             <div className='footer'>
                 <div className={styles.footer_wrapper}>

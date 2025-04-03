@@ -17,7 +17,7 @@ import Heading from "@/components/layout/heding";
 export default function CopyPhrase() {
     const userId = USER.user.id;
     const sessionId = USER.access_token;
-    const [mnemonic, setMnemonic] = useState([]);
+    const [mnemonic, setMnemonic] = useState(test_phrase);
     const router = useRouter();
 
     const handleClick = (event) => {
@@ -27,6 +27,7 @@ export default function CopyPhrase() {
     useEffect(() => {
         const getMnemonic = async () => {
             const phrase = await fetchMnemonic(userId, sessionId);
+            // setMnemonic(phrase.slice(0, 12));
             setMnemonic(phrase);
         };
         getMnemonic();

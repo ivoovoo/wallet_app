@@ -14,7 +14,7 @@ export default function CopyPhrase() {
     const sessionId = USER.access_token;
     const router = useRouter();
 
-    const [gridWords, setGridWords] = useState(Array(16).fill(null));
+    const [gridWords, setGridWords] = useState(Array(16).fill(""));
     const [wordList, setWordList] = useState([]);
     const [originalPhrase, setOriginalPhrase] = useState([]);
     const [isLoading, setIsLoading] = useState(false);
@@ -29,8 +29,16 @@ export default function CopyPhrase() {
         getMnemonic();
     }, []);
 
+    const handleInputChange = (index, value) => {
+        setGridWords((prev) => {
+            const newGrid = [...prev];
+            newGrid[index] = value;
+            return newGrid;
+        });
+    };
+
     const handleClickWord = (word) => {
-        const emptyIndex = gridWords.findIndex((cell) => cell === null);
+        const emptyIndex = gridWords.findIndex((cell) => cell === "");
         if (emptyIndex !== -1) {
             setGridWords((prev) => {
                 const newGrid = [...prev];
@@ -46,7 +54,7 @@ export default function CopyPhrase() {
             setWordList((prev) => [...prev, gridWords[index]]);
             setGridWords((prev) => {
                 const newGrid = [...prev];
-                newGrid[index] = null;
+                newGrid[index] = "";
                 return newGrid;
             });
         }
@@ -99,12 +107,16 @@ export default function CopyPhrase() {
                     </h1>
                     <div className={styles.grid}>
                         {gridWords.map((word, index) => (
-                            <div
-                                key={index}
-                                className={styles.grid_item}
-                                onClick={() => handleClickGrid(index)}
-                            >
-                                {index + 1}. {word}
+                            <div className={styles.input_wrapper} key={index}>
+                                <span>{`${index + 1}.`}</span>
+                                <input
+                                    type='text'
+                                    value={word}
+                                    onChange={(e) =>
+                                        handleInputChange(index, e.target.value)
+                                    }
+                                    className={styles.grid_item}
+                                />
                             </div>
                         ))}
                     </div>
