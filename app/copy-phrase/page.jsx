@@ -6,19 +6,12 @@ import Image from "next/image";
 import styles from "./page.module.css";
 import MyButton from "@/components/UI/buttons/MyButton";
 import Link from "next/link";
-import {
-    downloadMnemonic,
-    fetchMnemonic,
-    copyToClipboard,
-} from "@/helpers/downloadMnemonic";
-import USER from "@/constants/user";
-import test_phrase from "@/lib/test_phrase";
-import Heading from "@/components/layout/heding";
+import { copyToClipboard } from "@/helpers/downloadMnemonic";
+import Heading from "@/components/layout/heading";
+import { getMnemonicPhrase } from "@/lib/auth";
 
 export default function CopyPhrase() {
-    const userId = USER.user.id;
-    const sessionId = USER.access_token;
-    const [mnemonic, setMnemonic] = useState(test_phrase);
+    const [mnemonic, setMnemonic] = useState([]);
     const router = useRouter();
 
     const handleClick = (event) => {
@@ -26,12 +19,12 @@ export default function CopyPhrase() {
     };
 
     useEffect(() => {
-        const getMnemonic = async () => {
-            const phrase = await fetchMnemonic(userId, sessionId);
-            // setMnemonic(phrase.slice(0, 12));
-            setMnemonic(phrase);
+        const fetchMnemonic = async () => {
+            const phraseArray = await getMnemonicPhrase();
+            setMnemonic(phraseArray);
         };
-        getMnemonic();
+
+        fetchMnemonic();
     }, []);
 
     return (
@@ -57,10 +50,7 @@ export default function CopyPhrase() {
                     <div className={styles.download_wrapper}>
                         <div
                             className={styles.download}
-                            onClick={() =>
-                                // downloadMnemonic(sessionId, userId)
-                                copyToClipboard(mnemonic)
-                            }
+                            onClick={() => copyToClipboard(mnemonic.join(" "))}
                         >
                             <Image
                                 src='/copy.svg'

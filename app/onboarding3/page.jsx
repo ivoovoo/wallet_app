@@ -6,7 +6,7 @@ import MyButton from "@/components/UI/buttons/MyButton";
 import Link from "next/link";
 import animationData from "@/public/images/Animation_3.json";
 import dynamic from "next/dynamic";
-import Heading from "@/components/layout/heding";
+import Heading from "@/components/layout/heading";
 const Lottie = dynamic(() => import("react-lottie"), {
     ssr: false,
 });
@@ -23,7 +23,7 @@ export default function Onboarding3() {
     };
 
     const handleCkick = () => {
-        router.push("/copy-phrase");
+        router.push("/signup");
     };
     return (
         <>

@@ -5,28 +5,24 @@ import Image from "next/image";
 import { useRouter } from "next/navigation";
 import styles from "./page.module.css";
 import MyButton from "@/components/UI/buttons/MyButton";
-import { fetchMnemonic } from "@/helpers/downloadMnemonic";
-import USER from "@/constants/user";
-import Heading from "@/components/layout/heding";
+import Heading from "@/components/layout/heading";
+import { getMnemonicPhrase } from "@/lib/auth";
 
 export default function CopyPhrase() {
-    const userId = USER.user.id;
-    const sessionId = USER.access_token;
     const router = useRouter();
 
     const [gridWords, setGridWords] = useState(Array(16).fill(""));
     const [wordList, setWordList] = useState([]);
     const [originalPhrase, setOriginalPhrase] = useState([]);
     const [isLoading, setIsLoading] = useState(false);
-
     useEffect(() => {
-        const getMnemonic = async () => {
-            const phrase = await fetchMnemonic(userId, sessionId);
-            setOriginalPhrase(phrase);
-            const shuffledPhrase = [...phrase].sort(() => Math.random() - 0.5);
-            setWordList(shuffledPhrase);
+        const fetchMnemonic = async () => {
+            const phraseArray = await getMnemonicPhrase();
+            setOriginalPhrase(phraseArray);
+            setWordList(phraseArray);
         };
-        getMnemonic();
+
+        fetchMnemonic();
     }, []);
 
     const handleInputChange = (index, value) => {
@@ -80,7 +76,7 @@ export default function CopyPhrase() {
     const pasteFromClipboard = async () => {
         try {
             const text = await navigator.clipboard.readText();
-            const words = text.trim().split(/,\s?/);
+            const words = text.trim().split(/\s+/);
 
             if (words.length !== 16) {
                 alert("Error: The nubmer of words in the phrase is incorrect.");
@@ -111,7 +107,7 @@ export default function CopyPhrase() {
                                 <span>{`${index + 1}.`}</span>
                                 <input
                                     type='text'
-                                    value={word}
+                                    value={word || ""}
                                     onChange={(e) =>
                                         handleInputChange(index, e.target.value)
                                     }

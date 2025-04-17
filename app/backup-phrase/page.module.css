@@ -7,7 +7,7 @@
 }
 .main_wrapper h1 {
     width: 90%;
-    font-size: 1.5rem;
+    font-size: var(--fz-h1);
     text-align: center;
 }
 .main_wrapper p {

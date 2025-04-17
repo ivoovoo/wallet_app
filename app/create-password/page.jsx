@@ -6,7 +6,7 @@ import styles from "./page.module.css";
 import MyButton from "@/components/UI/buttons/MyButton";
 import MyInput from "@/components/UI/inputs/MyInput";
 import MySwitcher from "@/components/UI/switchers/MySwitcher";
-import Heading from "@/components/layout/heding";
+import Heading from "@/components/layout/heading";
 
 export default function Onboarding3() {
     const router = useRouter();

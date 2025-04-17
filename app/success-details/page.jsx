@@ -6,7 +6,7 @@ import styles from "./page.module.css";
 import MyButton from "@/components/UI/buttons/MyButton";
 import animationData from "@/public/images/Animation_5.json";
 import dynamic from "next/dynamic";
-import Heading from "@/components/layout/heding";
+import Heading from "@/components/layout/heading";
 import { copyToClipboard } from "@/helpers/downloadMnemonic";
 
 const Lottie = dynamic(() => import("react-lottie"), { ssr: false });

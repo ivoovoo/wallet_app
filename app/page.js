@@ -4,7 +4,7 @@ import styles from "./page.module.css";
 import ArrowBack from "@/components/UI/arrows/arrow_back";
 import animationData from "@/public/images/Animation_6.json";
 import dynamic from "next/dynamic";
-import Heading from "@/components/layout/heding";
+import Heading from "@/components/layout/heading";
 const Lottie = dynamic(() => import("react-lottie"), {
     ssr: false,
 });

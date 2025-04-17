@@ -5,7 +5,7 @@ import { useRouter } from "next/navigation";
 import styles from "./page.module.css";
 import MyButton from "@/components/UI/buttons/MyButton";
 import Image from "next/image";
-import Heading from "@/components/layout/heding";
+import Heading from "@/components/layout/heading";
 import MyButtonDark from "@/components/UI/buttons/MyButtonDark";
 
 export default function CopyPhrase() {
@@ -23,8 +23,6 @@ export default function CopyPhrase() {
         setIsLoading(true);
 
         try {
-            // Здесь отправляем фразу на сервер
-
             router.push("/success-details");
         } catch (error) {
             console.error("Error saving phrase:", error);

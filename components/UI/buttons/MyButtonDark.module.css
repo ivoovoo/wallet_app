@@ -114,7 +114,7 @@
     align-items: center;
     gap: 5px;
     font-family: var(--font-outfit);
-    font-size: 1.1rem;
+    font-size: var(--fz-text);
     outline: none;
     box-shadow: none;
 }

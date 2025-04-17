@@ -3,7 +3,7 @@ import { useRouter } from "next/navigation";
 import { useRef } from "react";
 import styles from "./page.module.css";
 import MyButton from "@/components/UI/buttons/MyButton";
-import Heading from "@/components/layout/heding";
+import Heading from "@/components/layout/heading";
 import MyButtonDark from "@/components/UI/buttons/MyButtonDark";
 import { copyToClipboard } from "@/helpers/downloadMnemonic";
 

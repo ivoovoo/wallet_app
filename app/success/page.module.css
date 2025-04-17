@@ -7,7 +7,7 @@
 }
 
 .main_wrapper h1 {
-    font-size: 1.5rem;
+    font-size: var(--fz-h1);
     text-align: center;
 }
 
@@ -36,8 +36,7 @@
     margin-bottom: 3rem;
 }
 .footer_wrapper p {
-    font-size: 1rem;
-}
+    font-size: var(--fz-text);}
 
 @media (min-width: 768px) {
     .img_wrapper {

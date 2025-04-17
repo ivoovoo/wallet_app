@@ -6,7 +6,7 @@ import styles from "./page.module.css";
 import MyButton from "@/components/UI/buttons/MyButton";
 import { DotLottieReact } from "@lottiefiles/dotlottie-react";
 import Link from "next/link";
-import Heading from "@/components/layout/heding";
+import Heading from "@/components/layout/heading";
 
 export default function BackupPhrase() {
     const router = useRouter();

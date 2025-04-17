@@ -3,10 +3,10 @@
     display: flex;
     flex-direction: column;
     align-items: center;
-    gap: 1rem;
+    gap: var(--height-gap-small);
 }
 .main_wrapper h1 {
-    font-size: 1.8rem;
+    font-size: var(--fz-h1);
     text-align: center;
 }
 .footer_top {
@@ -16,7 +16,7 @@
     width: 100%;
     display: flex;
     flex-direction: column;
-    gap: 12px;
+    gap: var(--height-gap-small);
     justify-content: space-between;
     align-items: center;
 }
@@ -34,6 +34,7 @@
     padding: 0.2rem 0.5rem;
     border: 0.5px solid rgba(73, 80, 87, 0.5);
     border-radius: 5px;
+    font-size: var(--fz-text-small);
 }
 
 .download_wrapper {
@@ -41,7 +42,7 @@
     display: flex;
     align-items: center;
     justify-content: center;
-    padding: 0.5rem 1rem;
+    padding: var(--height-gap-small) var(--width-gap-medium);
     border: 0.5px solid rgba(73, 80, 87, 0.5);
     border-radius: 5px;
 }
@@ -58,6 +59,7 @@
     text-align: center;
     background: rgba(255, 255, 255, 0.05);
     border-radius: 5px;
+    font-size: var(--fz-text-small);
 }
 .btn_wrapper {
     width: 100%;

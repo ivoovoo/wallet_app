@@ -26,7 +26,7 @@
     vertical-align: baseline;
 }
 .footer_wrapper a {
-    font-size: 1.5rem;
+    font-size: var(--fz-text);
 }
 .points {
     display: grid;

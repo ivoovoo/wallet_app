@@ -2,7 +2,7 @@
 
 import Link from "next/link";
 import styles from "./page.module.css";
-import Heading from "@/components/layout/heding";
+import Heading from "@/components/layout/heading";
 import animationData from "@/public/images/Animation_2.json";
 // import Lottie from "react-lottie";
 import dynamic from "next/dynamic";

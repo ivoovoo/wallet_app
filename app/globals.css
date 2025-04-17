@@ -18,6 +18,21 @@
     --small: 1rem;
     --smallest: 0.5rem;
 
+    --width-gap-large: clamp(12px, 2vw, 24px);
+    --width-gap-medium: clamp(8px, 1.5vw, 18px);
+    --width-gap-small: clamp(6px, 1vw, 12px);
+    --width-gap-smaller: clamp(4px, 0.5vw, 8px);
+
+    --height-gap-large: clamp(12px, 2dvh, 24px);
+    --height-gap-medium: clamp(8px, 1.5dvh, 18px);
+    --height-gap-small: clamp(6px, 1dvh, 12px);
+    --height-gap-smaller: clamp(4px, 0.5dvh, 8px);
+
+    --fz-h1: clamp(18px, 2.5vw, 32px);
+    --fz-h2: clamp(16px, 2vw, 24px);
+    --fz-text: clamp(14px, 1.5vw, 18px);
+    --fz-text-small: clamp(12px, 1vw, 16px);
+
     --vh: 1vh;
 }
 
@@ -26,7 +41,6 @@ body {
     width: min(100svh, 100%);
     min-width: 100%;
     overflow-x: hidden;
-    font-size: 14px;
     max-height: 100%;
     margin: 0;
     padding: 0;
@@ -47,6 +61,7 @@ body {
     user-select: none;
     -webkit-tap-highlight-color: transparent;
     overscroll-behavior: contain;
+    font-size: var(--fz-text);
 }
 
 h1,
@@ -55,8 +70,14 @@ h3 {
     font-family: var(--font-space-grotesk), sans-serif;
     font-style: normal;
     font-weight: 700;
-    font-size: clamp(14px, 2rem, 40px);
     line-height: 120%;
+}
+h1 {
+    font-size: var(--fz-h1);
+}
+h2,
+h3 {
+    font-size: var(--fz-h2);
 }
 
 * {
@@ -117,27 +138,6 @@ a {
 }
 .accent {
     color: var(--primary);
-}
-
-@media (min-width: 480px) {
-    html,
-    body {
-        font-size: 16px;
-    }
-}
-
-@media (min-width: 768px) {
-    html,
-    body {
-        font-size: 18px;
-    }
-}
-
-@media (min-width: 1000px) {
-    html,
-    body {
-        font-size: 20px;
-    }
 }
 
 /* * {

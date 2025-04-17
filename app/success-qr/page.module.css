@@ -9,7 +9,7 @@
 }
 .main_wrapper h1 {
     width: 100%;
-    font-size: 1.5rem;
+    font-size: var(--fz-h1);
     text-align: center;
 }
 .img_wrapper {
@@ -38,12 +38,12 @@
     margin-bottom: 3rem;
 }
 .footer_wrapper p {
-    font-size: 1rem;
+    font-size: var(--fz-text);
 }
 
 .text {
     font-family: var(--font-outfit);
-    font-size: 1.1rem;
+    font-size: var(--fz-text);
     outline: none;
     box-shadow: none;
 }

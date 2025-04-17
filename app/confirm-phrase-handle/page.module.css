@@ -8,7 +8,7 @@
 }
 .main_wrapper h1 {
     width: 100% !important;
-    font-size: 1.5rem;
+    font-size: var(--fz-h1);
     line-height: 1;
     text-align: center;
 }
@@ -44,6 +44,7 @@
     display: flex;
     flex-direction: row;
     gap: 3px;
+    font-size: calc(var(--fz-text-small));
 }
 
 .grid_item {
@@ -52,7 +53,7 @@
     display: flex;
     gap: 0.3rem;
     justify-content: flex-start;
-    font-size: 0.8rem;
+    font-size: calc(var(--fz-text-small));
     padding: 0.2rem 0.5rem;
     border-radius: 5px;
     border: none;
@@ -69,7 +70,7 @@
     display: flex;
     gap: 0.3rem;
     justify-content: flex-start;
-    font-size: 16px;
+    font-size: var(--fz-text);
     padding: 0.2rem 0.5rem;
     border-radius: 5px;
     border: none;
@@ -130,7 +131,7 @@
 
 .text {
     font-family: var(--font-outfit);
-    font-size: 1.1rem;
+    font-size: var(--fz-text);
     outline: none;
     box-shadow: none;
 }

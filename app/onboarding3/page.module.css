@@ -29,7 +29,7 @@
     margin-bottom: 0.5rem;
 }
 .footer_wrapper p {
-    font-size: 1rem;
+    font-size: var(--fz-text);
 }
 
 @media (min-width: 480px) {

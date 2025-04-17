@@ -2,6 +2,7 @@
 
 import { Space_Grotesk, Outfit } from "next/font/google";
 import { useEffect, useState } from "react";
+import { AuthProvider } from "@/context/authContext";
 import "./globals.css";
 
 const outfit = Outfit({
@@ -65,7 +66,9 @@ export default function RootLayout({ children }) {
 
             <body className={`${outfit.variable} ${spaceGrotesk.variable}`}>
                 <div className='container' style={{ height: viewportHeight }}>
-                    <div className='content'>{children}</div>
+                    <div className='content'>
+                        <AuthProvider>{children}</AuthProvider>
+                    </div>
                 </div>
             </body>
         </html>
