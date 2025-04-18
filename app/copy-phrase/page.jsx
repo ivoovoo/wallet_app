@@ -14,8 +14,8 @@ export default function CopyPhrase() {
     const [mnemonic, setMnemonic] = useState([]);
     const router = useRouter();
 
-    const handleClick = (event) => {
-        router.push("/confirm-phrase");
+    const handleClick = () => {
+        router.push("/confirm-phrase-handle");
     };
 
     useEffect(() => {

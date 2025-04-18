@@ -7,6 +7,9 @@ import styles from "./page.module.css";
 import MyButton from "@/components/UI/buttons/MyButton";
 import Heading from "@/components/layout/heading";
 import { getMnemonicPhrase } from "@/lib/auth";
+import MnemonicInput from "@/components/UI/inputs/MnemonicInput";
+import Word from "@/components/UI/words/Word";
+import MyButton_copy from "@/components/UI/buttons/MyButton_copy";
 
 export default function CopyPhrase() {
     const router = useRouter();
@@ -101,46 +104,33 @@ export default function CopyPhrase() {
                         Add Verify Recovery{" "}
                         <span className='accent'>Phrase!</span>
                     </h1>
-                    <div className={styles.grid}>
+                    <div className={styles.grid_input}>
                         {gridWords.map((word, index) => (
-                            <div className={styles.input_wrapper} key={index}>
-                                <span>{`${index + 1}.`}</span>
-                                <input
-                                    type='text'
-                                    value={word || ""}
-                                    onChange={(e) =>
-                                        handleInputChange(index, e.target.value)
-                                    }
-                                    className={styles.grid_item}
-                                />
-                            </div>
-                        ))}
-                    </div>
-                    <div className={styles.grid2}>
-                        {wordList.map((word) => (
-                            <div
-                                key={word}
-                                className={styles.grid_item2}
-                                onClick={() => handleClickWord(word)}
-                            >
-                                {word}
-                            </div>
-                        ))}
-                    </div>
-                    <div className={styles.download_wrapper}>
-                        <div
-                            className={styles.download}
-                            onClick={pasteFromClipboard}
-                        >
-                            <Image
-                                src='/copy.svg'
-                                alt='image'
-                                width={24}
-                                height={24}
+                            <MnemonicInput
+                                key={index}
+                                index={index}
+                                word={word}
+                                onChange={handleInputChange}
                             />
-                            <p>Paste 16 phrase</p>
-                        </div>
+                        ))}
                     </div>
+                    <div className={styles.grid_word}>
+                        {wordList.map((word) => (
+                            <Word
+                                key={word}
+                                word={word}
+                                onClick={handleClickWord}
+                            />
+                        ))}
+                    </div>
+
+                    <MyButton_copy
+                        onClick={pasteFromClipboard}
+                        icon='/copy.svg'
+                        alt='copy icon'
+                    >
+                        Paste 16 phrase
+                    </MyButton_copy>
                 </div>
             </div>
             <div className='footer'>

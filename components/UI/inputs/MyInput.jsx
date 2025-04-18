@@ -31,6 +31,7 @@ export default function MyInput({ type = "text", ...props }) {
                 name={props.id}
                 className={styles.input}
                 type={isPasswordVisible ? "text" : type}
+                autoComplete='off'
             />
         </div>
     );

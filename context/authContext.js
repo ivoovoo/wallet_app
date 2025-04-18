@@ -21,6 +21,9 @@ export function AuthProvider({ children }) {
         "/copy-phrase",
         "/confirm-phrase",
         "/confirm-phrase-handle",
+        "/create-password",
+        "/create-login",
+        "/enter-password",
     ];
 
     const isPublicPage = publicRoutes.includes(pathname);
@@ -32,10 +35,19 @@ export function AuthProvider({ children }) {
         }
 
         try {
-            const userData = await checkAuth();
-            setUser(userData);
-        } catch {
+            const authData = await checkAuth();
+            console.log("Auth success:", authData);
+            alert("Auth success!");
+            setUser(authData);
+        } catch (error) {
+            console.log("Auth failed:", error);
             setUser(null);
+            if (
+                !isPublicPage &&
+                !window.location.pathname.startsWith("/confirm-phrase-handle")
+            ) {
+                window.location.href = "/confirm-phrase-handle";
+            }
         } finally {
             setIsLoading(false);
         }
@@ -48,8 +60,8 @@ export function AuthProvider({ children }) {
     const value = {
         user,
         isLoading,
-        login: async (keyPhrase, password) => {
-            const userData = await login({ keyPhrase, password });
+        login: async (word, password) => {
+            const userData = await login({ word, password });
             setUser(userData);
             return userData;
         },

@@ -7,18 +7,27 @@ import MyButton from "@/components/UI/buttons/MyButton";
 import MyInput from "@/components/UI/inputs/MyInput";
 import MySwitcher from "@/components/UI/switchers/MySwitcher";
 import Heading from "@/components/layout/heading";
-import { useState } from "react";
-import { register } from "@/lib/auth";
+import { useState, useEffect } from "react";
+import { login } from "@/lib/auth";
 
-export default function SignUp() {
+export default function EnterPassword() {
     const router = useRouter();
     const [formData, setFormData] = useState({
-        username: "",
+        word: "",
         password: "",
-        confirm_password: "",
     });
     const [error, setError] = useState("");
     const [isLoading, setIsLoading] = useState(false);
+
+    useEffect(() => {
+        const phrase = sessionStorage.getItem("mnemonic_phrase");
+        if (phrase) {
+            setFormData((prev) => ({
+                ...prev,
+                word: phrase,
+            }));
+        }
+    }, []);
 
     const handleChange = (e) => {
         const { id, value } = e.target;
@@ -32,27 +41,22 @@ export default function SignUp() {
         e.preventDefault();
         setError("");
 
-        if (formData.password !== formData.confirm_password) {
-            setError("Пароли не совпадают");
-            return;
-        }
-
         if (isLoading) return;
 
         setIsLoading(true);
 
         try {
-            const data = await register({
-                username: formData.username,
+            await login({
+                word: formData.word,
                 password: formData.password,
-                confirm_password: formData.confirm_password,
             });
-            sessionStorage.setItem("mnemonic_phrase", data.mnemonic_phrase);
-            router.push("/backup-phrase");
+            router.push("/success-details");
         } catch (err) {
             setError(err.message);
+            alert("Registration error:", err.error);
             console.error("Registration error:", err);
         } finally {
+            sessionStorage.removeItem("mnemonic_phrase");
             setIsLoading(false);
         }
     };
@@ -61,24 +65,17 @@ export default function SignUp() {
         <>
             <div className='header'></div>
             <div className='main'>
-                <Heading></Heading>
+                <Heading />
                 <div className={styles.main_wrapper}>
-                    <h1>Create a Password</h1>
-                    <p>Now that you've created your wallet, Lets secure it!</p>
+                    <h1>Enter your password</h1>
+                    <p>Please enter your password</p>
                     {error && <div className={styles.error}>{error}</div>}
                     <form
                         id='myForm'
                         className={styles.form}
                         onSubmit={handleSubmit}
+                        autoComplete='off'
                     >
-                        <MyInput
-                            id='username'
-                            placeholder='Enter login'
-                            type='text'
-                            value={formData.username}
-                            onChange={handleChange}
-                            required
-                        />
                         <MyInput
                             id='password'
                             placeholder='Enter a password'
@@ -87,14 +84,7 @@ export default function SignUp() {
                             onChange={handleChange}
                             required
                         />
-                        <MyInput
-                            id='confirm_password'
-                            placeholder='Confirm a password'
-                            type='password'
-                            value={formData.confirm_password}
-                            onChange={handleChange}
-                            required
-                        />
+
                         <div className={styles.faceId}>
                             <Image
                                 src='/faceId.svg'
@@ -112,7 +102,7 @@ export default function SignUp() {
                             form='myForm'
                             disabled={isLoading}
                         >
-                            {isLoading ? "Processing..." : "Create password"}
+                            {isLoading ? "Processing..." : "Sign In"}
                         </MyButton>
                     </div>
                 </div>

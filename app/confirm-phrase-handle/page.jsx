@@ -7,6 +7,8 @@ import MyButton from "@/components/UI/buttons/MyButton";
 import Image from "next/image";
 import Heading from "@/components/layout/heading";
 import MyButtonDark from "@/components/UI/buttons/MyButtonDark";
+import MnemonicInput from "@/components/UI/inputs/MnemonicInput";
+import MyButton_copy from "@/components/UI/buttons/MyButton_copy";
 
 export default function CopyPhrase() {
     const router = useRouter();
@@ -23,7 +25,15 @@ export default function CopyPhrase() {
         setIsLoading(true);
 
         try {
-            router.push("/success-details");
+            if (gridWords.some((word) => word.trim() === "")) {
+                alert("Please fill in all 16 words of the phrase");
+                return;
+            }
+
+            const phrase = gridWords.join(" ");
+            sessionStorage.setItem("mnemonic_phrase", phrase);
+
+            router.push("/enter-password");
         } catch (error) {
             console.error("Error saving phrase:", error);
             alert("Error saving phrase. Please try again.");
@@ -35,15 +45,13 @@ export default function CopyPhrase() {
     const pasteFromClipboard = async () => {
         try {
             const text = await navigator.clipboard.readText();
-            const words = text.trim().split(/,\s?/);
+            const words = text.trim().split(/ \s?/);
 
             if (words.length !== 16) {
                 alert("Error: The nubmer of words in the phrase is incorrect.");
                 return;
             }
-
             setGridWords(words);
-            setWordList([]);
         } catch (error) {
             alert("Insertion error!");
             console.error("Insertion error:", error);
@@ -62,36 +70,24 @@ export default function CopyPhrase() {
                     </h1>
                     <div className={styles.grid}>
                         {gridWords.map((word, index) => (
-                            <div className={styles.input_wrapper} key={index}>
-                                <span>{`${index + 1}.`}</span>
-                                <input
-                                    type='text'
-                                    value={word}
-                                    onChange={(e) =>
-                                        handleInputChange(index, e.target.value)
-                                    }
-                                    className={styles.grid_item}
-                                />
-                            </div>
+                            <MnemonicInput
+                                key={index}
+                                index={index}
+                                word={word}
+                                onChange={handleInputChange}
+                            />
                         ))}
                     </div>
-                    <div className={styles.download_wrapper}>
-                        <div
-                            className={styles.download}
-                            onClick={pasteFromClipboard}
-                        >
-                            <Image
-                                src='/copy.svg'
-                                alt='image'
-                                width={24}
-                                height={24}
-                            />
-                            <p>Paste 16 phrase</p>
-                        </div>
-                    </div>
+                    <MyButton_copy
+                        onClick={pasteFromClipboard}
+                        icon='/copy.svg'
+                        alt='copy icon'
+                    >
+                        Paste 16 phrase
+                    </MyButton_copy>
                 </div>
                 <div className={styles.btnDark_wrapper}>
-                    <MyButtonDark onClick={() => router.push("/copy-phrase")}>
+                    <MyButtonDark onClick={() => router.push("/create-login")}>
                         Create a new wallet
                     </MyButtonDark>
                 </div>
@@ -100,7 +96,7 @@ export default function CopyPhrase() {
                 <div className={styles.footer_wrapper}>
                     <div className={styles.btn_wrapper}>
                         <MyButton onClick={handleSubmit} isLoading={isLoading}>
-                            Finish
+                            Continue
                         </MyButton>
                     </div>
                 </div>

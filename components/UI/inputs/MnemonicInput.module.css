@@ -1,0 +1,27 @@
+.input_wrapper {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    gap: 3px;
+    font-size: var(--fz-text-small);
+}
+
+.input {
+    font-family: var(--font-outfit);
+    width: 100%;
+    display: flex;
+    gap: 0.3rem;
+    justify-content: flex-start;
+    font-size: var(--fz-text-small);
+    line-height: 1;
+    padding: var(--height-gap-smaller) var(--width-gap-smaller);
+    border-radius: 5px;
+    border: none;
+    outline: 1px solid var(--secondary-4);
+    background-color: inherit;
+    color: var(--foreground);
+    cursor: pointer;
+    overflow: hidden;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+}

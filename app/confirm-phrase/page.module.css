@@ -20,7 +20,7 @@
     justify-content: space-between;
     align-items: center;
 }
-.grid {
+.grid_input {
     display: grid;
     grid-template-columns: repeat(4, 1fr);
     justify-items: center;
@@ -28,64 +28,13 @@
     width: 100%;
     gap: 0.3rem;
 }
-.grid2 {
+.grid_word {
     width: 100%;
     display: flex;
     flex-wrap: wrap;
     justify-content: center;
     gap: 0.3rem;
     margin: 0 auto;
-}
-.input_wrapper {
-    display: flex;
-    flex-direction: row;
-    gap: 3px;
-    font-size: var(--fz-text-small);
-}
-
-.grid_item {
-    font-family: var(--font-outfit);
-    width: 100%;
-    display: flex;
-    gap: 0.3rem;
-    justify-content: flex-start;
-    font-size: var(--fz-text-small);
-    line-height: 1;
-    padding: var(--height-gap-smaller) var(--width-gap-smaller);
-    border-radius: 5px;
-    border: none;
-    outline: 1px solid var(--secondary-4);
-    background-color: inherit;
-    color: var(--foreground);
-    cursor: pointer;
-    overflow: hidden;
-    white-space: nowrap;
-    text-overflow: ellipsis;
-}
-.grid_item2 {
-    text-align: center;
-    padding: var(--height-gap-smaller) var(--width-gap-smaller);
-    border: 0.5px solid rgba(73, 80, 87, 0.5);
-    border-radius: 5px;
-    line-height: 1;
-    cursor: pointer;
-}
-
-.download_wrapper {
-    width: 100%;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    padding: 0.2rem 0.75rem;
-    border: 0.5px solid rgba(73, 80, 87, 0.5);
-    border-radius: 5px;
-}
-.download {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    gap: 10px;
-    cursor: pointer;
 }
 
 .btn_wrapper {
@@ -98,25 +47,4 @@
 }
 .btn_wrapper p {
     text-align: center;
-}
-
-/* Enable hover only on non-touch devices */
-@media (hover: hover) and (pointer: fine) {
-}
-
-@media (prefers-color-scheme: dark) {
-    .logo {
-        filter: invert();
-    }
-}
-
-@keyframes slideDown {
-    0% {
-        transform: translateY(-100%);
-        opacity: 0;
-    }
-    100% {
-        transform: translateY(0);
-        opacity: 1;
-    }
 }

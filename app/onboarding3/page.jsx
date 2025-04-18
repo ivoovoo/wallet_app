@@ -23,7 +23,7 @@ export default function Onboarding3() {
     };
 
     const handleCkick = () => {
-        router.push("/signup");
+        router.push("/create-login");
     };
     return (
         <>
